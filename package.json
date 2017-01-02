@@ -4,9 +4,15 @@
   "description": "Squad-based space dogfighter game",
   "main": "Resources/Scripts/main.ts",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "tslint": "^4.2.0",
+    "typescript": "^2.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "tslint -t codeFrame Resources/**/*.ts",
+    "test": "tslint -t stylish Resources/**/*.ts",
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",

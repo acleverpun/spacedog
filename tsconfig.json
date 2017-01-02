@@ -14,5 +14,9 @@
             "es5"
         ],
         "baseUrl": "./Resources"
-    }
+    },
+    "include": [
+        "Resources",
+        "typings"
+    ]
 }

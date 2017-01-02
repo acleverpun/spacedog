@@ -1,0 +1,10 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "indent": [ true, "tabs" ],
+    "no-console": [ false ],
+    "no-empty": [ false ],
+    "quotemark": [ true, "single" ],
+    "trailing-comma": [ false ]
+  }
+}
