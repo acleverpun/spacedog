@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "noEmitOnError": true,
+        "noImplicitAny": false,
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "inlineSourceMap": false,
+        "removeComments": false,
+        "noLib": false,
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true,
+        "lib": [
+            "es5"
+        ],
+        "baseUrl": "./Resources"
+    }
+}

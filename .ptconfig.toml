@@ -1,0 +1,1 @@
+ignore = [ '.git', '.tern-port', '*.asset', 'Resources/**/*.js' ]
