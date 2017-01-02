@@ -1,0 +1,30 @@
+{
+  "name": "spacedog",
+  "version": "0.0.0",
+  "description": "Squad-based space dogfighter game",
+  "main": "Resources/Scripts/main.ts",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/acleverpun/spacedog.git"
+  },
+  "keywords": [
+    "squad",
+    "space",
+    "dogfighter",
+    "game",
+    "3d",
+    "atomic",
+    "strategy"
+  ],
+  "author": "Ross Hadden <rosshadden@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acleverpun/spacedog/issues"
+  },
+  "homepage": "https://github.com/acleverpun/spacedog#readme"
+}
