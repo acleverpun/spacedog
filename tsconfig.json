@@ -1,22 +1,23 @@
 {
     "compilerOptions": {
-        "noEmitOnError": true,
-        "noImplicitAny": false,
         "target": "es5",
         "module": "commonjs",
+        "baseUrl": "./src",
+        "rootDir": "./src",
+        "outDir": "./Resources",
         "declaration": false,
-        "inlineSourceMap": false,
         "removeComments": false,
+        "inlineSourceMap": false,
         "noLib": false,
-        "forceConsistentCasingInFileNames": true,
+        "noEmitOnError": true,
+        "noImplicitAny": false,
         "allowJs": true,
         "lib": [
             "es5"
-        ],
-        "baseUrl": "./Resources"
+        ]
     },
     "include": [
-        "Resources",
+        "src",
         "typings"
     ]
 }

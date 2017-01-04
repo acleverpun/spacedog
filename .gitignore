@@ -5,4 +5,5 @@ node_modules
 npm-debug.log
 
 # generated
-*.js
+Resources/**/*.js
+Resources/**/*.js.asset

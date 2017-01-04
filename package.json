@@ -10,8 +10,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "tslint -t codeFrame Resources/**/*.ts",
-    "test": "tslint -t stylish Resources/**/*.ts",
+    "lint": "tslint -t codeFrame src/**/*.ts",
+    "test": "tslint -t stylish src/**/*.ts",
     "watch": "tsc -w"
   },
   "repository": {
