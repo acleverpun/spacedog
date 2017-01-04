@@ -5,8 +5,8 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="0" />
-	<attribute name="Next Replicated Node ID" value="365" />
-	<attribute name="Next Replicated Component ID" value="1978" />
+	<attribute name="Next Replicated Node ID" value="369" />
+	<attribute name="Next Replicated Component ID" value="1985" />
 	<attribute name="Next Local Node ID" value="16778496" />
 	<attribute name="Next Local Component ID" value="16777216" />
 	<attribute name="Variables" />
@@ -46,16 +46,6 @@
 			<attribute name="Depth Slope Bias" value="0.001" />
 		</component>
 	</node>
-	<node id="361">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Camera" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="0 0 -2" />
-		<attribute name="Rotation" value="1 0 0 0" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="Camera" id="1973" />
-	</node>
 	<node id="363">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Chest" />
@@ -74,5 +64,35 @@
 		<component type="JSComponent" id="1976">
 			<attribute name="ComponentFile" value="JSComponentFile;Components/spinner.js" />
 		</component>
+	</node>
+	<node id="365">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Player" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="0 0 -2" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="JSComponent" id="1980">
+			<attribute name="ComponentFile" value="JSComponentFile;Components/controller.js" />
+		</component>
+		<component type="RigidBody" id="1982">
+			<attribute name="Physics Position" value="0 0 -2" />
+			<attribute name="Mass" value="1" />
+			<attribute name="Angular Factor" value="0 0 0" />
+			<attribute name="Collision Event Mode" value="Always" />
+			<attribute name="Use Gravity" value="false" />
+		</component>
+		<component type="CollisionShape" id="1983" />
+		<node id="361">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Camera" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0 0 0" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="Camera" id="1973" />
+		</node>
 	</node>
 </scene>

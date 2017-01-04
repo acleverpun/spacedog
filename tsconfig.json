@@ -5,16 +5,9 @@
         "baseUrl": "./src",
         "rootDir": "./src",
         "outDir": "./Resources",
-        "declaration": false,
-        "removeComments": false,
-        "inlineSourceMap": false,
-        "noLib": false,
-        "noEmitOnError": true,
-        "noImplicitAny": false,
+        "lib": [ "es5" ],
         "allowJs": true,
-        "lib": [
-            "es5"
-        ]
+        "noEmitOnError": true
     },
     "include": [
         "src",
