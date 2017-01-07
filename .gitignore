@@ -5,6 +5,7 @@ node_modules
 npm-debug.log
 
 # generated
+Modules
+vendors.js
 Resources/**/*.js
 Resources/**/*.js.asset
-Modules

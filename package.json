@@ -12,7 +12,7 @@
     "typescript": "^2.1.4"
   },
   "scripts": {
-    "build": "browserify -e vendorize.js -o Modules/vendor.js && tsc",
+    "build": "./bin/vendorize.sh && browserify -e vendorize.js -o Modules/vendor.js && tsc",
     "lint": "tslint -t codeFrame src/**/*.ts",
     "test": "tslint -t stylish src/**/*.ts",
     "watch": "npm run build -- -w"
