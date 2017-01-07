@@ -1,3 +1,5 @@
+import 'vendor';
+
 const scene = Atomic.player.loadScene('Scenes/Scene.scene');
 
 // called per frame, optional

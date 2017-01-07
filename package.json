@@ -3,16 +3,19 @@
   "version": "0.0.0",
   "description": "Squad-based space dogfighter game",
   "main": "Resources/Scripts/main.ts",
-  "dependencies": {},
+  "dependencies": {
+    "gl-matrix": "^2.3.2"
+  },
   "devDependencies": {
+    "browserify": "^13.3.0",
     "tslint": "^4.2.0",
     "typescript": "^2.1.4"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "browserify -e vendorize.js -o Modules/vendor.js && tsc",
     "lint": "tslint -t codeFrame src/**/*.ts",
     "test": "tslint -t stylish src/**/*.ts",
-    "watch": "tsc -w"
+    "watch": "npm run build -- -w"
   },
   "repository": {
     "type": "git",
