@@ -57,9 +57,9 @@ export default class Controller extends Atomic.JSComponent {
 		this.mouseMoveX = 0.0;
 		this.mouseMoveY = 0.0;
 
-		if (input.getKeyDown(Atomic.KEY_W) || input.getKeyDown(Atomic.KEY_UP)) this.moveForward = true;
-		if (input.getKeyDown(Atomic.KEY_S) || input.getKeyDown(Atomic.KEY_DOWN)) this.moveBackwards = true;
-		if (input.getKeyDown(Atomic.KEY_A) || input.getKeyDown(Atomic.KEY_LEFT)) this.moveLeft = true;
-		if (input.getKeyDown(Atomic.KEY_D) || input.getKeyDown(Atomic.KEY_RIGHT)) this.moveRight = true;
+		if (input.getKeyDown(Atomic.KEY_PERIOD) || input.getKeyDown(Atomic.KEY_W) || input.getKeyDown(Atomic.KEY_UP)) this.moveForward = true;
+		if (input.getKeyDown(Atomic.KEY_E) || input.getKeyDown(Atomic.KEY_S) || input.getKeyDown(Atomic.KEY_DOWN)) this.moveBackwards = true;
+		if (input.getKeyDown(Atomic.KEY_O) || input.getKeyDown(Atomic.KEY_A) || input.getKeyDown(Atomic.KEY_LEFT)) this.moveLeft = true;
+		if (input.getKeyDown(Atomic.KEY_U) || input.getKeyDown(Atomic.KEY_D) || input.getKeyDown(Atomic.KEY_RIGHT)) this.moveRight = true;
 	}
 }
