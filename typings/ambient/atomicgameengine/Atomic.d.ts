@@ -6,979 +6,2915 @@
 
 declare module Atomic {
 
-
-   // enum BodyType2D
-   export type BodyType2D = number;
-   export var BT_STATIC: BodyType2D;
-   export var BT_KINEMATIC: BodyType2D;
-   export var BT_DYNAMIC: BodyType2D;
-
-
-   // enum CurveType
-   export type CurveType = number;
-   export var INSTANT: CurveType;
-   export var LINEAR: CurveType;
-   export var QUADRATIC: CurveType;
-   export var CUBIC: CurveType;
-
-
-   // enum EmitterType2D
-   export type EmitterType2D = number;
-   export var EMITTER_TYPE_GRAVITY: EmitterType2D;
-   export var EMITTER_TYPE_RADIAL: EmitterType2D;
-
-
-   // enum LightType2D
-   export type LightType2D = number;
-   export var LIGHT2D_DIRECTIONAL: LightType2D;
-   export var LIGHT2D_POINT: LightType2D;
-
-
-   // enum LoopMode
-   export type LoopMode = number;
-   export var Default: LoopMode;
-   export var ForceLooped: LoopMode;
-   export var ForceClamped: LoopMode;
-
-
-   // enum LoopMode2D
-   export type LoopMode2D = number;
-   export var LM_DEFAULT: LoopMode2D;
-   export var LM_FORCE_LOOPED: LoopMode2D;
-   export var LM_FORCE_CLAMPED: LoopMode2D;
-
-
-   // enum ObjectType
-   export type ObjectType = number;
-   export var BONE: ObjectType;
-   export var SPRITE: ObjectType;
-
-
-   // enum Orientation2D
-   export type Orientation2D = number;
-   export var O_ORTHOGONAL: Orientation2D;
-   export var O_ISOMETRIC: Orientation2D;
-   export var O_STAGGERED: Orientation2D;
-   export var O_HEXAGONAL: Orientation2D;
-
-
-   // enum TileMapLayerType2D
-   export type TileMapLayerType2D = number;
-   export var LT_TILE_LAYER: TileMapLayerType2D;
-   export var LT_OBJECT_GROUP: TileMapLayerType2D;
-   export var LT_IMAGE_LAYER: TileMapLayerType2D;
-   export var LT_INVALID: TileMapLayerType2D;
-
-
-   // enum TileMapObjectType2D
-   export type TileMapObjectType2D = number;
-   export var OT_RECTANGLE: TileMapObjectType2D;
-   export var OT_ELLIPSE: TileMapObjectType2D;
-   export var OT_POLYGON: TileMapObjectType2D;
-   export var OT_POLYLINE: TileMapObjectType2D;
-   export var OT_TILE: TileMapObjectType2D;
-   export var OT_INVALID: TileMapObjectType2D;
-
-
-   // enum InstantiationType
-   export type InstantiationType = number;
-   export var INSTANTIATION_NATIVE: InstantiationType;
-   export var INSTANTIATION_JAVASCRIPT: InstantiationType;
-   export var INSTANTIATION_NET: InstantiationType;
-
-
-   // enum InterpolationMode
-   export type InterpolationMode = number;
-   export var BEZIER_CURVE: InterpolationMode;
-   export var CATMULL_ROM_CURVE: InterpolationMode;
-   export var LINEAR_CURVE: InterpolationMode;
-   export var CATMULL_ROM_FULL_CURVE: InterpolationMode;
-
-
-   // enum VariantType
-   export type VariantType = number;
-   export var VAR_NONE: VariantType;
-   export var VAR_INT: VariantType;
-   export var VAR_BOOL: VariantType;
-   export var VAR_FLOAT: VariantType;
-   export var VAR_VECTOR2: VariantType;
-   export var VAR_VECTOR3: VariantType;
-   export var VAR_VECTOR4: VariantType;
-   export var VAR_QUATERNION: VariantType;
-   export var VAR_COLOR: VariantType;
-   export var VAR_STRING: VariantType;
-   export var VAR_BUFFER: VariantType;
-   export var VAR_VOIDPTR: VariantType;
-   export var VAR_RESOURCEREF: VariantType;
-   export var VAR_RESOURCEREFLIST: VariantType;
-   export var VAR_VARIANTVECTOR: VariantType;
-   export var VAR_VARIANTMAP: VariantType;
-   export var VAR_INTRECT: VariantType;
-   export var VAR_INTVECTOR2: VariantType;
-   export var VAR_PTR: VariantType;
-   export var VAR_MATRIX3: VariantType;
-   export var VAR_MATRIX3X4: VariantType;
-   export var VAR_MATRIX4: VariantType;
-   export var VAR_DOUBLE: VariantType;
-   export var VAR_STRINGVECTOR: VariantType;
-   export var MAX_VAR_TYPES: VariantType;
-
-
-   // enum AnimationBlendMode
-   export type AnimationBlendMode = number;
-   export var ABM_LERP: AnimationBlendMode;
-   export var ABM_ADDITIVE: AnimationBlendMode;
-
-
-   // enum BlendMode
-   export type BlendMode = number;
-   export var BLEND_REPLACE: BlendMode;
-   export var BLEND_ADD: BlendMode;
-   export var BLEND_MULTIPLY: BlendMode;
-   export var BLEND_ALPHA: BlendMode;
-   export var BLEND_ADDALPHA: BlendMode;
-   export var BLEND_PREMULALPHA: BlendMode;
-   export var BLEND_INVDESTALPHA: BlendMode;
-   export var BLEND_SUBTRACT: BlendMode;
-   export var BLEND_SUBTRACTALPHA: BlendMode;
-   export var MAX_BLENDMODES: BlendMode;
-
-
-   // enum CompareMode
-   export type CompareMode = number;
-   export var CMP_ALWAYS: CompareMode;
-   export var CMP_EQUAL: CompareMode;
-   export var CMP_NOTEQUAL: CompareMode;
-   export var CMP_LESS: CompareMode;
-   export var CMP_LESSEQUAL: CompareMode;
-   export var CMP_GREATER: CompareMode;
-   export var CMP_GREATEREQUAL: CompareMode;
-   export var MAX_COMPAREMODES: CompareMode;
-
-
-   // enum CubeMapFace
-   export type CubeMapFace = number;
-   export var FACE_POSITIVE_X: CubeMapFace;
-   export var FACE_NEGATIVE_X: CubeMapFace;
-   export var FACE_POSITIVE_Y: CubeMapFace;
-   export var FACE_NEGATIVE_Y: CubeMapFace;
-   export var FACE_POSITIVE_Z: CubeMapFace;
-   export var FACE_NEGATIVE_Z: CubeMapFace;
-   export var MAX_CUBEMAP_FACES: CubeMapFace;
-
-
-   // enum CubeMapLayout
-   export type CubeMapLayout = number;
-   export var CML_HORIZONTAL: CubeMapLayout;
-   export var CML_HORIZONTALNVIDIA: CubeMapLayout;
-   export var CML_HORIZONTALCROSS: CubeMapLayout;
-   export var CML_VERTICALCROSS: CubeMapLayout;
-   export var CML_BLENDER: CubeMapLayout;
-
-
-   // enum CullMode
-   export type CullMode = number;
-   export var CULL_NONE: CullMode;
-   export var CULL_CCW: CullMode;
-   export var CULL_CW: CullMode;
-   export var MAX_CULLMODES: CullMode;
-
-
-   // enum DeferredLightPSVariation
-   export type DeferredLightPSVariation = number;
-   export var DLPS_NONE: DeferredLightPSVariation;
-   export var DLPS_SPOT: DeferredLightPSVariation;
-   export var DLPS_POINT: DeferredLightPSVariation;
-   export var DLPS_POINTMASK: DeferredLightPSVariation;
-   export var DLPS_SPEC: DeferredLightPSVariation;
-   export var DLPS_SPOTSPEC: DeferredLightPSVariation;
-   export var DLPS_POINTSPEC: DeferredLightPSVariation;
-   export var DLPS_POINTMASKSPEC: DeferredLightPSVariation;
-   export var DLPS_SHADOW: DeferredLightPSVariation;
-   export var DLPS_SPOTSHADOW: DeferredLightPSVariation;
-   export var DLPS_POINTSHADOW: DeferredLightPSVariation;
-   export var DLPS_POINTMASKSHADOW: DeferredLightPSVariation;
-   export var DLPS_SHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_SPOTSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_POINTSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_POINTMASKSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_SHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_SPOTSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_POINTSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_POINTMASKSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_SHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_SPOTSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_POINTSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_POINTMASKSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHO: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOT: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINT: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASK: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOTSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASKSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOSHADOW: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOTSHADOW: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTSHADOW: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASKSHADOW: DeferredLightPSVariation;
-   export var DLPS_ORTHOSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOTSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASKSHADOWSPEC: DeferredLightPSVariation;
-   export var DLPS_ORTHOSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOTSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET: DeferredLightPSVariation;
-   export var MAX_DEFERRED_LIGHT_PS_VARIATIONS: DeferredLightPSVariation;
-
-
-   // enum DeferredLightVSVariation
-   export type DeferredLightVSVariation = number;
-   export var DLVS_NONE: DeferredLightVSVariation;
-   export var DLVS_DIR: DeferredLightVSVariation;
-   export var DLVS_ORTHO: DeferredLightVSVariation;
-   export var DLVS_ORTHODIR: DeferredLightVSVariation;
-   export var MAX_DEFERRED_LIGHT_VS_VARIATIONS: DeferredLightVSVariation;
-
-
-   // enum EmitterType
-   export type EmitterType = number;
-   export var EMITTER_SPHERE: EmitterType;
-   export var EMITTER_BOX: EmitterType;
-
-
-   // enum FaceCameraMode
-   export type FaceCameraMode = number;
-   export var FC_NONE: FaceCameraMode;
-   export var FC_ROTATE_XYZ: FaceCameraMode;
-   export var FC_ROTATE_Y: FaceCameraMode;
-   export var FC_LOOKAT_XYZ: FaceCameraMode;
-   export var FC_LOOKAT_Y: FaceCameraMode;
-   export var FC_LOOKAT_MIXED: FaceCameraMode;
-   export var FC_DIRECTION: FaceCameraMode;
-
-
-   // enum FillMode
-   export type FillMode = number;
-   export var FILL_SOLID: FillMode;
-   export var FILL_WIREFRAME: FillMode;
-   export var FILL_POINT: FillMode;
-
-
-   // enum GeometryType
-   export type GeometryType = number;
-   export var GEOM_STATIC: GeometryType;
-   export var GEOM_SKINNED: GeometryType;
-   export var GEOM_INSTANCED: GeometryType;
-   export var GEOM_BILLBOARD: GeometryType;
-   export var GEOM_DIRBILLBOARD: GeometryType;
-   export var GEOM_TRAIL_FACE_CAMERA: GeometryType;
-   export var GEOM_TRAIL_BONE: GeometryType;
-   export var GEOM_STATIC_NOINSTANCING: GeometryType;
-   export var MAX_GEOMETRYTYPES: GeometryType;
-
-
-   // enum LegacyVertexElement
-   export type LegacyVertexElement = number;
-   export var ELEMENT_POSITION: LegacyVertexElement;
-   export var ELEMENT_NORMAL: LegacyVertexElement;
-   export var ELEMENT_COLOR: LegacyVertexElement;
-   export var ELEMENT_TEXCOORD1: LegacyVertexElement;
-   export var ELEMENT_TEXCOORD2: LegacyVertexElement;
-   export var ELEMENT_CUBETEXCOORD1: LegacyVertexElement;
-   export var ELEMENT_CUBETEXCOORD2: LegacyVertexElement;
-   export var ELEMENT_TANGENT: LegacyVertexElement;
-   export var ELEMENT_BLENDWEIGHTS: LegacyVertexElement;
-   export var ELEMENT_BLENDINDICES: LegacyVertexElement;
-   export var ELEMENT_INSTANCEMATRIX1: LegacyVertexElement;
-   export var ELEMENT_INSTANCEMATRIX2: LegacyVertexElement;
-   export var ELEMENT_INSTANCEMATRIX3: LegacyVertexElement;
-   export var ELEMENT_OBJECTINDEX: LegacyVertexElement;
-   export var MAX_LEGACY_VERTEX_ELEMENTS: LegacyVertexElement;
-
-
-   // enum LightPSVariation
-   export type LightPSVariation = number;
-   export var LPS_NONE: LightPSVariation;
-   export var LPS_SPOT: LightPSVariation;
-   export var LPS_POINT: LightPSVariation;
-   export var LPS_POINTMASK: LightPSVariation;
-   export var LPS_SPEC: LightPSVariation;
-   export var LPS_SPOTSPEC: LightPSVariation;
-   export var LPS_POINTSPEC: LightPSVariation;
-   export var LPS_POINTMASKSPEC: LightPSVariation;
-   export var LPS_SHADOW: LightPSVariation;
-   export var LPS_SPOTSHADOW: LightPSVariation;
-   export var LPS_POINTSHADOW: LightPSVariation;
-   export var LPS_POINTMASKSHADOW: LightPSVariation;
-   export var LPS_SHADOWSPEC: LightPSVariation;
-   export var LPS_SPOTSHADOWSPEC: LightPSVariation;
-   export var LPS_POINTSHADOWSPEC: LightPSVariation;
-   export var LPS_POINTMASKSHADOWSPEC: LightPSVariation;
-   export var MAX_LIGHT_PS_VARIATIONS: LightPSVariation;
-
-
-   // enum LightType
-   export type LightType = number;
-   export var LIGHT_DIRECTIONAL: LightType;
-   export var LIGHT_SPOT: LightType;
-   export var LIGHT_POINT: LightType;
-
-
-   // enum LightVSVariation
-   export type LightVSVariation = number;
-   export var LVS_DIR: LightVSVariation;
-   export var LVS_SPOT: LightVSVariation;
-   export var LVS_POINT: LightVSVariation;
-   export var LVS_SHADOW: LightVSVariation;
-   export var LVS_SPOTSHADOW: LightVSVariation;
-   export var LVS_POINTSHADOW: LightVSVariation;
-   export var LVS_SHADOWNORMALOFFSET: LightVSVariation;
-   export var LVS_SPOTSHADOWNORMALOFFSET: LightVSVariation;
-   export var LVS_POINTSHADOWNORMALOFFSET: LightVSVariation;
-   export var MAX_LIGHT_VS_VARIATIONS: LightVSVariation;
-
-
-   // enum LockState
-   export type LockState = number;
-   export var LOCK_NONE: LockState;
-   export var LOCK_HARDWARE: LockState;
-   export var LOCK_SHADOW: LockState;
-   export var LOCK_SCRATCH: LockState;
-
-
-   // enum PassLightingMode
-   export type PassLightingMode = number;
-   export var LIGHTING_UNLIT: PassLightingMode;
-   export var LIGHTING_PERVERTEX: PassLightingMode;
-   export var LIGHTING_PERPIXEL: PassLightingMode;
-
-
-   // enum PrimitiveType
-   export type PrimitiveType = number;
-   export var TRIANGLE_LIST: PrimitiveType;
-   export var LINE_LIST: PrimitiveType;
-   export var POINT_LIST: PrimitiveType;
-   export var TRIANGLE_STRIP: PrimitiveType;
-   export var LINE_STRIP: PrimitiveType;
-   export var TRIANGLE_FAN: PrimitiveType;
-
-
-   // enum RayQueryLevel
-   export type RayQueryLevel = number;
-   export var RAY_AABB: RayQueryLevel;
-   export var RAY_OBB: RayQueryLevel;
-   export var RAY_TRIANGLE: RayQueryLevel;
-   export var RAY_TRIANGLE_UV: RayQueryLevel;
-
-
-   // enum RenderCommandSortMode
-   export type RenderCommandSortMode = number;
-   export var SORT_FRONTTOBACK: RenderCommandSortMode;
-   export var SORT_BACKTOFRONT: RenderCommandSortMode;
-
-
-   // enum RenderCommandType
-   export type RenderCommandType = number;
-   export var CMD_NONE: RenderCommandType;
-   export var CMD_CLEAR: RenderCommandType;
-   export var CMD_SCENEPASS: RenderCommandType;
-   export var CMD_QUAD: RenderCommandType;
-   export var CMD_FORWARDLIGHTS: RenderCommandType;
-   export var CMD_LIGHTVOLUMES: RenderCommandType;
-   export var CMD_RENDERUI: RenderCommandType;
-   export var CMD_SENDEVENT: RenderCommandType;
-
-
-   // enum RenderSurfaceUpdateMode
-   export type RenderSurfaceUpdateMode = number;
-   export var SURFACE_MANUALUPDATE: RenderSurfaceUpdateMode;
-   export var SURFACE_UPDATEVISIBLE: RenderSurfaceUpdateMode;
-   export var SURFACE_UPDATEALWAYS: RenderSurfaceUpdateMode;
-
-
-   // enum RenderTargetSizeMode
-   export type RenderTargetSizeMode = number;
-   export var SIZE_ABSOLUTE: RenderTargetSizeMode;
-   export var SIZE_VIEWPORTDIVISOR: RenderTargetSizeMode;
-   export var SIZE_VIEWPORTMULTIPLIER: RenderTargetSizeMode;
-
-
-   // enum ShaderParameterGroup
-   export type ShaderParameterGroup = number;
-   export var SP_FRAME: ShaderParameterGroup;
-   export var SP_CAMERA: ShaderParameterGroup;
-   export var SP_ZONE: ShaderParameterGroup;
-   export var SP_LIGHT: ShaderParameterGroup;
-   export var SP_MATERIAL: ShaderParameterGroup;
-   export var SP_OBJECT: ShaderParameterGroup;
-   export var SP_CUSTOM: ShaderParameterGroup;
-   export var MAX_SHADER_PARAMETER_GROUPS: ShaderParameterGroup;
-
-
-   // enum ShaderType
-   export type ShaderType = number;
-   export var VS: ShaderType;
-   export var PS: ShaderType;
-
-
-   // enum ShadowQuality
-   export type ShadowQuality = number;
-   export var SHADOWQUALITY_SIMPLE_16BIT: ShadowQuality;
-   export var SHADOWQUALITY_SIMPLE_24BIT: ShadowQuality;
-   export var SHADOWQUALITY_PCF_16BIT: ShadowQuality;
-   export var SHADOWQUALITY_PCF_24BIT: ShadowQuality;
-   export var SHADOWQUALITY_VSM: ShadowQuality;
-   export var SHADOWQUALITY_BLUR_VSM: ShadowQuality;
-
-
-   // enum StencilOp
-   export type StencilOp = number;
-   export var OP_KEEP: StencilOp;
-   export var OP_ZERO: StencilOp;
-   export var OP_REF: StencilOp;
-   export var OP_INCR: StencilOp;
-   export var OP_DECR: StencilOp;
-
-
-   // enum TextureAddressMode
-   export type TextureAddressMode = number;
-   export var ADDRESS_WRAP: TextureAddressMode;
-   export var ADDRESS_MIRROR: TextureAddressMode;
-   export var ADDRESS_CLAMP: TextureAddressMode;
-   export var ADDRESS_BORDER: TextureAddressMode;
-   export var MAX_ADDRESSMODES: TextureAddressMode;
-
-
-   // enum TextureCoordinate
-   export type TextureCoordinate = number;
-   export var COORD_U: TextureCoordinate;
-   export var COORD_V: TextureCoordinate;
-   export var COORD_W: TextureCoordinate;
-   export var MAX_COORDS: TextureCoordinate;
-
-
-   // enum TextureFilterMode
-   export type TextureFilterMode = number;
-   export var FILTER_NEAREST: TextureFilterMode;
-   export var FILTER_BILINEAR: TextureFilterMode;
-   export var FILTER_TRILINEAR: TextureFilterMode;
-   export var FILTER_ANISOTROPIC: TextureFilterMode;
-   export var FILTER_DEFAULT: TextureFilterMode;
-   export var MAX_FILTERMODES: TextureFilterMode;
-
-
-   // enum TextureUnit
-   export type TextureUnit = number;
-   export var TU_DIFFUSE: TextureUnit;
-   export var TU_ALBEDOBUFFER: TextureUnit;
-   export var TU_NORMAL: TextureUnit;
-   export var TU_NORMALBUFFER: TextureUnit;
-   export var TU_SPECULAR: TextureUnit;
-   export var TU_EMISSIVE: TextureUnit;
-   export var TU_ENVIRONMENT: TextureUnit;
-   export var TU_LIGHTRAMP: TextureUnit;
-   export var TU_LIGHTSHAPE: TextureUnit;
-   export var TU_SHADOWMAP: TextureUnit;
-   export var MAX_MATERIAL_TEXTURE_UNITS: TextureUnit;
-   export var MAX_TEXTURE_UNITS: TextureUnit;
-
-
-   // enum TextureUsage
-   export type TextureUsage = number;
-   export var TEXTURE_STATIC: TextureUsage;
-   export var TEXTURE_DYNAMIC: TextureUsage;
-   export var TEXTURE_RENDERTARGET: TextureUsage;
-   export var TEXTURE_DEPTHSTENCIL: TextureUsage;
-
-
-   // enum TrailType
-   export type TrailType = number;
-   export var TT_FACE_CAMERA: TrailType;
-   export var TT_BONE: TrailType;
-
-
-   // enum UpdateGeometryType
-   export type UpdateGeometryType = number;
-   export var UPDATE_NONE: UpdateGeometryType;
-   export var UPDATE_MAIN_THREAD: UpdateGeometryType;
-   export var UPDATE_WORKER_THREAD: UpdateGeometryType;
-
-
-   // enum VertexElementSemantic
-   export type VertexElementSemantic = number;
-   export var SEM_POSITION: VertexElementSemantic;
-   export var SEM_NORMAL: VertexElementSemantic;
-   export var SEM_BINORMAL: VertexElementSemantic;
-   export var SEM_TANGENT: VertexElementSemantic;
-   export var SEM_TEXCOORD: VertexElementSemantic;
-   export var SEM_COLOR: VertexElementSemantic;
-   export var SEM_BLENDWEIGHTS: VertexElementSemantic;
-   export var SEM_BLENDINDICES: VertexElementSemantic;
-   export var SEM_OBJECTINDEX: VertexElementSemantic;
-   export var MAX_VERTEX_ELEMENT_SEMANTICS: VertexElementSemantic;
-
-
-   // enum VertexElementType
-   export type VertexElementType = number;
-   export var TYPE_INT: VertexElementType;
-   export var TYPE_FLOAT: VertexElementType;
-   export var TYPE_VECTOR2: VertexElementType;
-   export var TYPE_VECTOR3: VertexElementType;
-   export var TYPE_VECTOR4: VertexElementType;
-   export var TYPE_UBYTE4: VertexElementType;
-   export var TYPE_UBYTE4_NORM: VertexElementType;
-   export var MAX_VERTEX_ELEMENT_TYPES: VertexElementType;
-
-
-   // enum VertexLightVSVariation
-   export type VertexLightVSVariation = number;
-   export var VLVS_NOLIGHTS: VertexLightVSVariation;
-   export var VLVS_1LIGHT: VertexLightVSVariation;
-   export var VLVS_2LIGHTS: VertexLightVSVariation;
-   export var VLVS_3LIGHTS: VertexLightVSVariation;
-   export var VLVS_4LIGHTS: VertexLightVSVariation;
-   export var MAX_VERTEXLIGHT_VS_VARIATIONS: VertexLightVSVariation;
-
-
-   // enum FileMode
-   export type FileMode = number;
-   export var FILE_READ: FileMode;
-   export var FILE_WRITE: FileMode;
-   export var FILE_READWRITE: FileMode;
-   export var FILE_APPEND: FileMode;
-
-
-   // enum MouseMode
-   export type MouseMode = number;
-   export var MM_ABSOLUTE: MouseMode;
-   export var MM_RELATIVE: MouseMode;
-   export var MM_WRAP: MouseMode;
-   export var MM_FREE: MouseMode;
-   export var MM_INVALID: MouseMode;
-
-
-   // enum FrustumPlane
-   export type FrustumPlane = number;
-   export var PLANE_NEAR: FrustumPlane;
-   export var PLANE_LEFT: FrustumPlane;
-   export var PLANE_RIGHT: FrustumPlane;
-   export var PLANE_UP: FrustumPlane;
-   export var PLANE_DOWN: FrustumPlane;
-   export var PLANE_FAR: FrustumPlane;
-
-
-   // enum Intersection
-   export type Intersection = number;
-   export var OUTSIDE: Intersection;
-   export var INTERSECTS: Intersection;
-   export var INSIDE: Intersection;
-
-
-   // enum CrowdAgentRequestedTarget
-   export type CrowdAgentRequestedTarget = number;
-   export var CA_REQUESTEDTARGET_NONE: CrowdAgentRequestedTarget;
-   export var CA_REQUESTEDTARGET_POSITION: CrowdAgentRequestedTarget;
-   export var CA_REQUESTEDTARGET_VELOCITY: CrowdAgentRequestedTarget;
-
-
-   // enum CrowdAgentState
-   export type CrowdAgentState = number;
-   export var CA_STATE_INVALID: CrowdAgentState;
-   export var CA_STATE_WALKING: CrowdAgentState;
-   export var CA_STATE_OFFMESH: CrowdAgentState;
-
-
-   // enum CrowdAgentTargetState
-   export type CrowdAgentTargetState = number;
-   export var CA_TARGET_NONE: CrowdAgentTargetState;
-   export var CA_TARGET_FAILED: CrowdAgentTargetState;
-   export var CA_TARGET_VALID: CrowdAgentTargetState;
-   export var CA_TARGET_REQUESTING: CrowdAgentTargetState;
-   export var CA_TARGET_WAITINGFORQUEUE: CrowdAgentTargetState;
-   export var CA_TARGET_WAITINGFORPATH: CrowdAgentTargetState;
-   export var CA_TARGET_VELOCITY: CrowdAgentTargetState;
-
-
-   // enum NavigationPathPointFlag
-   export type NavigationPathPointFlag = number;
-   export var NAVPATHFLAG_NONE: NavigationPathPointFlag;
-   export var NAVPATHFLAG_START: NavigationPathPointFlag;
-   export var NAVPATHFLAG_END: NavigationPathPointFlag;
-   export var NAVPATHFLAG_OFF_MESH: NavigationPathPointFlag;
-
-
-   // enum NavigationPushiness
-   export type NavigationPushiness = number;
-   export var NAVIGATIONPUSHINESS_LOW: NavigationPushiness;
-   export var NAVIGATIONPUSHINESS_MEDIUM: NavigationPushiness;
-   export var NAVIGATIONPUSHINESS_HIGH: NavigationPushiness;
-   export var NAVIGATIONPUSHINESS_NONE: NavigationPushiness;
-
-
-   // enum NavigationQuality
-   export type NavigationQuality = number;
-   export var NAVIGATIONQUALITY_LOW: NavigationQuality;
-   export var NAVIGATIONQUALITY_MEDIUM: NavigationQuality;
-   export var NAVIGATIONQUALITY_HIGH: NavigationQuality;
-
-
-   // enum NavmeshPartitionType
-   export type NavmeshPartitionType = number;
-   export var NAVMESH_PARTITION_WATERSHED: NavmeshPartitionType;
-   export var NAVMESH_PARTITION_MONOTONE: NavmeshPartitionType;
-
-
-   // enum ClientConnectToGameServerState
-   export type ClientConnectToGameServerState = number;
-   export var GAME_NOT_CONNECTED: ClientConnectToGameServerState;
-   export var GAME_CONNECTING_INTERNAL_IP: ClientConnectToGameServerState;
-   export var GAME_VERIFYING_SERVER: ClientConnectToGameServerState;
-   export var GAME_CONNECTING_EXTERNAL_IP: ClientConnectToGameServerState;
-   export var GAME_CONNECTED: ClientConnectToGameServerState;
-   export var GAME_CONNECTION_FAILED: ClientConnectToGameServerState;
-
-
-   // enum ConnectToMasterState
-   export type ConnectToMasterState = number;
-   export var MASTER_NOT_CONNECTED: ConnectToMasterState;
-   export var MASTER_CONNECTING_UDP: ConnectToMasterState;
-   export var MASTER_CONNECTING_TCP: ConnectToMasterState;
-   export var MASTER_CONNECTED: ConnectToMasterState;
-   export var MASTER_CONNECTION_FAILED: ConnectToMasterState;
-
-
-   // enum HttpRequestState
-   export type HttpRequestState = number;
-   export var HTTP_INITIALIZING: HttpRequestState;
-   export var HTTP_ERROR: HttpRequestState;
-   export var HTTP_OPEN: HttpRequestState;
-   export var HTTP_CLOSED: HttpRequestState;
-
-
-   // enum ObserverPositionSendMode
-   export type ObserverPositionSendMode = number;
-   export var OPSM_NONE: ObserverPositionSendMode;
-   export var OPSM_POSITION: ObserverPositionSendMode;
-   export var OPSM_POSITION_ROTATION: ObserverPositionSendMode;
-
-
-   // enum CollisionEventMode
-   export type CollisionEventMode = number;
-   export var COLLISION_NEVER: CollisionEventMode;
-   export var COLLISION_ACTIVE: CollisionEventMode;
-   export var COLLISION_ALWAYS: CollisionEventMode;
-
-
-   // enum ConstraintType
-   export type ConstraintType = number;
-   export var CONSTRAINT_POINT: ConstraintType;
-   export var CONSTRAINT_HINGE: ConstraintType;
-   export var CONSTRAINT_SLIDER: ConstraintType;
-   export var CONSTRAINT_CONETWIST: ConstraintType;
-
-
-   // enum ShapeType
-   export type ShapeType = number;
-   export var SHAPE_BOX: ShapeType;
-   export var SHAPE_SPHERE: ShapeType;
-   export var SHAPE_STATICPLANE: ShapeType;
-   export var SHAPE_CYLINDER: ShapeType;
-   export var SHAPE_CAPSULE: ShapeType;
-   export var SHAPE_CONE: ShapeType;
-   export var SHAPE_TRIANGLEMESH: ShapeType;
-   export var SHAPE_CONVEXHULL: ShapeType;
-   export var SHAPE_TERRAIN: ShapeType;
-
-
-   // enum AsyncLoadState
-   export type AsyncLoadState = number;
-   export var ASYNC_DONE: AsyncLoadState;
-   export var ASYNC_QUEUED: AsyncLoadState;
-   export var ASYNC_LOADING: AsyncLoadState;
-   export var ASYNC_SUCCESS: AsyncLoadState;
-   export var ASYNC_FAIL: AsyncLoadState;
-
-
-   // enum CompressedFormat
-   export type CompressedFormat = number;
-   export var CF_NONE: CompressedFormat;
-   export var CF_RGBA: CompressedFormat;
-   export var CF_DXT1: CompressedFormat;
-   export var CF_DXT3: CompressedFormat;
-   export var CF_DXT5: CompressedFormat;
-   export var CF_ETC1: CompressedFormat;
-   export var CF_PVRTC_RGB_2BPP: CompressedFormat;
-   export var CF_PVRTC_RGBA_2BPP: CompressedFormat;
-   export var CF_PVRTC_RGB_4BPP: CompressedFormat;
-   export var CF_PVRTC_RGBA_4BPP: CompressedFormat;
-
-
-   // enum JSONNumberType
-   export type JSONNumberType = number;
-   export var JSONNT_NAN: JSONNumberType;
-   export var JSONNT_INT: JSONNumberType;
-   export var JSONNT_UINT: JSONNumberType;
-   export var JSONNT_FLOAT_DOUBLE: JSONNumberType;
-
-
-   // enum JSONValueType
-   export type JSONValueType = number;
-   export var JSON_NULL: JSONValueType;
-   export var JSON_BOOL: JSONValueType;
-   export var JSON_NUMBER: JSONValueType;
-   export var JSON_STRING: JSONValueType;
-   export var JSON_ARRAY: JSONValueType;
-   export var JSON_OBJECT: JSONValueType;
-
-
-   // enum PListValueType
-   export type PListValueType = number;
-   export var PLVT_NONE: PListValueType;
-   export var PLVT_INT: PListValueType;
-   export var PLVT_BOOL: PListValueType;
-   export var PLVT_FLOAT: PListValueType;
-   export var PLVT_STRING: PListValueType;
-   export var PLVT_VALUEMAP: PListValueType;
-   export var PLVT_VALUEVECTOR: PListValueType;
-
-
-   // enum ResourceRequest
-   export type ResourceRequest = number;
-   export var RESOURCE_CHECKEXISTS: ResourceRequest;
-   export var RESOURCE_GETFILE: ResourceRequest;
-
-
-   // enum AutoRemoveMode
-   export type AutoRemoveMode = number;
-   export var REMOVE_DISABLED: AutoRemoveMode;
-   export var REMOVE_COMPONENT: AutoRemoveMode;
-   export var REMOVE_NODE: AutoRemoveMode;
-
-
-   // enum CreateMode
-   export type CreateMode = number;
-   export var REPLICATED: CreateMode;
-   export var LOCAL: CreateMode;
-
-
-   // enum InterpMethod
-   export type InterpMethod = number;
-   export var IM_NONE: InterpMethod;
-   export var IM_LINEAR: InterpMethod;
-   export var IM_SPLINE: InterpMethod;
-
-
-   // enum LoadMode
-   export type LoadMode = number;
-   export var LOAD_RESOURCES_ONLY: LoadMode;
-   export var LOAD_SCENE: LoadMode;
-   export var LOAD_SCENE_AND_RESOURCES: LoadMode;
-
-
-   // enum TransformSpace
-   export type TransformSpace = number;
-   export var TS_LOCAL: TransformSpace;
-   export var TS_PARENT: TransformSpace;
-   export var TS_WORLD: TransformSpace;
-
-
-   // enum WrapMode
-   export type WrapMode = number;
-   export var WM_LOOP: WrapMode;
-   export var WM_ONCE: WrapMode;
-   export var WM_CLAMP: WrapMode;
-
-
-   // enum UI_AXIS
-   export type UI_AXIS = number;
-   export var UI_AXIS_X: UI_AXIS;
-   export var UI_AXIS_Y: UI_AXIS;
-
-
-   // enum UI_EDIT_TYPE
-   export type UI_EDIT_TYPE = number;
-   export var UI_EDIT_TYPE_TEXT: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_SEARCH: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_PASSWORD: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_EMAIL: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_PHONE: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_URL: UI_EDIT_TYPE;
-   export var UI_EDIT_TYPE_NUMBER: UI_EDIT_TYPE;
-
-
-   // enum UI_EVENT_TYPE
-   export type UI_EVENT_TYPE = number;
-   export var UI_EVENT_TYPE_CLICK: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_LONG_CLICK: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_POINTER_DOWN: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_POINTER_UP: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_POINTER_MOVE: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_RIGHT_POINTER_DOWN: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_RIGHT_POINTER_UP: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_WHEEL: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_CHANGED: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_KEY_DOWN: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_KEY_UP: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_SHORTCUT: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_CONTEXT_MENU: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_FILE_DROP: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_TAB_CHANGED: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_CUSTOM: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_TOUCH_DOWN: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_TOUCH_UP: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_TOUCH_MOVE: UI_EVENT_TYPE;
-   export var UI_EVENT_TYPE_TOUCH_CANCEL: UI_EVENT_TYPE;
-
-
-   // enum UI_GRAVITY
-   export type UI_GRAVITY = number;
-   export var UI_GRAVITY_NONE: UI_GRAVITY;
-   export var UI_GRAVITY_LEFT: UI_GRAVITY;
-   export var UI_GRAVITY_RIGHT: UI_GRAVITY;
-   export var UI_GRAVITY_TOP: UI_GRAVITY;
-   export var UI_GRAVITY_BOTTOM: UI_GRAVITY;
-   export var UI_GRAVITY_LEFT_RIGHT: UI_GRAVITY;
-   export var UI_GRAVITY_TOP_BOTTOM: UI_GRAVITY;
-   export var UI_GRAVITY_ALL: UI_GRAVITY;
-   export var UI_GRAVITY_DEFAULT: UI_GRAVITY;
-
-
-   // enum UI_LAYOUT_DISTRIBUTION
-   export type UI_LAYOUT_DISTRIBUTION = number;
-   export var UI_LAYOUT_DISTRIBUTION_PREFERRED: UI_LAYOUT_DISTRIBUTION;
-   export var UI_LAYOUT_DISTRIBUTION_AVAILABLE: UI_LAYOUT_DISTRIBUTION;
-   export var UI_LAYOUT_DISTRIBUTION_GRAVITY: UI_LAYOUT_DISTRIBUTION;
-
-
-   // enum UI_LAYOUT_DISTRIBUTION_POSITION
-   export type UI_LAYOUT_DISTRIBUTION_POSITION = number;
-   export var UI_LAYOUT_DISTRIBUTION_POSITION_CENTER: UI_LAYOUT_DISTRIBUTION_POSITION;
-   export var UI_LAYOUT_DISTRIBUTION_POSITION_LEFT_TOP: UI_LAYOUT_DISTRIBUTION_POSITION;
-   export var UI_LAYOUT_DISTRIBUTION_POSITION_RIGHT_BOTTOM: UI_LAYOUT_DISTRIBUTION_POSITION;
-
-
-   // enum UI_LAYOUT_POSITION
-   export type UI_LAYOUT_POSITION = number;
-   export var UI_LAYOUT_POSITION_CENTER: UI_LAYOUT_POSITION;
-   export var UI_LAYOUT_POSITION_LEFT_TOP: UI_LAYOUT_POSITION;
-   export var UI_LAYOUT_POSITION_RIGHT_BOTTOM: UI_LAYOUT_POSITION;
-   export var UI_LAYOUT_POSITION_GRAVITY: UI_LAYOUT_POSITION;
-
-
-   // enum UI_LAYOUT_SIZE
-   export type UI_LAYOUT_SIZE = number;
-   export var UI_LAYOUT_SIZE_GRAVITY: UI_LAYOUT_SIZE;
-   export var UI_LAYOUT_SIZE_PREFERRED: UI_LAYOUT_SIZE;
-   export var UI_LAYOUT_SIZE_AVAILABLE: UI_LAYOUT_SIZE;
-
-
-   // enum UI_MESSAGEWINDOW_SETTINGS
-   export type UI_MESSAGEWINDOW_SETTINGS = number;
-   export var UI_MESSAGEWINDOW_SETTINGS_OK: UI_MESSAGEWINDOW_SETTINGS;
-   export var UI_MESSAGEWINDOW_SETTINGS_OK_CANCEL: UI_MESSAGEWINDOW_SETTINGS;
-   export var UI_MESSAGEWINDOW_SETTINGS_YES_NO: UI_MESSAGEWINDOW_SETTINGS;
-
-
-   // enum UI_SCROLL_MODE
-   export type UI_SCROLL_MODE = number;
-   export var UI_SCROLL_MODE_X_Y: UI_SCROLL_MODE;
-   export var UI_SCROLL_MODE_Y: UI_SCROLL_MODE;
-   export var UI_SCROLL_MODE_Y_AUTO: UI_SCROLL_MODE;
-   export var UI_SCROLL_MODE_X_AUTO_Y_AUTO: UI_SCROLL_MODE;
-   export var UI_SCROLL_MODE_OFF: UI_SCROLL_MODE;
-
-
-   // enum UI_SIZE_DEP
-   export type UI_SIZE_DEP = number;
-   export var UI_SIZE_DEP_NONE: UI_SIZE_DEP;
-   export var UI_SIZE_DEP_WIDTH_DEPEND_ON_HEIGHT: UI_SIZE_DEP;
-   export var UI_SIZE_DEP_HEIGHT_DEPEND_ON_WIDTH: UI_SIZE_DEP;
-   export var UI_SIZE_DEP_BOTH: UI_SIZE_DEP;
-
-
-   // enum UI_TEXT_ALIGN
-   export type UI_TEXT_ALIGN = number;
-   export var UI_TEXT_ALIGN_LEFT: UI_TEXT_ALIGN;
-   export var UI_TEXT_ALIGN_RIGHT: UI_TEXT_ALIGN;
-   export var UI_TEXT_ALIGN_CENTER: UI_TEXT_ALIGN;
-
-
-   // enum UI_WIDGET_STATE
-   export type UI_WIDGET_STATE = number;
-   export var UI_WIDGET_STATE_NONE: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_DISABLED: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_FOCUSED: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_PRESSED: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_SELECTED: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_HOVERED: UI_WIDGET_STATE;
-   export var UI_WIDGET_STATE_ALL: UI_WIDGET_STATE;
-
-
-   // enum UI_WIDGET_VISIBILITY
-   export type UI_WIDGET_VISIBILITY = number;
-   export var UI_WIDGET_VISIBILITY_VISIBLE: UI_WIDGET_VISIBILITY;
-   export var UI_WIDGET_VISIBILITY_INVISIBLE: UI_WIDGET_VISIBILITY;
-   export var UI_WIDGET_VISIBILITY_GONE: UI_WIDGET_VISIBILITY;
-
-
-   // enum UI_WIDGET_Z_REL
-   export type UI_WIDGET_Z_REL = number;
-   export var UI_WIDGET_Z_REL_BEFORE: UI_WIDGET_Z_REL;
-   export var UI_WIDGET_Z_REL_AFTER: UI_WIDGET_Z_REL;
-
-
-   // enum UI_WINDOW_SETTINGS
-   export type UI_WINDOW_SETTINGS = number;
-   export var UI_WINDOW_SETTINGS_NONE: UI_WINDOW_SETTINGS;
-   export var UI_WINDOW_SETTINGS_TITLEBAR: UI_WINDOW_SETTINGS;
-   export var UI_WINDOW_SETTINGS_RESIZABLE: UI_WINDOW_SETTINGS;
-   export var UI_WINDOW_SETTINGS_CLOSE_BUTTON: UI_WINDOW_SETTINGS;
-   export var UI_WINDOW_SETTINGS_CAN_ACTIVATE: UI_WINDOW_SETTINGS;
-   export var UI_WINDOW_SETTINGS_DEFAULT: UI_WINDOW_SETTINGS;
-
-
-   // enum WebRequestState
-   export type WebRequestState = number;
-   export var HTTP_INITIALIZING: WebRequestState;
-   export var HTTP_ERROR: WebRequestState;
-   export var HTTP_OPEN: WebRequestState;
-   export var HTTP_CLOSED: WebRequestState;
-
-
-   // enum WebSocketMessageType
-   export type WebSocketMessageType = number;
-   export var WSMT_CONTINUATION: WebSocketMessageType;
-   export var WSMT_TEXT: WebSocketMessageType;
-   export var WSMT_BINARY: WebSocketMessageType;
-   export var WSMT_RSV3: WebSocketMessageType;
-   export var WSMT_RSV4: WebSocketMessageType;
-   export var WSMT_RSV5: WebSocketMessageType;
-   export var WSMT_RSV6: WebSocketMessageType;
-   export var WSMT_RSV7: WebSocketMessageType;
-   export var WSMT_CLOSE: WebSocketMessageType;
-   export var WSMT_PING: WebSocketMessageType;
-   export var WSMT_PONG: WebSocketMessageType;
-   export var WSMT_CONTROL_RSVB: WebSocketMessageType;
-   export var WSMT_CONTROL_RSVC: WebSocketMessageType;
-   export var WSMT_CONTROL_RSVD: WebSocketMessageType;
-   export var WSMT_CONTROL_RSVE: WebSocketMessageType;
-   export var WSMT_CONTROL_RSVF: WebSocketMessageType;
-
-
-   // enum WebSocketState
-   export type WebSocketState = number;
-   export var WS_CONNECTING: WebSocketState;
-   export var WS_OPEN: WebSocketState;
-   export var WS_CLOSING: WebSocketState;
-   export var WS_CLOSED: WebSocketState;
-   export var WS_INVALID: WebSocketState;
-   export var WS_FAIL_TO_CONNECT: WebSocketState;
+   /** enum BodyType2D*/
+   export const enum BodyType2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BT_STATIC]] */
+       BT_STATIC = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BT_KINEMATIC]] */
+       BT_KINEMATIC = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BT_DYNAMIC]] */
+       BT_DYNAMIC = 2
+    }
+
+   // Legacy JS Access for enum:  BodyType2D
+   /** JavaScript Only - For TypeScript, use: [[BodyType2D.BT_STATIC]] */
+   export var BT_STATIC: number;
+   /** JavaScript Only - For TypeScript, use: [[BodyType2D.BT_KINEMATIC]] */
+   export var BT_KINEMATIC: number;
+   /** JavaScript Only - For TypeScript, use: [[BodyType2D.BT_DYNAMIC]] */
+   export var BT_DYNAMIC: number;
+
+   /** enum CurveType*/
+   export const enum CurveType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INSTANT]] */
+       INSTANT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LINEAR]] */
+       LINEAR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.QUADRATIC]] */
+       QUADRATIC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CUBIC]] */
+       CUBIC
+    }
+
+   // Legacy JS Access for enum:  CurveType
+   /** JavaScript Only - For TypeScript, use: [[CurveType.INSTANT]] */
+   export var INSTANT: number;
+   /** JavaScript Only - For TypeScript, use: [[CurveType.LINEAR]] */
+   export var LINEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[CurveType.QUADRATIC]] */
+   export var QUADRATIC: number;
+   /** JavaScript Only - For TypeScript, use: [[CurveType.CUBIC]] */
+   export var CUBIC: number;
+
+   /** enum EmitterType2D*/
+   export const enum EmitterType2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.EMITTER_TYPE_GRAVITY]] */
+       EMITTER_TYPE_GRAVITY = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.EMITTER_TYPE_RADIAL]] */
+       EMITTER_TYPE_RADIAL
+    }
+
+   // Legacy JS Access for enum:  EmitterType2D
+   /** JavaScript Only - For TypeScript, use: [[EmitterType2D.EMITTER_TYPE_GRAVITY]] */
+   export var EMITTER_TYPE_GRAVITY: number;
+   /** JavaScript Only - For TypeScript, use: [[EmitterType2D.EMITTER_TYPE_RADIAL]] */
+   export var EMITTER_TYPE_RADIAL: number;
+
+   /** enum LightType2D*/
+   export const enum LightType2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHT2D_DIRECTIONAL]] */
+       LIGHT2D_DIRECTIONAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHT2D_POINT]] */
+       LIGHT2D_POINT
+    }
+
+   // Legacy JS Access for enum:  LightType2D
+   /** JavaScript Only - For TypeScript, use: [[LightType2D.LIGHT2D_DIRECTIONAL]] */
+   export var LIGHT2D_DIRECTIONAL: number;
+   /** JavaScript Only - For TypeScript, use: [[LightType2D.LIGHT2D_POINT]] */
+   export var LIGHT2D_POINT: number;
+
+   /** enum LoopMode*/
+   export const enum LoopMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.Default]] */
+       Default = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ForceLooped]] */
+       ForceLooped,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ForceClamped]] */
+       ForceClamped
+    }
+
+   // Legacy JS Access for enum:  LoopMode
+   /** JavaScript Only - For TypeScript, use: [[LoopMode.Default]] */
+   export var Default: number;
+   /** JavaScript Only - For TypeScript, use: [[LoopMode.ForceLooped]] */
+   export var ForceLooped: number;
+   /** JavaScript Only - For TypeScript, use: [[LoopMode.ForceClamped]] */
+   export var ForceClamped: number;
+
+   /** enum LoopMode2D*/
+   export const enum LoopMode2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LM_DEFAULT]] */
+       LM_DEFAULT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LM_FORCE_LOOPED]] */
+       LM_FORCE_LOOPED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LM_FORCE_CLAMPED]] */
+       LM_FORCE_CLAMPED
+    }
+
+   // Legacy JS Access for enum:  LoopMode2D
+   /** JavaScript Only - For TypeScript, use: [[LoopMode2D.LM_DEFAULT]] */
+   export var LM_DEFAULT: number;
+   /** JavaScript Only - For TypeScript, use: [[LoopMode2D.LM_FORCE_LOOPED]] */
+   export var LM_FORCE_LOOPED: number;
+   /** JavaScript Only - For TypeScript, use: [[LoopMode2D.LM_FORCE_CLAMPED]] */
+   export var LM_FORCE_CLAMPED: number;
+
+   /** enum ObjectType*/
+   export const enum ObjectType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BONE]] */
+       BONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SPRITE]] */
+       SPRITE
+    }
+
+   // Legacy JS Access for enum:  ObjectType
+   /** JavaScript Only - For TypeScript, use: [[ObjectType.BONE]] */
+   export var BONE: number;
+   /** JavaScript Only - For TypeScript, use: [[ObjectType.SPRITE]] */
+   export var SPRITE: number;
+
+   /** enum Orientation2D*/
+   export const enum Orientation2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.O_ORTHOGONAL]] */
+       O_ORTHOGONAL = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.O_ISOMETRIC]] */
+       O_ISOMETRIC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.O_STAGGERED]] */
+       O_STAGGERED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.O_HEXAGONAL]] */
+       O_HEXAGONAL
+    }
+
+   // Legacy JS Access for enum:  Orientation2D
+   /** JavaScript Only - For TypeScript, use: [[Orientation2D.O_ORTHOGONAL]] */
+   export var O_ORTHOGONAL: number;
+   /** JavaScript Only - For TypeScript, use: [[Orientation2D.O_ISOMETRIC]] */
+   export var O_ISOMETRIC: number;
+   /** JavaScript Only - For TypeScript, use: [[Orientation2D.O_STAGGERED]] */
+   export var O_STAGGERED: number;
+   /** JavaScript Only - For TypeScript, use: [[Orientation2D.O_HEXAGONAL]] */
+   export var O_HEXAGONAL: number;
+
+   /** enum TileMapLayerType2D*/
+   export const enum TileMapLayerType2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LT_TILE_LAYER]] */
+       LT_TILE_LAYER = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LT_OBJECT_GROUP]] */
+       LT_OBJECT_GROUP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LT_IMAGE_LAYER]] */
+       LT_IMAGE_LAYER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LT_INVALID]] */
+       LT_INVALID = 0xffff
+    }
+
+   // Legacy JS Access for enum:  TileMapLayerType2D
+   /** JavaScript Only - For TypeScript, use: [[TileMapLayerType2D.LT_TILE_LAYER]] */
+   export var LT_TILE_LAYER: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapLayerType2D.LT_OBJECT_GROUP]] */
+   export var LT_OBJECT_GROUP: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapLayerType2D.LT_IMAGE_LAYER]] */
+   export var LT_IMAGE_LAYER: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapLayerType2D.LT_INVALID]] */
+   export var LT_INVALID: number;
+
+   /** enum TileMapObjectType2D*/
+   export const enum TileMapObjectType2D {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_RECTANGLE]] */
+       OT_RECTANGLE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_ELLIPSE]] */
+       OT_ELLIPSE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_POLYGON]] */
+       OT_POLYGON,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_POLYLINE]] */
+       OT_POLYLINE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_TILE]] */
+       OT_TILE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OT_INVALID]] */
+       OT_INVALID = 0xffff
+    }
+
+   // Legacy JS Access for enum:  TileMapObjectType2D
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_RECTANGLE]] */
+   export var OT_RECTANGLE: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_ELLIPSE]] */
+   export var OT_ELLIPSE: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_POLYGON]] */
+   export var OT_POLYGON: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_POLYLINE]] */
+   export var OT_POLYLINE: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_TILE]] */
+   export var OT_TILE: number;
+   /** JavaScript Only - For TypeScript, use: [[TileMapObjectType2D.OT_INVALID]] */
+   export var OT_INVALID: number;
+
+   /** enum InstantiationType*/
+   export const enum InstantiationType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INSTANTIATION_NATIVE]] */
+       INSTANTIATION_NATIVE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INSTANTIATION_JAVASCRIPT]] */
+       INSTANTIATION_JAVASCRIPT = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INSTANTIATION_NET]] */
+       INSTANTIATION_NET = 2
+    }
+
+   // Legacy JS Access for enum:  InstantiationType
+   /** JavaScript Only - For TypeScript, use: [[InstantiationType.INSTANTIATION_NATIVE]] */
+   export var INSTANTIATION_NATIVE: number;
+   /** JavaScript Only - For TypeScript, use: [[InstantiationType.INSTANTIATION_JAVASCRIPT]] */
+   export var INSTANTIATION_JAVASCRIPT: number;
+   /** JavaScript Only - For TypeScript, use: [[InstantiationType.INSTANTIATION_NET]] */
+   export var INSTANTIATION_NET: number;
+
+   /** enum InterpolationMode*/
+   export const enum InterpolationMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BEZIER_CURVE]] */
+       BEZIER_CURVE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CATMULL_ROM_CURVE]] */
+       CATMULL_ROM_CURVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LINEAR_CURVE]] */
+       LINEAR_CURVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CATMULL_ROM_FULL_CURVE]] */
+       CATMULL_ROM_FULL_CURVE
+    }
+
+   // Legacy JS Access for enum:  InterpolationMode
+   /** JavaScript Only - For TypeScript, use: [[InterpolationMode.BEZIER_CURVE]] */
+   export var BEZIER_CURVE: number;
+   /** JavaScript Only - For TypeScript, use: [[InterpolationMode.CATMULL_ROM_CURVE]] */
+   export var CATMULL_ROM_CURVE: number;
+   /** JavaScript Only - For TypeScript, use: [[InterpolationMode.LINEAR_CURVE]] */
+   export var LINEAR_CURVE: number;
+   /** JavaScript Only - For TypeScript, use: [[InterpolationMode.CATMULL_ROM_FULL_CURVE]] */
+   export var CATMULL_ROM_FULL_CURVE: number;
+
+   /** enum VariantType*/
+   export const enum VariantType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_NONE]] */
+       VAR_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_INT]] */
+       VAR_INT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_BOOL]] */
+       VAR_BOOL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_FLOAT]] */
+       VAR_FLOAT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VECTOR2]] */
+       VAR_VECTOR2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VECTOR3]] */
+       VAR_VECTOR3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VECTOR4]] */
+       VAR_VECTOR4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_QUATERNION]] */
+       VAR_QUATERNION,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_COLOR]] */
+       VAR_COLOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_STRING]] */
+       VAR_STRING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_BUFFER]] */
+       VAR_BUFFER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VOIDPTR]] */
+       VAR_VOIDPTR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_RESOURCEREF]] */
+       VAR_RESOURCEREF,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_RESOURCEREFLIST]] */
+       VAR_RESOURCEREFLIST,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VARIANTVECTOR]] */
+       VAR_VARIANTVECTOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_VARIANTMAP]] */
+       VAR_VARIANTMAP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_INTRECT]] */
+       VAR_INTRECT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_INTVECTOR2]] */
+       VAR_INTVECTOR2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_PTR]] */
+       VAR_PTR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_MATRIX3]] */
+       VAR_MATRIX3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_MATRIX3X4]] */
+       VAR_MATRIX3X4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_MATRIX4]] */
+       VAR_MATRIX4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_DOUBLE]] */
+       VAR_DOUBLE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VAR_STRINGVECTOR]] */
+       VAR_STRINGVECTOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_VAR_TYPES]] */
+       MAX_VAR_TYPES
+    }
+
+   // Legacy JS Access for enum:  VariantType
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_NONE]] */
+   export var VAR_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_INT]] */
+   export var VAR_INT: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_BOOL]] */
+   export var VAR_BOOL: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_FLOAT]] */
+   export var VAR_FLOAT: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VECTOR2]] */
+   export var VAR_VECTOR2: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VECTOR3]] */
+   export var VAR_VECTOR3: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VECTOR4]] */
+   export var VAR_VECTOR4: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_QUATERNION]] */
+   export var VAR_QUATERNION: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_COLOR]] */
+   export var VAR_COLOR: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_STRING]] */
+   export var VAR_STRING: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_BUFFER]] */
+   export var VAR_BUFFER: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VOIDPTR]] */
+   export var VAR_VOIDPTR: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_RESOURCEREF]] */
+   export var VAR_RESOURCEREF: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_RESOURCEREFLIST]] */
+   export var VAR_RESOURCEREFLIST: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VARIANTVECTOR]] */
+   export var VAR_VARIANTVECTOR: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_VARIANTMAP]] */
+   export var VAR_VARIANTMAP: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_INTRECT]] */
+   export var VAR_INTRECT: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_INTVECTOR2]] */
+   export var VAR_INTVECTOR2: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_PTR]] */
+   export var VAR_PTR: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_MATRIX3]] */
+   export var VAR_MATRIX3: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_MATRIX3X4]] */
+   export var VAR_MATRIX3X4: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_MATRIX4]] */
+   export var VAR_MATRIX4: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_DOUBLE]] */
+   export var VAR_DOUBLE: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.VAR_STRINGVECTOR]] */
+   export var VAR_STRINGVECTOR: number;
+   /** JavaScript Only - For TypeScript, use: [[VariantType.MAX_VAR_TYPES]] */
+   export var MAX_VAR_TYPES: number;
+
+   /** enum AnimationBlendMode*/
+   export const enum AnimationBlendMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ABM_LERP]] */
+       ABM_LERP = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ABM_ADDITIVE]] */
+       ABM_ADDITIVE
+    }
+
+   // Legacy JS Access for enum:  AnimationBlendMode
+   /** JavaScript Only - For TypeScript, use: [[AnimationBlendMode.ABM_LERP]] */
+   export var ABM_LERP: number;
+   /** JavaScript Only - For TypeScript, use: [[AnimationBlendMode.ABM_ADDITIVE]] */
+   export var ABM_ADDITIVE: number;
+
+   /** enum BlendMode*/
+   export const enum BlendMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_REPLACE]] */
+       BLEND_REPLACE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_ADD]] */
+       BLEND_ADD,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_MULTIPLY]] */
+       BLEND_MULTIPLY,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_ALPHA]] */
+       BLEND_ALPHA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_ADDALPHA]] */
+       BLEND_ADDALPHA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_PREMULALPHA]] */
+       BLEND_PREMULALPHA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_INVDESTALPHA]] */
+       BLEND_INVDESTALPHA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_SUBTRACT]] */
+       BLEND_SUBTRACT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.BLEND_SUBTRACTALPHA]] */
+       BLEND_SUBTRACTALPHA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_BLENDMODES]] */
+       MAX_BLENDMODES
+    }
+
+   // Legacy JS Access for enum:  BlendMode
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_REPLACE]] */
+   export var BLEND_REPLACE: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_ADD]] */
+   export var BLEND_ADD: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_MULTIPLY]] */
+   export var BLEND_MULTIPLY: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_ALPHA]] */
+   export var BLEND_ALPHA: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_ADDALPHA]] */
+   export var BLEND_ADDALPHA: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_PREMULALPHA]] */
+   export var BLEND_PREMULALPHA: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_INVDESTALPHA]] */
+   export var BLEND_INVDESTALPHA: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_SUBTRACT]] */
+   export var BLEND_SUBTRACT: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.BLEND_SUBTRACTALPHA]] */
+   export var BLEND_SUBTRACTALPHA: number;
+   /** JavaScript Only - For TypeScript, use: [[BlendMode.MAX_BLENDMODES]] */
+   export var MAX_BLENDMODES: number;
+
+   /** enum CompareMode*/
+   export const enum CompareMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_ALWAYS]] */
+       CMP_ALWAYS = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_EQUAL]] */
+       CMP_EQUAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_NOTEQUAL]] */
+       CMP_NOTEQUAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_LESS]] */
+       CMP_LESS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_LESSEQUAL]] */
+       CMP_LESSEQUAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_GREATER]] */
+       CMP_GREATER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMP_GREATEREQUAL]] */
+       CMP_GREATEREQUAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_COMPAREMODES]] */
+       MAX_COMPAREMODES
+    }
+
+   // Legacy JS Access for enum:  CompareMode
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_ALWAYS]] */
+   export var CMP_ALWAYS: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_EQUAL]] */
+   export var CMP_EQUAL: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_NOTEQUAL]] */
+   export var CMP_NOTEQUAL: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_LESS]] */
+   export var CMP_LESS: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_LESSEQUAL]] */
+   export var CMP_LESSEQUAL: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_GREATER]] */
+   export var CMP_GREATER: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.CMP_GREATEREQUAL]] */
+   export var CMP_GREATEREQUAL: number;
+   /** JavaScript Only - For TypeScript, use: [[CompareMode.MAX_COMPAREMODES]] */
+   export var MAX_COMPAREMODES: number;
+
+   /** enum CubeMapFace*/
+   export const enum CubeMapFace {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_POSITIVE_X]] */
+       FACE_POSITIVE_X = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_NEGATIVE_X]] */
+       FACE_NEGATIVE_X,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_POSITIVE_Y]] */
+       FACE_POSITIVE_Y,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_NEGATIVE_Y]] */
+       FACE_NEGATIVE_Y,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_POSITIVE_Z]] */
+       FACE_POSITIVE_Z,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FACE_NEGATIVE_Z]] */
+       FACE_NEGATIVE_Z,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_CUBEMAP_FACES]] */
+       MAX_CUBEMAP_FACES
+    }
+
+   // Legacy JS Access for enum:  CubeMapFace
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_POSITIVE_X]] */
+   export var FACE_POSITIVE_X: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_NEGATIVE_X]] */
+   export var FACE_NEGATIVE_X: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_POSITIVE_Y]] */
+   export var FACE_POSITIVE_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_NEGATIVE_Y]] */
+   export var FACE_NEGATIVE_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_POSITIVE_Z]] */
+   export var FACE_POSITIVE_Z: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.FACE_NEGATIVE_Z]] */
+   export var FACE_NEGATIVE_Z: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapFace.MAX_CUBEMAP_FACES]] */
+   export var MAX_CUBEMAP_FACES: number;
+
+   /** enum CubeMapLayout*/
+   export const enum CubeMapLayout {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CML_HORIZONTAL]] */
+       CML_HORIZONTAL = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CML_HORIZONTALNVIDIA]] */
+       CML_HORIZONTALNVIDIA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CML_HORIZONTALCROSS]] */
+       CML_HORIZONTALCROSS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CML_VERTICALCROSS]] */
+       CML_VERTICALCROSS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CML_BLENDER]] */
+       CML_BLENDER
+    }
+
+   // Legacy JS Access for enum:  CubeMapLayout
+   /** JavaScript Only - For TypeScript, use: [[CubeMapLayout.CML_HORIZONTAL]] */
+   export var CML_HORIZONTAL: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapLayout.CML_HORIZONTALNVIDIA]] */
+   export var CML_HORIZONTALNVIDIA: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapLayout.CML_HORIZONTALCROSS]] */
+   export var CML_HORIZONTALCROSS: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapLayout.CML_VERTICALCROSS]] */
+   export var CML_VERTICALCROSS: number;
+   /** JavaScript Only - For TypeScript, use: [[CubeMapLayout.CML_BLENDER]] */
+   export var CML_BLENDER: number;
+
+   /** enum CullMode*/
+   export const enum CullMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CULL_NONE]] */
+       CULL_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CULL_CCW]] */
+       CULL_CCW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CULL_CW]] */
+       CULL_CW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_CULLMODES]] */
+       MAX_CULLMODES
+    }
+
+   // Legacy JS Access for enum:  CullMode
+   /** JavaScript Only - For TypeScript, use: [[CullMode.CULL_NONE]] */
+   export var CULL_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[CullMode.CULL_CCW]] */
+   export var CULL_CCW: number;
+   /** JavaScript Only - For TypeScript, use: [[CullMode.CULL_CW]] */
+   export var CULL_CW: number;
+   /** JavaScript Only - For TypeScript, use: [[CullMode.MAX_CULLMODES]] */
+   export var MAX_CULLMODES: number;
+
+   /** enum DeferredLightPSVariation*/
+   export const enum DeferredLightPSVariation {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_NONE]] */
+       DLPS_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOT]] */
+       DLPS_SPOT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINT]] */
+       DLPS_POINT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASK]] */
+       DLPS_POINTMASK,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPEC]] */
+       DLPS_SPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOTSPEC]] */
+       DLPS_SPOTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTSPEC]] */
+       DLPS_POINTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASKSPEC]] */
+       DLPS_POINTMASKSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SHADOW]] */
+       DLPS_SHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOTSHADOW]] */
+       DLPS_SPOTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTSHADOW]] */
+       DLPS_POINTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASKSHADOW]] */
+       DLPS_POINTMASKSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SHADOWSPEC]] */
+       DLPS_SHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOTSHADOWSPEC]] */
+       DLPS_SPOTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTSHADOWSPEC]] */
+       DLPS_POINTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASKSHADOWSPEC]] */
+       DLPS_POINTMASKSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SHADOWNORMALOFFSET]] */
+       DLPS_SHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOTSHADOWNORMALOFFSET]] */
+       DLPS_SPOTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTSHADOWNORMALOFFSET]] */
+       DLPS_POINTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASKSHADOWNORMALOFFSET]] */
+       DLPS_POINTMASKSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SHADOWSPECNORMALOFFSET]] */
+       DLPS_SHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_SPOTSHADOWSPECNORMALOFFSET]] */
+       DLPS_SPOTSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTSHADOWSPECNORMALOFFSET]] */
+       DLPS_POINTSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_POINTMASKSHADOWSPECNORMALOFFSET]] */
+       DLPS_POINTMASKSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHO]] */
+       DLPS_ORTHO,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOT]] */
+       DLPS_ORTHOSPOT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINT]] */
+       DLPS_ORTHOPOINT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASK]] */
+       DLPS_ORTHOPOINTMASK,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPEC]] */
+       DLPS_ORTHOSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOTSPEC]] */
+       DLPS_ORTHOSPOTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTSPEC]] */
+       DLPS_ORTHOPOINTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASKSPEC]] */
+       DLPS_ORTHOPOINTMASKSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSHADOW]] */
+       DLPS_ORTHOSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOTSHADOW]] */
+       DLPS_ORTHOSPOTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTSHADOW]] */
+       DLPS_ORTHOPOINTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASKSHADOW]] */
+       DLPS_ORTHOPOINTMASKSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSHADOWSPEC]] */
+       DLPS_ORTHOSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOTSHADOWSPEC]] */
+       DLPS_ORTHOSPOTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTSHADOWSPEC]] */
+       DLPS_ORTHOPOINTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASKSHADOWSPEC]] */
+       DLPS_ORTHOPOINTMASKSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSHADOWNORMALOFFSET]] */
+       DLPS_ORTHOSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOTSHADOWNORMALOFFSET]] */
+       DLPS_ORTHOSPOTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTSHADOWNORMALOFFSET]] */
+       DLPS_ORTHOPOINTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET]] */
+       DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSHADOWSPECNORMALOFFSET]] */
+       DLPS_ORTHOSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET]] */
+       DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET]] */
+       DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET]] */
+       DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_DEFERRED_LIGHT_PS_VARIATIONS]] */
+       MAX_DEFERRED_LIGHT_PS_VARIATIONS
+    }
+
+   // Legacy JS Access for enum:  DeferredLightPSVariation
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_NONE]] */
+   export var DLPS_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOT]] */
+   export var DLPS_SPOT: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINT]] */
+   export var DLPS_POINT: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASK]] */
+   export var DLPS_POINTMASK: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPEC]] */
+   export var DLPS_SPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOTSPEC]] */
+   export var DLPS_SPOTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTSPEC]] */
+   export var DLPS_POINTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASKSPEC]] */
+   export var DLPS_POINTMASKSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SHADOW]] */
+   export var DLPS_SHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOTSHADOW]] */
+   export var DLPS_SPOTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTSHADOW]] */
+   export var DLPS_POINTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASKSHADOW]] */
+   export var DLPS_POINTMASKSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SHADOWSPEC]] */
+   export var DLPS_SHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOTSHADOWSPEC]] */
+   export var DLPS_SPOTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTSHADOWSPEC]] */
+   export var DLPS_POINTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASKSHADOWSPEC]] */
+   export var DLPS_POINTMASKSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SHADOWNORMALOFFSET]] */
+   export var DLPS_SHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOTSHADOWNORMALOFFSET]] */
+   export var DLPS_SPOTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTSHADOWNORMALOFFSET]] */
+   export var DLPS_POINTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASKSHADOWNORMALOFFSET]] */
+   export var DLPS_POINTMASKSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SHADOWSPECNORMALOFFSET]] */
+   export var DLPS_SHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_SPOTSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_SPOTSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_POINTSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_POINTMASKSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_POINTMASKSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHO]] */
+   export var DLPS_ORTHO: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOT]] */
+   export var DLPS_ORTHOSPOT: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINT]] */
+   export var DLPS_ORTHOPOINT: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASK]] */
+   export var DLPS_ORTHOPOINTMASK: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPEC]] */
+   export var DLPS_ORTHOSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOTSPEC]] */
+   export var DLPS_ORTHOSPOTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTSPEC]] */
+   export var DLPS_ORTHOPOINTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASKSPEC]] */
+   export var DLPS_ORTHOPOINTMASKSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSHADOW]] */
+   export var DLPS_ORTHOSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOTSHADOW]] */
+   export var DLPS_ORTHOSPOTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTSHADOW]] */
+   export var DLPS_ORTHOPOINTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASKSHADOW]] */
+   export var DLPS_ORTHOPOINTMASKSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSHADOWSPEC]] */
+   export var DLPS_ORTHOSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOTSHADOWSPEC]] */
+   export var DLPS_ORTHOSPOTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTSHADOWSPEC]] */
+   export var DLPS_ORTHOPOINTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASKSHADOWSPEC]] */
+   export var DLPS_ORTHOPOINTMASKSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSHADOWNORMALOFFSET]] */
+   export var DLPS_ORTHOSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOTSHADOWNORMALOFFSET]] */
+   export var DLPS_ORTHOSPOTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTSHADOWNORMALOFFSET]] */
+   export var DLPS_ORTHOPOINTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET]] */
+   export var DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_ORTHOSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET]] */
+   export var DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightPSVariation.MAX_DEFERRED_LIGHT_PS_VARIATIONS]] */
+   export var MAX_DEFERRED_LIGHT_PS_VARIATIONS: number;
+
+   /** enum DeferredLightVSVariation*/
+   export const enum DeferredLightVSVariation {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLVS_NONE]] */
+       DLVS_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLVS_DIR]] */
+       DLVS_DIR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLVS_ORTHO]] */
+       DLVS_ORTHO,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DLVS_ORTHODIR]] */
+       DLVS_ORTHODIR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_DEFERRED_LIGHT_VS_VARIATIONS]] */
+       MAX_DEFERRED_LIGHT_VS_VARIATIONS
+    }
+
+   // Legacy JS Access for enum:  DeferredLightVSVariation
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightVSVariation.DLVS_NONE]] */
+   export var DLVS_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightVSVariation.DLVS_DIR]] */
+   export var DLVS_DIR: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightVSVariation.DLVS_ORTHO]] */
+   export var DLVS_ORTHO: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightVSVariation.DLVS_ORTHODIR]] */
+   export var DLVS_ORTHODIR: number;
+   /** JavaScript Only - For TypeScript, use: [[DeferredLightVSVariation.MAX_DEFERRED_LIGHT_VS_VARIATIONS]] */
+   export var MAX_DEFERRED_LIGHT_VS_VARIATIONS: number;
+
+   /** enum EmitterType*/
+   export const enum EmitterType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.EMITTER_SPHERE]] */
+       EMITTER_SPHERE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.EMITTER_BOX]] */
+       EMITTER_BOX
+    }
+
+   // Legacy JS Access for enum:  EmitterType
+   /** JavaScript Only - For TypeScript, use: [[EmitterType.EMITTER_SPHERE]] */
+   export var EMITTER_SPHERE: number;
+   /** JavaScript Only - For TypeScript, use: [[EmitterType.EMITTER_BOX]] */
+   export var EMITTER_BOX: number;
+
+   /** enum FaceCameraMode*/
+   export const enum FaceCameraMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_NONE]] */
+       FC_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_ROTATE_XYZ]] */
+       FC_ROTATE_XYZ,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_ROTATE_Y]] */
+       FC_ROTATE_Y,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_LOOKAT_XYZ]] */
+       FC_LOOKAT_XYZ,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_LOOKAT_Y]] */
+       FC_LOOKAT_Y,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_LOOKAT_MIXED]] */
+       FC_LOOKAT_MIXED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FC_DIRECTION]] */
+       FC_DIRECTION
+    }
+
+   // Legacy JS Access for enum:  FaceCameraMode
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_NONE]] */
+   export var FC_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_ROTATE_XYZ]] */
+   export var FC_ROTATE_XYZ: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_ROTATE_Y]] */
+   export var FC_ROTATE_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_LOOKAT_XYZ]] */
+   export var FC_LOOKAT_XYZ: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_LOOKAT_Y]] */
+   export var FC_LOOKAT_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_LOOKAT_MIXED]] */
+   export var FC_LOOKAT_MIXED: number;
+   /** JavaScript Only - For TypeScript, use: [[FaceCameraMode.FC_DIRECTION]] */
+   export var FC_DIRECTION: number;
+
+   /** enum FillMode*/
+   export const enum FillMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILL_SOLID]] */
+       FILL_SOLID = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILL_WIREFRAME]] */
+       FILL_WIREFRAME,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILL_POINT]] */
+       FILL_POINT
+    }
+
+   // Legacy JS Access for enum:  FillMode
+   /** JavaScript Only - For TypeScript, use: [[FillMode.FILL_SOLID]] */
+   export var FILL_SOLID: number;
+   /** JavaScript Only - For TypeScript, use: [[FillMode.FILL_WIREFRAME]] */
+   export var FILL_WIREFRAME: number;
+   /** JavaScript Only - For TypeScript, use: [[FillMode.FILL_POINT]] */
+   export var FILL_POINT: number;
+
+   /** enum GeometryType*/
+   export const enum GeometryType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_STATIC]] */
+       GEOM_STATIC = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_SKINNED]] */
+       GEOM_SKINNED = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_INSTANCED]] */
+       GEOM_INSTANCED = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_BILLBOARD]] */
+       GEOM_BILLBOARD = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_DIRBILLBOARD]] */
+       GEOM_DIRBILLBOARD = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_TRAIL_FACE_CAMERA]] */
+       GEOM_TRAIL_FACE_CAMERA = 5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_TRAIL_BONE]] */
+       GEOM_TRAIL_BONE = 6,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GEOM_STATIC_NOINSTANCING]] */
+       GEOM_STATIC_NOINSTANCING = 7,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_GEOMETRYTYPES]] */
+       MAX_GEOMETRYTYPES = 7
+    }
+
+   // Legacy JS Access for enum:  GeometryType
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_STATIC]] */
+   export var GEOM_STATIC: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_SKINNED]] */
+   export var GEOM_SKINNED: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_INSTANCED]] */
+   export var GEOM_INSTANCED: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_BILLBOARD]] */
+   export var GEOM_BILLBOARD: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_DIRBILLBOARD]] */
+   export var GEOM_DIRBILLBOARD: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_TRAIL_FACE_CAMERA]] */
+   export var GEOM_TRAIL_FACE_CAMERA: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_TRAIL_BONE]] */
+   export var GEOM_TRAIL_BONE: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.GEOM_STATIC_NOINSTANCING]] */
+   export var GEOM_STATIC_NOINSTANCING: number;
+   /** JavaScript Only - For TypeScript, use: [[GeometryType.MAX_GEOMETRYTYPES]] */
+   export var MAX_GEOMETRYTYPES: number;
+
+   /** enum LegacyVertexElement*/
+   export const enum LegacyVertexElement {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_POSITION]] */
+       ELEMENT_POSITION = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_NORMAL]] */
+       ELEMENT_NORMAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_COLOR]] */
+       ELEMENT_COLOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_TEXCOORD1]] */
+       ELEMENT_TEXCOORD1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_TEXCOORD2]] */
+       ELEMENT_TEXCOORD2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_CUBETEXCOORD1]] */
+       ELEMENT_CUBETEXCOORD1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_CUBETEXCOORD2]] */
+       ELEMENT_CUBETEXCOORD2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_TANGENT]] */
+       ELEMENT_TANGENT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_BLENDWEIGHTS]] */
+       ELEMENT_BLENDWEIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_BLENDINDICES]] */
+       ELEMENT_BLENDINDICES,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_INSTANCEMATRIX1]] */
+       ELEMENT_INSTANCEMATRIX1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_INSTANCEMATRIX2]] */
+       ELEMENT_INSTANCEMATRIX2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_INSTANCEMATRIX3]] */
+       ELEMENT_INSTANCEMATRIX3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ELEMENT_OBJECTINDEX]] */
+       ELEMENT_OBJECTINDEX,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_LEGACY_VERTEX_ELEMENTS]] */
+       MAX_LEGACY_VERTEX_ELEMENTS
+    }
+
+   // Legacy JS Access for enum:  LegacyVertexElement
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_POSITION]] */
+   export var ELEMENT_POSITION: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_NORMAL]] */
+   export var ELEMENT_NORMAL: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_COLOR]] */
+   export var ELEMENT_COLOR: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_TEXCOORD1]] */
+   export var ELEMENT_TEXCOORD1: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_TEXCOORD2]] */
+   export var ELEMENT_TEXCOORD2: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_CUBETEXCOORD1]] */
+   export var ELEMENT_CUBETEXCOORD1: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_CUBETEXCOORD2]] */
+   export var ELEMENT_CUBETEXCOORD2: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_TANGENT]] */
+   export var ELEMENT_TANGENT: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_BLENDWEIGHTS]] */
+   export var ELEMENT_BLENDWEIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_BLENDINDICES]] */
+   export var ELEMENT_BLENDINDICES: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_INSTANCEMATRIX1]] */
+   export var ELEMENT_INSTANCEMATRIX1: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_INSTANCEMATRIX2]] */
+   export var ELEMENT_INSTANCEMATRIX2: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_INSTANCEMATRIX3]] */
+   export var ELEMENT_INSTANCEMATRIX3: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.ELEMENT_OBJECTINDEX]] */
+   export var ELEMENT_OBJECTINDEX: number;
+   /** JavaScript Only - For TypeScript, use: [[LegacyVertexElement.MAX_LEGACY_VERTEX_ELEMENTS]] */
+   export var MAX_LEGACY_VERTEX_ELEMENTS: number;
+
+   /** enum LightPSVariation*/
+   export const enum LightPSVariation {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_NONE]] */
+       LPS_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SPOT]] */
+       LPS_SPOT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINT]] */
+       LPS_POINT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTMASK]] */
+       LPS_POINTMASK,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SPEC]] */
+       LPS_SPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SPOTSPEC]] */
+       LPS_SPOTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTSPEC]] */
+       LPS_POINTSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTMASKSPEC]] */
+       LPS_POINTMASKSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SHADOW]] */
+       LPS_SHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SPOTSHADOW]] */
+       LPS_SPOTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTSHADOW]] */
+       LPS_POINTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTMASKSHADOW]] */
+       LPS_POINTMASKSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SHADOWSPEC]] */
+       LPS_SHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_SPOTSHADOWSPEC]] */
+       LPS_SPOTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTSHADOWSPEC]] */
+       LPS_POINTSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LPS_POINTMASKSHADOWSPEC]] */
+       LPS_POINTMASKSHADOWSPEC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_LIGHT_PS_VARIATIONS]] */
+       MAX_LIGHT_PS_VARIATIONS
+    }
+
+   // Legacy JS Access for enum:  LightPSVariation
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_NONE]] */
+   export var LPS_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SPOT]] */
+   export var LPS_SPOT: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINT]] */
+   export var LPS_POINT: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTMASK]] */
+   export var LPS_POINTMASK: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SPEC]] */
+   export var LPS_SPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SPOTSPEC]] */
+   export var LPS_SPOTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTSPEC]] */
+   export var LPS_POINTSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTMASKSPEC]] */
+   export var LPS_POINTMASKSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SHADOW]] */
+   export var LPS_SHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SPOTSHADOW]] */
+   export var LPS_SPOTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTSHADOW]] */
+   export var LPS_POINTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTMASKSHADOW]] */
+   export var LPS_POINTMASKSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SHADOWSPEC]] */
+   export var LPS_SHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_SPOTSHADOWSPEC]] */
+   export var LPS_SPOTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTSHADOWSPEC]] */
+   export var LPS_POINTSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.LPS_POINTMASKSHADOWSPEC]] */
+   export var LPS_POINTMASKSHADOWSPEC: number;
+   /** JavaScript Only - For TypeScript, use: [[LightPSVariation.MAX_LIGHT_PS_VARIATIONS]] */
+   export var MAX_LIGHT_PS_VARIATIONS: number;
+
+   /** enum LightType*/
+   export const enum LightType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHT_DIRECTIONAL]] */
+       LIGHT_DIRECTIONAL = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHT_SPOT]] */
+       LIGHT_SPOT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHT_POINT]] */
+       LIGHT_POINT
+    }
+
+   // Legacy JS Access for enum:  LightType
+   /** JavaScript Only - For TypeScript, use: [[LightType.LIGHT_DIRECTIONAL]] */
+   export var LIGHT_DIRECTIONAL: number;
+   /** JavaScript Only - For TypeScript, use: [[LightType.LIGHT_SPOT]] */
+   export var LIGHT_SPOT: number;
+   /** JavaScript Only - For TypeScript, use: [[LightType.LIGHT_POINT]] */
+   export var LIGHT_POINT: number;
+
+   /** enum LightVSVariation*/
+   export const enum LightVSVariation {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_DIR]] */
+       LVS_DIR = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_SPOT]] */
+       LVS_SPOT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_POINT]] */
+       LVS_POINT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_SHADOW]] */
+       LVS_SHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_SPOTSHADOW]] */
+       LVS_SPOTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_POINTSHADOW]] */
+       LVS_POINTSHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_SHADOWNORMALOFFSET]] */
+       LVS_SHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_SPOTSHADOWNORMALOFFSET]] */
+       LVS_SPOTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LVS_POINTSHADOWNORMALOFFSET]] */
+       LVS_POINTSHADOWNORMALOFFSET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_LIGHT_VS_VARIATIONS]] */
+       MAX_LIGHT_VS_VARIATIONS
+    }
+
+   // Legacy JS Access for enum:  LightVSVariation
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_DIR]] */
+   export var LVS_DIR: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_SPOT]] */
+   export var LVS_SPOT: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_POINT]] */
+   export var LVS_POINT: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_SHADOW]] */
+   export var LVS_SHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_SPOTSHADOW]] */
+   export var LVS_SPOTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_POINTSHADOW]] */
+   export var LVS_POINTSHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_SHADOWNORMALOFFSET]] */
+   export var LVS_SHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_SPOTSHADOWNORMALOFFSET]] */
+   export var LVS_SPOTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.LVS_POINTSHADOWNORMALOFFSET]] */
+   export var LVS_POINTSHADOWNORMALOFFSET: number;
+   /** JavaScript Only - For TypeScript, use: [[LightVSVariation.MAX_LIGHT_VS_VARIATIONS]] */
+   export var MAX_LIGHT_VS_VARIATIONS: number;
+
+   /** enum LockState*/
+   export const enum LockState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOCK_NONE]] */
+       LOCK_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOCK_HARDWARE]] */
+       LOCK_HARDWARE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOCK_SHADOW]] */
+       LOCK_SHADOW,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOCK_SCRATCH]] */
+       LOCK_SCRATCH
+    }
+
+   // Legacy JS Access for enum:  LockState
+   /** JavaScript Only - For TypeScript, use: [[LockState.LOCK_NONE]] */
+   export var LOCK_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[LockState.LOCK_HARDWARE]] */
+   export var LOCK_HARDWARE: number;
+   /** JavaScript Only - For TypeScript, use: [[LockState.LOCK_SHADOW]] */
+   export var LOCK_SHADOW: number;
+   /** JavaScript Only - For TypeScript, use: [[LockState.LOCK_SCRATCH]] */
+   export var LOCK_SCRATCH: number;
+
+   /** enum PassLightingMode*/
+   export const enum PassLightingMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHTING_UNLIT]] */
+       LIGHTING_UNLIT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHTING_PERVERTEX]] */
+       LIGHTING_PERVERTEX,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LIGHTING_PERPIXEL]] */
+       LIGHTING_PERPIXEL
+    }
+
+   // Legacy JS Access for enum:  PassLightingMode
+   /** JavaScript Only - For TypeScript, use: [[PassLightingMode.LIGHTING_UNLIT]] */
+   export var LIGHTING_UNLIT: number;
+   /** JavaScript Only - For TypeScript, use: [[PassLightingMode.LIGHTING_PERVERTEX]] */
+   export var LIGHTING_PERVERTEX: number;
+   /** JavaScript Only - For TypeScript, use: [[PassLightingMode.LIGHTING_PERPIXEL]] */
+   export var LIGHTING_PERPIXEL: number;
+
+   /** enum PrimitiveType*/
+   export const enum PrimitiveType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TRIANGLE_LIST]] */
+       TRIANGLE_LIST = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LINE_LIST]] */
+       LINE_LIST,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.POINT_LIST]] */
+       POINT_LIST,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TRIANGLE_STRIP]] */
+       TRIANGLE_STRIP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LINE_STRIP]] */
+       LINE_STRIP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TRIANGLE_FAN]] */
+       TRIANGLE_FAN
+    }
+
+   // Legacy JS Access for enum:  PrimitiveType
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.TRIANGLE_LIST]] */
+   export var TRIANGLE_LIST: number;
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.LINE_LIST]] */
+   export var LINE_LIST: number;
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.POINT_LIST]] */
+   export var POINT_LIST: number;
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.TRIANGLE_STRIP]] */
+   export var TRIANGLE_STRIP: number;
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.LINE_STRIP]] */
+   export var LINE_STRIP: number;
+   /** JavaScript Only - For TypeScript, use: [[PrimitiveType.TRIANGLE_FAN]] */
+   export var TRIANGLE_FAN: number;
+
+   /** enum RayQueryLevel*/
+   export const enum RayQueryLevel {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RAY_AABB]] */
+       RAY_AABB = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RAY_OBB]] */
+       RAY_OBB,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RAY_TRIANGLE]] */
+       RAY_TRIANGLE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RAY_TRIANGLE_UV]] */
+       RAY_TRIANGLE_UV
+    }
+
+   // Legacy JS Access for enum:  RayQueryLevel
+   /** JavaScript Only - For TypeScript, use: [[RayQueryLevel.RAY_AABB]] */
+   export var RAY_AABB: number;
+   /** JavaScript Only - For TypeScript, use: [[RayQueryLevel.RAY_OBB]] */
+   export var RAY_OBB: number;
+   /** JavaScript Only - For TypeScript, use: [[RayQueryLevel.RAY_TRIANGLE]] */
+   export var RAY_TRIANGLE: number;
+   /** JavaScript Only - For TypeScript, use: [[RayQueryLevel.RAY_TRIANGLE_UV]] */
+   export var RAY_TRIANGLE_UV: number;
+
+   /** enum RenderCommandSortMode*/
+   export const enum RenderCommandSortMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SORT_FRONTTOBACK]] */
+       SORT_FRONTTOBACK = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SORT_BACKTOFRONT]] */
+       SORT_BACKTOFRONT
+    }
+
+   // Legacy JS Access for enum:  RenderCommandSortMode
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandSortMode.SORT_FRONTTOBACK]] */
+   export var SORT_FRONTTOBACK: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandSortMode.SORT_BACKTOFRONT]] */
+   export var SORT_BACKTOFRONT: number;
+
+   /** enum RenderCommandType*/
+   export const enum RenderCommandType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_NONE]] */
+       CMD_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_CLEAR]] */
+       CMD_CLEAR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_SCENEPASS]] */
+       CMD_SCENEPASS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_QUAD]] */
+       CMD_QUAD,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_FORWARDLIGHTS]] */
+       CMD_FORWARDLIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_LIGHTVOLUMES]] */
+       CMD_LIGHTVOLUMES,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_RENDERUI]] */
+       CMD_RENDERUI,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CMD_SENDEVENT]] */
+       CMD_SENDEVENT
+    }
+
+   // Legacy JS Access for enum:  RenderCommandType
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_NONE]] */
+   export var CMD_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_CLEAR]] */
+   export var CMD_CLEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_SCENEPASS]] */
+   export var CMD_SCENEPASS: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_QUAD]] */
+   export var CMD_QUAD: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_FORWARDLIGHTS]] */
+   export var CMD_FORWARDLIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_LIGHTVOLUMES]] */
+   export var CMD_LIGHTVOLUMES: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_RENDERUI]] */
+   export var CMD_RENDERUI: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderCommandType.CMD_SENDEVENT]] */
+   export var CMD_SENDEVENT: number;
+
+   /** enum RenderSurfaceUpdateMode*/
+   export const enum RenderSurfaceUpdateMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SURFACE_MANUALUPDATE]] */
+       SURFACE_MANUALUPDATE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SURFACE_UPDATEVISIBLE]] */
+       SURFACE_UPDATEVISIBLE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SURFACE_UPDATEALWAYS]] */
+       SURFACE_UPDATEALWAYS
+    }
+
+   // Legacy JS Access for enum:  RenderSurfaceUpdateMode
+   /** JavaScript Only - For TypeScript, use: [[RenderSurfaceUpdateMode.SURFACE_MANUALUPDATE]] */
+   export var SURFACE_MANUALUPDATE: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderSurfaceUpdateMode.SURFACE_UPDATEVISIBLE]] */
+   export var SURFACE_UPDATEVISIBLE: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderSurfaceUpdateMode.SURFACE_UPDATEALWAYS]] */
+   export var SURFACE_UPDATEALWAYS: number;
+
+   /** enum RenderTargetSizeMode*/
+   export const enum RenderTargetSizeMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SIZE_ABSOLUTE]] */
+       SIZE_ABSOLUTE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SIZE_VIEWPORTDIVISOR]] */
+       SIZE_VIEWPORTDIVISOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SIZE_VIEWPORTMULTIPLIER]] */
+       SIZE_VIEWPORTMULTIPLIER
+    }
+
+   // Legacy JS Access for enum:  RenderTargetSizeMode
+   /** JavaScript Only - For TypeScript, use: [[RenderTargetSizeMode.SIZE_ABSOLUTE]] */
+   export var SIZE_ABSOLUTE: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderTargetSizeMode.SIZE_VIEWPORTDIVISOR]] */
+   export var SIZE_VIEWPORTDIVISOR: number;
+   /** JavaScript Only - For TypeScript, use: [[RenderTargetSizeMode.SIZE_VIEWPORTMULTIPLIER]] */
+   export var SIZE_VIEWPORTMULTIPLIER: number;
+
+   /** enum ShaderParameterGroup*/
+   export const enum ShaderParameterGroup {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_FRAME]] */
+       SP_FRAME = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_CAMERA]] */
+       SP_CAMERA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_ZONE]] */
+       SP_ZONE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_LIGHT]] */
+       SP_LIGHT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_MATERIAL]] */
+       SP_MATERIAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_OBJECT]] */
+       SP_OBJECT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SP_CUSTOM]] */
+       SP_CUSTOM,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_SHADER_PARAMETER_GROUPS]] */
+       MAX_SHADER_PARAMETER_GROUPS
+    }
+
+   // Legacy JS Access for enum:  ShaderParameterGroup
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_FRAME]] */
+   export var SP_FRAME: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_CAMERA]] */
+   export var SP_CAMERA: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_ZONE]] */
+   export var SP_ZONE: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_LIGHT]] */
+   export var SP_LIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_MATERIAL]] */
+   export var SP_MATERIAL: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_OBJECT]] */
+   export var SP_OBJECT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.SP_CUSTOM]] */
+   export var SP_CUSTOM: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderParameterGroup.MAX_SHADER_PARAMETER_GROUPS]] */
+   export var MAX_SHADER_PARAMETER_GROUPS: number;
+
+   /** enum ShaderType*/
+   export const enum ShaderType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VS]] */
+       VS = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PS]] */
+       PS
+    }
+
+   // Legacy JS Access for enum:  ShaderType
+   /** JavaScript Only - For TypeScript, use: [[ShaderType.VS]] */
+   export var VS: number;
+   /** JavaScript Only - For TypeScript, use: [[ShaderType.PS]] */
+   export var PS: number;
+
+   /** enum ShadowQuality*/
+   export const enum ShadowQuality {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_SIMPLE_16BIT]] */
+       SHADOWQUALITY_SIMPLE_16BIT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_SIMPLE_24BIT]] */
+       SHADOWQUALITY_SIMPLE_24BIT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_PCF_16BIT]] */
+       SHADOWQUALITY_PCF_16BIT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_PCF_24BIT]] */
+       SHADOWQUALITY_PCF_24BIT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_VSM]] */
+       SHADOWQUALITY_VSM,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHADOWQUALITY_BLUR_VSM]] */
+       SHADOWQUALITY_BLUR_VSM
+    }
+
+   // Legacy JS Access for enum:  ShadowQuality
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_SIMPLE_16BIT]] */
+   export var SHADOWQUALITY_SIMPLE_16BIT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_SIMPLE_24BIT]] */
+   export var SHADOWQUALITY_SIMPLE_24BIT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_PCF_16BIT]] */
+   export var SHADOWQUALITY_PCF_16BIT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_PCF_24BIT]] */
+   export var SHADOWQUALITY_PCF_24BIT: number;
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_VSM]] */
+   export var SHADOWQUALITY_VSM: number;
+   /** JavaScript Only - For TypeScript, use: [[ShadowQuality.SHADOWQUALITY_BLUR_VSM]] */
+   export var SHADOWQUALITY_BLUR_VSM: number;
+
+   /** enum StencilOp*/
+   export const enum StencilOp {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OP_KEEP]] */
+       OP_KEEP = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OP_ZERO]] */
+       OP_ZERO,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OP_REF]] */
+       OP_REF,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OP_INCR]] */
+       OP_INCR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OP_DECR]] */
+       OP_DECR
+    }
+
+   // Legacy JS Access for enum:  StencilOp
+   /** JavaScript Only - For TypeScript, use: [[StencilOp.OP_KEEP]] */
+   export var OP_KEEP: number;
+   /** JavaScript Only - For TypeScript, use: [[StencilOp.OP_ZERO]] */
+   export var OP_ZERO: number;
+   /** JavaScript Only - For TypeScript, use: [[StencilOp.OP_REF]] */
+   export var OP_REF: number;
+   /** JavaScript Only - For TypeScript, use: [[StencilOp.OP_INCR]] */
+   export var OP_INCR: number;
+   /** JavaScript Only - For TypeScript, use: [[StencilOp.OP_DECR]] */
+   export var OP_DECR: number;
+
+   /** enum TextureAddressMode*/
+   export const enum TextureAddressMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ADDRESS_WRAP]] */
+       ADDRESS_WRAP = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ADDRESS_MIRROR]] */
+       ADDRESS_MIRROR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ADDRESS_CLAMP]] */
+       ADDRESS_CLAMP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ADDRESS_BORDER]] */
+       ADDRESS_BORDER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_ADDRESSMODES]] */
+       MAX_ADDRESSMODES
+    }
+
+   // Legacy JS Access for enum:  TextureAddressMode
+   /** JavaScript Only - For TypeScript, use: [[TextureAddressMode.ADDRESS_WRAP]] */
+   export var ADDRESS_WRAP: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureAddressMode.ADDRESS_MIRROR]] */
+   export var ADDRESS_MIRROR: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureAddressMode.ADDRESS_CLAMP]] */
+   export var ADDRESS_CLAMP: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureAddressMode.ADDRESS_BORDER]] */
+   export var ADDRESS_BORDER: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureAddressMode.MAX_ADDRESSMODES]] */
+   export var MAX_ADDRESSMODES: number;
+
+   /** enum TextureCoordinate*/
+   export const enum TextureCoordinate {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COORD_U]] */
+       COORD_U = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COORD_V]] */
+       COORD_V,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COORD_W]] */
+       COORD_W,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_COORDS]] */
+       MAX_COORDS
+    }
+
+   // Legacy JS Access for enum:  TextureCoordinate
+   /** JavaScript Only - For TypeScript, use: [[TextureCoordinate.COORD_U]] */
+   export var COORD_U: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureCoordinate.COORD_V]] */
+   export var COORD_V: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureCoordinate.COORD_W]] */
+   export var COORD_W: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureCoordinate.MAX_COORDS]] */
+   export var MAX_COORDS: number;
+
+   /** enum TextureFilterMode*/
+   export const enum TextureFilterMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILTER_NEAREST]] */
+       FILTER_NEAREST = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILTER_BILINEAR]] */
+       FILTER_BILINEAR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILTER_TRILINEAR]] */
+       FILTER_TRILINEAR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILTER_ANISOTROPIC]] */
+       FILTER_ANISOTROPIC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILTER_DEFAULT]] */
+       FILTER_DEFAULT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_FILTERMODES]] */
+       MAX_FILTERMODES
+    }
+
+   // Legacy JS Access for enum:  TextureFilterMode
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.FILTER_NEAREST]] */
+   export var FILTER_NEAREST: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.FILTER_BILINEAR]] */
+   export var FILTER_BILINEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.FILTER_TRILINEAR]] */
+   export var FILTER_TRILINEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.FILTER_ANISOTROPIC]] */
+   export var FILTER_ANISOTROPIC: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.FILTER_DEFAULT]] */
+   export var FILTER_DEFAULT: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureFilterMode.MAX_FILTERMODES]] */
+   export var MAX_FILTERMODES: number;
+
+   /** enum TextureUnit*/
+   export const enum TextureUnit {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_DIFFUSE]] */
+       TU_DIFFUSE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_ALBEDOBUFFER]] */
+       TU_ALBEDOBUFFER = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_NORMAL]] */
+       TU_NORMAL = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_NORMALBUFFER]] */
+       TU_NORMALBUFFER = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_SPECULAR]] */
+       TU_SPECULAR = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_EMISSIVE]] */
+       TU_EMISSIVE = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_ENVIRONMENT]] */
+       TU_ENVIRONMENT = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_LIGHTRAMP]] */
+       TU_LIGHTRAMP = 5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_LIGHTSHAPE]] */
+       TU_LIGHTSHAPE = 6,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TU_SHADOWMAP]] */
+       TU_SHADOWMAP = 7,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_MATERIAL_TEXTURE_UNITS]] */
+       MAX_MATERIAL_TEXTURE_UNITS = 5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_TEXTURE_UNITS]] */
+       MAX_TEXTURE_UNITS = 8
+    }
+
+   // Legacy JS Access for enum:  TextureUnit
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_DIFFUSE]] */
+   export var TU_DIFFUSE: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_ALBEDOBUFFER]] */
+   export var TU_ALBEDOBUFFER: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_NORMAL]] */
+   export var TU_NORMAL: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_NORMALBUFFER]] */
+   export var TU_NORMALBUFFER: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_SPECULAR]] */
+   export var TU_SPECULAR: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_EMISSIVE]] */
+   export var TU_EMISSIVE: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_ENVIRONMENT]] */
+   export var TU_ENVIRONMENT: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_LIGHTRAMP]] */
+   export var TU_LIGHTRAMP: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_LIGHTSHAPE]] */
+   export var TU_LIGHTSHAPE: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.TU_SHADOWMAP]] */
+   export var TU_SHADOWMAP: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.MAX_MATERIAL_TEXTURE_UNITS]] */
+   export var MAX_MATERIAL_TEXTURE_UNITS: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUnit.MAX_TEXTURE_UNITS]] */
+   export var MAX_TEXTURE_UNITS: number;
+
+   /** enum TextureUsage*/
+   export const enum TextureUsage {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TEXTURE_STATIC]] */
+       TEXTURE_STATIC = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TEXTURE_DYNAMIC]] */
+       TEXTURE_DYNAMIC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TEXTURE_RENDERTARGET]] */
+       TEXTURE_RENDERTARGET,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TEXTURE_DEPTHSTENCIL]] */
+       TEXTURE_DEPTHSTENCIL
+    }
+
+   // Legacy JS Access for enum:  TextureUsage
+   /** JavaScript Only - For TypeScript, use: [[TextureUsage.TEXTURE_STATIC]] */
+   export var TEXTURE_STATIC: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUsage.TEXTURE_DYNAMIC]] */
+   export var TEXTURE_DYNAMIC: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUsage.TEXTURE_RENDERTARGET]] */
+   export var TEXTURE_RENDERTARGET: number;
+   /** JavaScript Only - For TypeScript, use: [[TextureUsage.TEXTURE_DEPTHSTENCIL]] */
+   export var TEXTURE_DEPTHSTENCIL: number;
+
+   /** enum TrailType*/
+   export const enum TrailType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TT_FACE_CAMERA]] */
+       TT_FACE_CAMERA = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TT_BONE]] */
+       TT_BONE
+    }
+
+   // Legacy JS Access for enum:  TrailType
+   /** JavaScript Only - For TypeScript, use: [[TrailType.TT_FACE_CAMERA]] */
+   export var TT_FACE_CAMERA: number;
+   /** JavaScript Only - For TypeScript, use: [[TrailType.TT_BONE]] */
+   export var TT_BONE: number;
+
+   /** enum UpdateGeometryType*/
+   export const enum UpdateGeometryType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UPDATE_NONE]] */
+       UPDATE_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UPDATE_MAIN_THREAD]] */
+       UPDATE_MAIN_THREAD,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UPDATE_WORKER_THREAD]] */
+       UPDATE_WORKER_THREAD
+    }
+
+   // Legacy JS Access for enum:  UpdateGeometryType
+   /** JavaScript Only - For TypeScript, use: [[UpdateGeometryType.UPDATE_NONE]] */
+   export var UPDATE_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UpdateGeometryType.UPDATE_MAIN_THREAD]] */
+   export var UPDATE_MAIN_THREAD: number;
+   /** JavaScript Only - For TypeScript, use: [[UpdateGeometryType.UPDATE_WORKER_THREAD]] */
+   export var UPDATE_WORKER_THREAD: number;
+
+   /** enum VertexElementSemantic*/
+   export const enum VertexElementSemantic {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_POSITION]] */
+       SEM_POSITION = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_NORMAL]] */
+       SEM_NORMAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_BINORMAL]] */
+       SEM_BINORMAL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_TANGENT]] */
+       SEM_TANGENT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_TEXCOORD]] */
+       SEM_TEXCOORD,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_COLOR]] */
+       SEM_COLOR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_BLENDWEIGHTS]] */
+       SEM_BLENDWEIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_BLENDINDICES]] */
+       SEM_BLENDINDICES,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SEM_OBJECTINDEX]] */
+       SEM_OBJECTINDEX,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_VERTEX_ELEMENT_SEMANTICS]] */
+       MAX_VERTEX_ELEMENT_SEMANTICS
+    }
+
+   // Legacy JS Access for enum:  VertexElementSemantic
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_POSITION]] */
+   export var SEM_POSITION: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_NORMAL]] */
+   export var SEM_NORMAL: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_BINORMAL]] */
+   export var SEM_BINORMAL: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_TANGENT]] */
+   export var SEM_TANGENT: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_TEXCOORD]] */
+   export var SEM_TEXCOORD: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_COLOR]] */
+   export var SEM_COLOR: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_BLENDWEIGHTS]] */
+   export var SEM_BLENDWEIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_BLENDINDICES]] */
+   export var SEM_BLENDINDICES: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.SEM_OBJECTINDEX]] */
+   export var SEM_OBJECTINDEX: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementSemantic.MAX_VERTEX_ELEMENT_SEMANTICS]] */
+   export var MAX_VERTEX_ELEMENT_SEMANTICS: number;
+
+   /** enum VertexElementType*/
+   export const enum VertexElementType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_INT]] */
+       TYPE_INT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_FLOAT]] */
+       TYPE_FLOAT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_VECTOR2]] */
+       TYPE_VECTOR2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_VECTOR3]] */
+       TYPE_VECTOR3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_VECTOR4]] */
+       TYPE_VECTOR4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_UBYTE4]] */
+       TYPE_UBYTE4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TYPE_UBYTE4_NORM]] */
+       TYPE_UBYTE4_NORM,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_VERTEX_ELEMENT_TYPES]] */
+       MAX_VERTEX_ELEMENT_TYPES
+    }
+
+   // Legacy JS Access for enum:  VertexElementType
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_INT]] */
+   export var TYPE_INT: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_FLOAT]] */
+   export var TYPE_FLOAT: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_VECTOR2]] */
+   export var TYPE_VECTOR2: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_VECTOR3]] */
+   export var TYPE_VECTOR3: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_VECTOR4]] */
+   export var TYPE_VECTOR4: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_UBYTE4]] */
+   export var TYPE_UBYTE4: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.TYPE_UBYTE4_NORM]] */
+   export var TYPE_UBYTE4_NORM: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexElementType.MAX_VERTEX_ELEMENT_TYPES]] */
+   export var MAX_VERTEX_ELEMENT_TYPES: number;
+
+   /** enum VertexLightVSVariation*/
+   export const enum VertexLightVSVariation {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VLVS_NOLIGHTS]] */
+       VLVS_NOLIGHTS = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VLVS_1LIGHT]] */
+       VLVS_1LIGHT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VLVS_2LIGHTS]] */
+       VLVS_2LIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VLVS_3LIGHTS]] */
+       VLVS_3LIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.VLVS_4LIGHTS]] */
+       VLVS_4LIGHTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MAX_VERTEXLIGHT_VS_VARIATIONS]] */
+       MAX_VERTEXLIGHT_VS_VARIATIONS
+    }
+
+   // Legacy JS Access for enum:  VertexLightVSVariation
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.VLVS_NOLIGHTS]] */
+   export var VLVS_NOLIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.VLVS_1LIGHT]] */
+   export var VLVS_1LIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.VLVS_2LIGHTS]] */
+   export var VLVS_2LIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.VLVS_3LIGHTS]] */
+   export var VLVS_3LIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.VLVS_4LIGHTS]] */
+   export var VLVS_4LIGHTS: number;
+   /** JavaScript Only - For TypeScript, use: [[VertexLightVSVariation.MAX_VERTEXLIGHT_VS_VARIATIONS]] */
+   export var MAX_VERTEXLIGHT_VS_VARIATIONS: number;
+
+   /** enum FileMode*/
+   export const enum FileMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILE_READ]] */
+       FILE_READ = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILE_WRITE]] */
+       FILE_WRITE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILE_READWRITE]] */
+       FILE_READWRITE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.FILE_APPEND]] */
+       FILE_APPEND
+    }
+
+   // Legacy JS Access for enum:  FileMode
+   /** JavaScript Only - For TypeScript, use: [[FileMode.FILE_READ]] */
+   export var FILE_READ: number;
+   /** JavaScript Only - For TypeScript, use: [[FileMode.FILE_WRITE]] */
+   export var FILE_WRITE: number;
+   /** JavaScript Only - For TypeScript, use: [[FileMode.FILE_READWRITE]] */
+   export var FILE_READWRITE: number;
+   /** JavaScript Only - For TypeScript, use: [[FileMode.FILE_APPEND]] */
+   export var FILE_APPEND: number;
+
+   /** enum MouseMode*/
+   export const enum MouseMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MM_ABSOLUTE]] */
+       MM_ABSOLUTE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MM_RELATIVE]] */
+       MM_RELATIVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MM_WRAP]] */
+       MM_WRAP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MM_FREE]] */
+       MM_FREE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MM_INVALID]] */
+       MM_INVALID
+    }
+
+   // Legacy JS Access for enum:  MouseMode
+   /** JavaScript Only - For TypeScript, use: [[MouseMode.MM_ABSOLUTE]] */
+   export var MM_ABSOLUTE: number;
+   /** JavaScript Only - For TypeScript, use: [[MouseMode.MM_RELATIVE]] */
+   export var MM_RELATIVE: number;
+   /** JavaScript Only - For TypeScript, use: [[MouseMode.MM_WRAP]] */
+   export var MM_WRAP: number;
+   /** JavaScript Only - For TypeScript, use: [[MouseMode.MM_FREE]] */
+   export var MM_FREE: number;
+   /** JavaScript Only - For TypeScript, use: [[MouseMode.MM_INVALID]] */
+   export var MM_INVALID: number;
+
+   /** enum FrustumPlane*/
+   export const enum FrustumPlane {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_NEAR]] */
+       PLANE_NEAR = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_LEFT]] */
+       PLANE_LEFT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_RIGHT]] */
+       PLANE_RIGHT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_UP]] */
+       PLANE_UP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_DOWN]] */
+       PLANE_DOWN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLANE_FAR]] */
+       PLANE_FAR
+    }
+
+   // Legacy JS Access for enum:  FrustumPlane
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_NEAR]] */
+   export var PLANE_NEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_LEFT]] */
+   export var PLANE_LEFT: number;
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_RIGHT]] */
+   export var PLANE_RIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_UP]] */
+   export var PLANE_UP: number;
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_DOWN]] */
+   export var PLANE_DOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[FrustumPlane.PLANE_FAR]] */
+   export var PLANE_FAR: number;
+
+   /** enum Intersection*/
+   export const enum Intersection {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OUTSIDE]] */
+       OUTSIDE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INTERSECTS]] */
+       INTERSECTS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.INSIDE]] */
+       INSIDE
+    }
+
+   // Legacy JS Access for enum:  Intersection
+   /** JavaScript Only - For TypeScript, use: [[Intersection.OUTSIDE]] */
+   export var OUTSIDE: number;
+   /** JavaScript Only - For TypeScript, use: [[Intersection.INTERSECTS]] */
+   export var INTERSECTS: number;
+   /** JavaScript Only - For TypeScript, use: [[Intersection.INSIDE]] */
+   export var INSIDE: number;
+
+   /** enum CrowdAgentRequestedTarget*/
+   export const enum CrowdAgentRequestedTarget {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_REQUESTEDTARGET_NONE]] */
+       CA_REQUESTEDTARGET_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_REQUESTEDTARGET_POSITION]] */
+       CA_REQUESTEDTARGET_POSITION,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_REQUESTEDTARGET_VELOCITY]] */
+       CA_REQUESTEDTARGET_VELOCITY
+    }
+
+   // Legacy JS Access for enum:  CrowdAgentRequestedTarget
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentRequestedTarget.CA_REQUESTEDTARGET_NONE]] */
+   export var CA_REQUESTEDTARGET_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentRequestedTarget.CA_REQUESTEDTARGET_POSITION]] */
+   export var CA_REQUESTEDTARGET_POSITION: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentRequestedTarget.CA_REQUESTEDTARGET_VELOCITY]] */
+   export var CA_REQUESTEDTARGET_VELOCITY: number;
+
+   /** enum CrowdAgentState*/
+   export const enum CrowdAgentState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_STATE_INVALID]] */
+       CA_STATE_INVALID = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_STATE_WALKING]] */
+       CA_STATE_WALKING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_STATE_OFFMESH]] */
+       CA_STATE_OFFMESH
+    }
+
+   // Legacy JS Access for enum:  CrowdAgentState
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentState.CA_STATE_INVALID]] */
+   export var CA_STATE_INVALID: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentState.CA_STATE_WALKING]] */
+   export var CA_STATE_WALKING: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentState.CA_STATE_OFFMESH]] */
+   export var CA_STATE_OFFMESH: number;
+
+   /** enum CrowdAgentTargetState*/
+   export const enum CrowdAgentTargetState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_NONE]] */
+       CA_TARGET_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_FAILED]] */
+       CA_TARGET_FAILED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_VALID]] */
+       CA_TARGET_VALID,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_REQUESTING]] */
+       CA_TARGET_REQUESTING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_WAITINGFORQUEUE]] */
+       CA_TARGET_WAITINGFORQUEUE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_WAITINGFORPATH]] */
+       CA_TARGET_WAITINGFORPATH,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CA_TARGET_VELOCITY]] */
+       CA_TARGET_VELOCITY
+    }
+
+   // Legacy JS Access for enum:  CrowdAgentTargetState
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_NONE]] */
+   export var CA_TARGET_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_FAILED]] */
+   export var CA_TARGET_FAILED: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_VALID]] */
+   export var CA_TARGET_VALID: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_REQUESTING]] */
+   export var CA_TARGET_REQUESTING: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_WAITINGFORQUEUE]] */
+   export var CA_TARGET_WAITINGFORQUEUE: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_WAITINGFORPATH]] */
+   export var CA_TARGET_WAITINGFORPATH: number;
+   /** JavaScript Only - For TypeScript, use: [[CrowdAgentTargetState.CA_TARGET_VELOCITY]] */
+   export var CA_TARGET_VELOCITY: number;
+
+   /** enum NavigationPathPointFlag*/
+   export const enum NavigationPathPointFlag {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVPATHFLAG_NONE]] */
+       NAVPATHFLAG_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVPATHFLAG_START]] */
+       NAVPATHFLAG_START = 0x01,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVPATHFLAG_END]] */
+       NAVPATHFLAG_END = 0x02,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVPATHFLAG_OFF_MESH]] */
+       NAVPATHFLAG_OFF_MESH = 0x04
+    }
+
+   // Legacy JS Access for enum:  NavigationPathPointFlag
+   /** JavaScript Only - For TypeScript, use: [[NavigationPathPointFlag.NAVPATHFLAG_NONE]] */
+   export var NAVPATHFLAG_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPathPointFlag.NAVPATHFLAG_START]] */
+   export var NAVPATHFLAG_START: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPathPointFlag.NAVPATHFLAG_END]] */
+   export var NAVPATHFLAG_END: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPathPointFlag.NAVPATHFLAG_OFF_MESH]] */
+   export var NAVPATHFLAG_OFF_MESH: number;
+
+   /** enum NavigationPushiness*/
+   export const enum NavigationPushiness {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONPUSHINESS_LOW]] */
+       NAVIGATIONPUSHINESS_LOW = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONPUSHINESS_MEDIUM]] */
+       NAVIGATIONPUSHINESS_MEDIUM,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONPUSHINESS_HIGH]] */
+       NAVIGATIONPUSHINESS_HIGH,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONPUSHINESS_NONE]] */
+       NAVIGATIONPUSHINESS_NONE
+    }
+
+   // Legacy JS Access for enum:  NavigationPushiness
+   /** JavaScript Only - For TypeScript, use: [[NavigationPushiness.NAVIGATIONPUSHINESS_LOW]] */
+   export var NAVIGATIONPUSHINESS_LOW: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPushiness.NAVIGATIONPUSHINESS_MEDIUM]] */
+   export var NAVIGATIONPUSHINESS_MEDIUM: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPushiness.NAVIGATIONPUSHINESS_HIGH]] */
+   export var NAVIGATIONPUSHINESS_HIGH: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationPushiness.NAVIGATIONPUSHINESS_NONE]] */
+   export var NAVIGATIONPUSHINESS_NONE: number;
+
+   /** enum NavigationQuality*/
+   export const enum NavigationQuality {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONQUALITY_LOW]] */
+       NAVIGATIONQUALITY_LOW = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONQUALITY_MEDIUM]] */
+       NAVIGATIONQUALITY_MEDIUM = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVIGATIONQUALITY_HIGH]] */
+       NAVIGATIONQUALITY_HIGH = 2
+    }
+
+   // Legacy JS Access for enum:  NavigationQuality
+   /** JavaScript Only - For TypeScript, use: [[NavigationQuality.NAVIGATIONQUALITY_LOW]] */
+   export var NAVIGATIONQUALITY_LOW: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationQuality.NAVIGATIONQUALITY_MEDIUM]] */
+   export var NAVIGATIONQUALITY_MEDIUM: number;
+   /** JavaScript Only - For TypeScript, use: [[NavigationQuality.NAVIGATIONQUALITY_HIGH]] */
+   export var NAVIGATIONQUALITY_HIGH: number;
+
+   /** enum NavmeshPartitionType*/
+   export const enum NavmeshPartitionType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVMESH_PARTITION_WATERSHED]] */
+       NAVMESH_PARTITION_WATERSHED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.NAVMESH_PARTITION_MONOTONE]] */
+       NAVMESH_PARTITION_MONOTONE
+    }
+
+   // Legacy JS Access for enum:  NavmeshPartitionType
+   /** JavaScript Only - For TypeScript, use: [[NavmeshPartitionType.NAVMESH_PARTITION_WATERSHED]] */
+   export var NAVMESH_PARTITION_WATERSHED: number;
+   /** JavaScript Only - For TypeScript, use: [[NavmeshPartitionType.NAVMESH_PARTITION_MONOTONE]] */
+   export var NAVMESH_PARTITION_MONOTONE: number;
+
+   /** enum ClientConnectToGameServerState*/
+   export const enum ClientConnectToGameServerState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_NOT_CONNECTED]] */
+       GAME_NOT_CONNECTED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_CONNECTING_INTERNAL_IP]] */
+       GAME_CONNECTING_INTERNAL_IP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_VERIFYING_SERVER]] */
+       GAME_VERIFYING_SERVER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_CONNECTING_EXTERNAL_IP]] */
+       GAME_CONNECTING_EXTERNAL_IP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_CONNECTED]] */
+       GAME_CONNECTED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.GAME_CONNECTION_FAILED]] */
+       GAME_CONNECTION_FAILED
+    }
+
+   // Legacy JS Access for enum:  ClientConnectToGameServerState
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_NOT_CONNECTED]] */
+   export var GAME_NOT_CONNECTED: number;
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_CONNECTING_INTERNAL_IP]] */
+   export var GAME_CONNECTING_INTERNAL_IP: number;
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_VERIFYING_SERVER]] */
+   export var GAME_VERIFYING_SERVER: number;
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_CONNECTING_EXTERNAL_IP]] */
+   export var GAME_CONNECTING_EXTERNAL_IP: number;
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_CONNECTED]] */
+   export var GAME_CONNECTED: number;
+   /** JavaScript Only - For TypeScript, use: [[ClientConnectToGameServerState.GAME_CONNECTION_FAILED]] */
+   export var GAME_CONNECTION_FAILED: number;
+
+   /** enum ConnectToMasterState*/
+   export const enum ConnectToMasterState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MASTER_NOT_CONNECTED]] */
+       MASTER_NOT_CONNECTED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MASTER_CONNECTING_UDP]] */
+       MASTER_CONNECTING_UDP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MASTER_CONNECTING_TCP]] */
+       MASTER_CONNECTING_TCP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MASTER_CONNECTED]] */
+       MASTER_CONNECTED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.MASTER_CONNECTION_FAILED]] */
+       MASTER_CONNECTION_FAILED
+    }
+
+   // Legacy JS Access for enum:  ConnectToMasterState
+   /** JavaScript Only - For TypeScript, use: [[ConnectToMasterState.MASTER_NOT_CONNECTED]] */
+   export var MASTER_NOT_CONNECTED: number;
+   /** JavaScript Only - For TypeScript, use: [[ConnectToMasterState.MASTER_CONNECTING_UDP]] */
+   export var MASTER_CONNECTING_UDP: number;
+   /** JavaScript Only - For TypeScript, use: [[ConnectToMasterState.MASTER_CONNECTING_TCP]] */
+   export var MASTER_CONNECTING_TCP: number;
+   /** JavaScript Only - For TypeScript, use: [[ConnectToMasterState.MASTER_CONNECTED]] */
+   export var MASTER_CONNECTED: number;
+   /** JavaScript Only - For TypeScript, use: [[ConnectToMasterState.MASTER_CONNECTION_FAILED]] */
+   export var MASTER_CONNECTION_FAILED: number;
+
+   /** enum HttpRequestState*/
+   export const enum HttpRequestState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_INITIALIZING]] */
+       HTTP_INITIALIZING = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_ERROR]] */
+       HTTP_ERROR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_OPEN]] */
+       HTTP_OPEN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_CLOSED]] */
+       HTTP_CLOSED
+    }
+
+   // Legacy JS Access for enum:  HttpRequestState
+   /** JavaScript Only - For TypeScript, use: [[HttpRequestState.HTTP_INITIALIZING]] */
+   export var HTTP_INITIALIZING: number;
+   /** JavaScript Only - For TypeScript, use: [[HttpRequestState.HTTP_ERROR]] */
+   export var HTTP_ERROR: number;
+   /** JavaScript Only - For TypeScript, use: [[HttpRequestState.HTTP_OPEN]] */
+   export var HTTP_OPEN: number;
+   /** JavaScript Only - For TypeScript, use: [[HttpRequestState.HTTP_CLOSED]] */
+   export var HTTP_CLOSED: number;
+
+   /** enum ObserverPositionSendMode*/
+   export const enum ObserverPositionSendMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OPSM_NONE]] */
+       OPSM_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OPSM_POSITION]] */
+       OPSM_POSITION,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.OPSM_POSITION_ROTATION]] */
+       OPSM_POSITION_ROTATION
+    }
+
+   // Legacy JS Access for enum:  ObserverPositionSendMode
+   /** JavaScript Only - For TypeScript, use: [[ObserverPositionSendMode.OPSM_NONE]] */
+   export var OPSM_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[ObserverPositionSendMode.OPSM_POSITION]] */
+   export var OPSM_POSITION: number;
+   /** JavaScript Only - For TypeScript, use: [[ObserverPositionSendMode.OPSM_POSITION_ROTATION]] */
+   export var OPSM_POSITION_ROTATION: number;
+
+   /** enum CollisionEventMode*/
+   export const enum CollisionEventMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COLLISION_NEVER]] */
+       COLLISION_NEVER = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COLLISION_ACTIVE]] */
+       COLLISION_ACTIVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.COLLISION_ALWAYS]] */
+       COLLISION_ALWAYS
+    }
+
+   // Legacy JS Access for enum:  CollisionEventMode
+   /** JavaScript Only - For TypeScript, use: [[CollisionEventMode.COLLISION_NEVER]] */
+   export var COLLISION_NEVER: number;
+   /** JavaScript Only - For TypeScript, use: [[CollisionEventMode.COLLISION_ACTIVE]] */
+   export var COLLISION_ACTIVE: number;
+   /** JavaScript Only - For TypeScript, use: [[CollisionEventMode.COLLISION_ALWAYS]] */
+   export var COLLISION_ALWAYS: number;
+
+   /** enum ConstraintType*/
+   export const enum ConstraintType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CONSTRAINT_POINT]] */
+       CONSTRAINT_POINT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CONSTRAINT_HINGE]] */
+       CONSTRAINT_HINGE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CONSTRAINT_SLIDER]] */
+       CONSTRAINT_SLIDER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CONSTRAINT_CONETWIST]] */
+       CONSTRAINT_CONETWIST
+    }
+
+   // Legacy JS Access for enum:  ConstraintType
+   /** JavaScript Only - For TypeScript, use: [[ConstraintType.CONSTRAINT_POINT]] */
+   export var CONSTRAINT_POINT: number;
+   /** JavaScript Only - For TypeScript, use: [[ConstraintType.CONSTRAINT_HINGE]] */
+   export var CONSTRAINT_HINGE: number;
+   /** JavaScript Only - For TypeScript, use: [[ConstraintType.CONSTRAINT_SLIDER]] */
+   export var CONSTRAINT_SLIDER: number;
+   /** JavaScript Only - For TypeScript, use: [[ConstraintType.CONSTRAINT_CONETWIST]] */
+   export var CONSTRAINT_CONETWIST: number;
+
+   /** enum ShapeType*/
+   export const enum ShapeType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_BOX]] */
+       SHAPE_BOX = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_SPHERE]] */
+       SHAPE_SPHERE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_STATICPLANE]] */
+       SHAPE_STATICPLANE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_CYLINDER]] */
+       SHAPE_CYLINDER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_CAPSULE]] */
+       SHAPE_CAPSULE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_CONE]] */
+       SHAPE_CONE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_TRIANGLEMESH]] */
+       SHAPE_TRIANGLEMESH,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_CONVEXHULL]] */
+       SHAPE_CONVEXHULL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.SHAPE_TERRAIN]] */
+       SHAPE_TERRAIN
+    }
+
+   // Legacy JS Access for enum:  ShapeType
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_BOX]] */
+   export var SHAPE_BOX: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_SPHERE]] */
+   export var SHAPE_SPHERE: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_STATICPLANE]] */
+   export var SHAPE_STATICPLANE: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_CYLINDER]] */
+   export var SHAPE_CYLINDER: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_CAPSULE]] */
+   export var SHAPE_CAPSULE: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_CONE]] */
+   export var SHAPE_CONE: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_TRIANGLEMESH]] */
+   export var SHAPE_TRIANGLEMESH: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_CONVEXHULL]] */
+   export var SHAPE_CONVEXHULL: number;
+   /** JavaScript Only - For TypeScript, use: [[ShapeType.SHAPE_TERRAIN]] */
+   export var SHAPE_TERRAIN: number;
+
+   /** enum AsyncLoadState*/
+   export const enum AsyncLoadState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ASYNC_DONE]] */
+       ASYNC_DONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ASYNC_QUEUED]] */
+       ASYNC_QUEUED = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ASYNC_LOADING]] */
+       ASYNC_LOADING = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ASYNC_SUCCESS]] */
+       ASYNC_SUCCESS = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.ASYNC_FAIL]] */
+       ASYNC_FAIL = 4
+    }
+
+   // Legacy JS Access for enum:  AsyncLoadState
+   /** JavaScript Only - For TypeScript, use: [[AsyncLoadState.ASYNC_DONE]] */
+   export var ASYNC_DONE: number;
+   /** JavaScript Only - For TypeScript, use: [[AsyncLoadState.ASYNC_QUEUED]] */
+   export var ASYNC_QUEUED: number;
+   /** JavaScript Only - For TypeScript, use: [[AsyncLoadState.ASYNC_LOADING]] */
+   export var ASYNC_LOADING: number;
+   /** JavaScript Only - For TypeScript, use: [[AsyncLoadState.ASYNC_SUCCESS]] */
+   export var ASYNC_SUCCESS: number;
+   /** JavaScript Only - For TypeScript, use: [[AsyncLoadState.ASYNC_FAIL]] */
+   export var ASYNC_FAIL: number;
+
+   /** enum CompressedFormat*/
+   export const enum CompressedFormat {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_NONE]] */
+       CF_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_RGBA]] */
+       CF_RGBA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_DXT1]] */
+       CF_DXT1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_DXT3]] */
+       CF_DXT3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_DXT5]] */
+       CF_DXT5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_ETC1]] */
+       CF_ETC1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_PVRTC_RGB_2BPP]] */
+       CF_PVRTC_RGB_2BPP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_PVRTC_RGBA_2BPP]] */
+       CF_PVRTC_RGBA_2BPP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_PVRTC_RGB_4BPP]] */
+       CF_PVRTC_RGB_4BPP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.CF_PVRTC_RGBA_4BPP]] */
+       CF_PVRTC_RGBA_4BPP
+    }
+
+   // Legacy JS Access for enum:  CompressedFormat
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_NONE]] */
+   export var CF_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_RGBA]] */
+   export var CF_RGBA: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_DXT1]] */
+   export var CF_DXT1: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_DXT3]] */
+   export var CF_DXT3: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_DXT5]] */
+   export var CF_DXT5: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_ETC1]] */
+   export var CF_ETC1: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_PVRTC_RGB_2BPP]] */
+   export var CF_PVRTC_RGB_2BPP: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_PVRTC_RGBA_2BPP]] */
+   export var CF_PVRTC_RGBA_2BPP: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_PVRTC_RGB_4BPP]] */
+   export var CF_PVRTC_RGB_4BPP: number;
+   /** JavaScript Only - For TypeScript, use: [[CompressedFormat.CF_PVRTC_RGBA_4BPP]] */
+   export var CF_PVRTC_RGBA_4BPP: number;
+
+   /** enum JSONNumberType*/
+   export const enum JSONNumberType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSONNT_NAN]] */
+       JSONNT_NAN = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSONNT_INT]] */
+       JSONNT_INT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSONNT_UINT]] */
+       JSONNT_UINT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSONNT_FLOAT_DOUBLE]] */
+       JSONNT_FLOAT_DOUBLE
+    }
+
+   // Legacy JS Access for enum:  JSONNumberType
+   /** JavaScript Only - For TypeScript, use: [[JSONNumberType.JSONNT_NAN]] */
+   export var JSONNT_NAN: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONNumberType.JSONNT_INT]] */
+   export var JSONNT_INT: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONNumberType.JSONNT_UINT]] */
+   export var JSONNT_UINT: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONNumberType.JSONNT_FLOAT_DOUBLE]] */
+   export var JSONNT_FLOAT_DOUBLE: number;
+
+   /** enum JSONValueType*/
+   export const enum JSONValueType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_NULL]] */
+       JSON_NULL = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_BOOL]] */
+       JSON_BOOL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_NUMBER]] */
+       JSON_NUMBER,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_STRING]] */
+       JSON_STRING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_ARRAY]] */
+       JSON_ARRAY,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.JSON_OBJECT]] */
+       JSON_OBJECT
+    }
+
+   // Legacy JS Access for enum:  JSONValueType
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_NULL]] */
+   export var JSON_NULL: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_BOOL]] */
+   export var JSON_BOOL: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_NUMBER]] */
+   export var JSON_NUMBER: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_STRING]] */
+   export var JSON_STRING: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_ARRAY]] */
+   export var JSON_ARRAY: number;
+   /** JavaScript Only - For TypeScript, use: [[JSONValueType.JSON_OBJECT]] */
+   export var JSON_OBJECT: number;
+
+   /** enum PListValueType*/
+   export const enum PListValueType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_NONE]] */
+       PLVT_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_INT]] */
+       PLVT_INT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_BOOL]] */
+       PLVT_BOOL,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_FLOAT]] */
+       PLVT_FLOAT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_STRING]] */
+       PLVT_STRING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_VALUEMAP]] */
+       PLVT_VALUEMAP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.PLVT_VALUEVECTOR]] */
+       PLVT_VALUEVECTOR
+    }
+
+   // Legacy JS Access for enum:  PListValueType
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_NONE]] */
+   export var PLVT_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_INT]] */
+   export var PLVT_INT: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_BOOL]] */
+   export var PLVT_BOOL: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_FLOAT]] */
+   export var PLVT_FLOAT: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_STRING]] */
+   export var PLVT_STRING: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_VALUEMAP]] */
+   export var PLVT_VALUEMAP: number;
+   /** JavaScript Only - For TypeScript, use: [[PListValueType.PLVT_VALUEVECTOR]] */
+   export var PLVT_VALUEVECTOR: number;
+
+   /** enum ResourceRequest*/
+   export const enum ResourceRequest {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RESOURCE_CHECKEXISTS]] */
+       RESOURCE_CHECKEXISTS = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.RESOURCE_GETFILE]] */
+       RESOURCE_GETFILE = 1
+    }
+
+   // Legacy JS Access for enum:  ResourceRequest
+   /** JavaScript Only - For TypeScript, use: [[ResourceRequest.RESOURCE_CHECKEXISTS]] */
+   export var RESOURCE_CHECKEXISTS: number;
+   /** JavaScript Only - For TypeScript, use: [[ResourceRequest.RESOURCE_GETFILE]] */
+   export var RESOURCE_GETFILE: number;
+
+   /** enum AutoRemoveMode*/
+   export const enum AutoRemoveMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.REMOVE_DISABLED]] */
+       REMOVE_DISABLED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.REMOVE_COMPONENT]] */
+       REMOVE_COMPONENT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.REMOVE_NODE]] */
+       REMOVE_NODE
+    }
+
+   // Legacy JS Access for enum:  AutoRemoveMode
+   /** JavaScript Only - For TypeScript, use: [[AutoRemoveMode.REMOVE_DISABLED]] */
+   export var REMOVE_DISABLED: number;
+   /** JavaScript Only - For TypeScript, use: [[AutoRemoveMode.REMOVE_COMPONENT]] */
+   export var REMOVE_COMPONENT: number;
+   /** JavaScript Only - For TypeScript, use: [[AutoRemoveMode.REMOVE_NODE]] */
+   export var REMOVE_NODE: number;
+
+   /** enum CreateMode*/
+   export const enum CreateMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.REPLICATED]] */
+       REPLICATED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOCAL]] */
+       LOCAL = 1
+    }
+
+   // Legacy JS Access for enum:  CreateMode
+   /** JavaScript Only - For TypeScript, use: [[CreateMode.REPLICATED]] */
+   export var REPLICATED: number;
+   /** JavaScript Only - For TypeScript, use: [[CreateMode.LOCAL]] */
+   export var LOCAL: number;
+
+   /** enum InterpMethod*/
+   export const enum InterpMethod {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.IM_NONE]] */
+       IM_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.IM_LINEAR]] */
+       IM_LINEAR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.IM_SPLINE]] */
+       IM_SPLINE
+    }
+
+   // Legacy JS Access for enum:  InterpMethod
+   /** JavaScript Only - For TypeScript, use: [[InterpMethod.IM_NONE]] */
+   export var IM_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[InterpMethod.IM_LINEAR]] */
+   export var IM_LINEAR: number;
+   /** JavaScript Only - For TypeScript, use: [[InterpMethod.IM_SPLINE]] */
+   export var IM_SPLINE: number;
+
+   /** enum LoadMode*/
+   export const enum LoadMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOAD_RESOURCES_ONLY]] */
+       LOAD_RESOURCES_ONLY = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOAD_SCENE]] */
+       LOAD_SCENE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.LOAD_SCENE_AND_RESOURCES]] */
+       LOAD_SCENE_AND_RESOURCES
+    }
+
+   // Legacy JS Access for enum:  LoadMode
+   /** JavaScript Only - For TypeScript, use: [[LoadMode.LOAD_RESOURCES_ONLY]] */
+   export var LOAD_RESOURCES_ONLY: number;
+   /** JavaScript Only - For TypeScript, use: [[LoadMode.LOAD_SCENE]] */
+   export var LOAD_SCENE: number;
+   /** JavaScript Only - For TypeScript, use: [[LoadMode.LOAD_SCENE_AND_RESOURCES]] */
+   export var LOAD_SCENE_AND_RESOURCES: number;
+
+   /** enum TransformSpace*/
+   export const enum TransformSpace {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TS_LOCAL]] */
+       TS_LOCAL = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TS_PARENT]] */
+       TS_PARENT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.TS_WORLD]] */
+       TS_WORLD
+    }
+
+   // Legacy JS Access for enum:  TransformSpace
+   /** JavaScript Only - For TypeScript, use: [[TransformSpace.TS_LOCAL]] */
+   export var TS_LOCAL: number;
+   /** JavaScript Only - For TypeScript, use: [[TransformSpace.TS_PARENT]] */
+   export var TS_PARENT: number;
+   /** JavaScript Only - For TypeScript, use: [[TransformSpace.TS_WORLD]] */
+   export var TS_WORLD: number;
+
+   /** enum WrapMode*/
+   export const enum WrapMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WM_LOOP]] */
+       WM_LOOP = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WM_ONCE]] */
+       WM_ONCE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WM_CLAMP]] */
+       WM_CLAMP
+    }
+
+   // Legacy JS Access for enum:  WrapMode
+   /** JavaScript Only - For TypeScript, use: [[WrapMode.WM_LOOP]] */
+   export var WM_LOOP: number;
+   /** JavaScript Only - For TypeScript, use: [[WrapMode.WM_ONCE]] */
+   export var WM_ONCE: number;
+   /** JavaScript Only - For TypeScript, use: [[WrapMode.WM_CLAMP]] */
+   export var WM_CLAMP: number;
+
+   /** enum DebugHudProfileMode*/
+   export const enum DebugHudProfileMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DEBUG_HUD_PROFILE_PERFORMANCE]] */
+       DEBUG_HUD_PROFILE_PERFORMANCE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.DEBUG_HUD_PROFILE_METRICS]] */
+       DEBUG_HUD_PROFILE_METRICS
+    }
+
+   // Legacy JS Access for enum:  DebugHudProfileMode
+   /** JavaScript Only - For TypeScript, use: [[DebugHudProfileMode.DEBUG_HUD_PROFILE_PERFORMANCE]] */
+   export var DEBUG_HUD_PROFILE_PERFORMANCE: number;
+   /** JavaScript Only - For TypeScript, use: [[DebugHudProfileMode.DEBUG_HUD_PROFILE_METRICS]] */
+   export var DEBUG_HUD_PROFILE_METRICS: number;
+
+   /** enum UI_AXIS*/
+   export const enum UI_AXIS {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_AXIS_X]] */
+       UI_AXIS_X = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_AXIS_Y]] */
+       UI_AXIS_Y = 1
+    }
+
+   // Legacy JS Access for enum:  UI_AXIS
+   /** JavaScript Only - For TypeScript, use: [[UI_AXIS.UI_AXIS_X]] */
+   export var UI_AXIS_X: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_AXIS.UI_AXIS_Y]] */
+   export var UI_AXIS_Y: number;
+
+   /** enum UI_EDIT_TYPE*/
+   export const enum UI_EDIT_TYPE {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_TEXT]] */
+       UI_EDIT_TYPE_TEXT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_SEARCH]] */
+       UI_EDIT_TYPE_SEARCH = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_PASSWORD]] */
+       UI_EDIT_TYPE_PASSWORD = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_EMAIL]] */
+       UI_EDIT_TYPE_EMAIL = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_PHONE]] */
+       UI_EDIT_TYPE_PHONE = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_URL]] */
+       UI_EDIT_TYPE_URL = 5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EDIT_TYPE_NUMBER]] */
+       UI_EDIT_TYPE_NUMBER = 6
+    }
+
+   // Legacy JS Access for enum:  UI_EDIT_TYPE
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_TEXT]] */
+   export var UI_EDIT_TYPE_TEXT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_SEARCH]] */
+   export var UI_EDIT_TYPE_SEARCH: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_PASSWORD]] */
+   export var UI_EDIT_TYPE_PASSWORD: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_EMAIL]] */
+   export var UI_EDIT_TYPE_EMAIL: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_PHONE]] */
+   export var UI_EDIT_TYPE_PHONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_URL]] */
+   export var UI_EDIT_TYPE_URL: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EDIT_TYPE.UI_EDIT_TYPE_NUMBER]] */
+   export var UI_EDIT_TYPE_NUMBER: number;
+
+   /** enum UI_EVENT_TYPE*/
+   export const enum UI_EVENT_TYPE {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_CLICK]] */
+       UI_EVENT_TYPE_CLICK = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_LONG_CLICK]] */
+       UI_EVENT_TYPE_LONG_CLICK = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_POINTER_DOWN]] */
+       UI_EVENT_TYPE_POINTER_DOWN = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_POINTER_UP]] */
+       UI_EVENT_TYPE_POINTER_UP = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_POINTER_MOVE]] */
+       UI_EVENT_TYPE_POINTER_MOVE = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_RIGHT_POINTER_DOWN]] */
+       UI_EVENT_TYPE_RIGHT_POINTER_DOWN = 5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_RIGHT_POINTER_UP]] */
+       UI_EVENT_TYPE_RIGHT_POINTER_UP = 6,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_WHEEL]] */
+       UI_EVENT_TYPE_WHEEL = 7,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_CHANGED]] */
+       UI_EVENT_TYPE_CHANGED = 8,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_KEY_DOWN]] */
+       UI_EVENT_TYPE_KEY_DOWN = 9,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_KEY_UP]] */
+       UI_EVENT_TYPE_KEY_UP = 10,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_SHORTCUT]] */
+       UI_EVENT_TYPE_SHORTCUT = 11,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_CONTEXT_MENU]] */
+       UI_EVENT_TYPE_CONTEXT_MENU = 12,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_FILE_DROP]] */
+       UI_EVENT_TYPE_FILE_DROP = 13,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_TAB_CHANGED]] */
+       UI_EVENT_TYPE_TAB_CHANGED = 14,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_CUSTOM]] */
+       UI_EVENT_TYPE_CUSTOM = 15,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_TOUCH_DOWN]] */
+       UI_EVENT_TYPE_TOUCH_DOWN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_TOUCH_UP]] */
+       UI_EVENT_TYPE_TOUCH_UP,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_TOUCH_MOVE]] */
+       UI_EVENT_TYPE_TOUCH_MOVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_EVENT_TYPE_TOUCH_CANCEL]] */
+       UI_EVENT_TYPE_TOUCH_CANCEL
+    }
+
+   // Legacy JS Access for enum:  UI_EVENT_TYPE
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_CLICK]] */
+   export var UI_EVENT_TYPE_CLICK: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_LONG_CLICK]] */
+   export var UI_EVENT_TYPE_LONG_CLICK: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_POINTER_DOWN]] */
+   export var UI_EVENT_TYPE_POINTER_DOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_POINTER_UP]] */
+   export var UI_EVENT_TYPE_POINTER_UP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_POINTER_MOVE]] */
+   export var UI_EVENT_TYPE_POINTER_MOVE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_RIGHT_POINTER_DOWN]] */
+   export var UI_EVENT_TYPE_RIGHT_POINTER_DOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_RIGHT_POINTER_UP]] */
+   export var UI_EVENT_TYPE_RIGHT_POINTER_UP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_WHEEL]] */
+   export var UI_EVENT_TYPE_WHEEL: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_CHANGED]] */
+   export var UI_EVENT_TYPE_CHANGED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_KEY_DOWN]] */
+   export var UI_EVENT_TYPE_KEY_DOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_KEY_UP]] */
+   export var UI_EVENT_TYPE_KEY_UP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_SHORTCUT]] */
+   export var UI_EVENT_TYPE_SHORTCUT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_CONTEXT_MENU]] */
+   export var UI_EVENT_TYPE_CONTEXT_MENU: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_FILE_DROP]] */
+   export var UI_EVENT_TYPE_FILE_DROP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_TAB_CHANGED]] */
+   export var UI_EVENT_TYPE_TAB_CHANGED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_CUSTOM]] */
+   export var UI_EVENT_TYPE_CUSTOM: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_TOUCH_DOWN]] */
+   export var UI_EVENT_TYPE_TOUCH_DOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_TOUCH_UP]] */
+   export var UI_EVENT_TYPE_TOUCH_UP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_TOUCH_MOVE]] */
+   export var UI_EVENT_TYPE_TOUCH_MOVE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_EVENT_TYPE.UI_EVENT_TYPE_TOUCH_CANCEL]] */
+   export var UI_EVENT_TYPE_TOUCH_CANCEL: number;
+
+   /** enum UI_GRAVITY*/
+   export const enum UI_GRAVITY {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_NONE]] */
+       UI_GRAVITY_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_LEFT]] */
+       UI_GRAVITY_LEFT = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_RIGHT]] */
+       UI_GRAVITY_RIGHT = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_TOP]] */
+       UI_GRAVITY_TOP = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_BOTTOM]] */
+       UI_GRAVITY_BOTTOM = 8,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_LEFT_RIGHT]] */
+       UI_GRAVITY_LEFT_RIGHT = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_TOP_BOTTOM]] */
+       UI_GRAVITY_TOP_BOTTOM = 12,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_ALL]] */
+       UI_GRAVITY_ALL = 15,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_GRAVITY_DEFAULT]] */
+       UI_GRAVITY_DEFAULT = 5
+    }
+
+   // Legacy JS Access for enum:  UI_GRAVITY
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_NONE]] */
+   export var UI_GRAVITY_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_LEFT]] */
+   export var UI_GRAVITY_LEFT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_RIGHT]] */
+   export var UI_GRAVITY_RIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_TOP]] */
+   export var UI_GRAVITY_TOP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_BOTTOM]] */
+   export var UI_GRAVITY_BOTTOM: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_LEFT_RIGHT]] */
+   export var UI_GRAVITY_LEFT_RIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_TOP_BOTTOM]] */
+   export var UI_GRAVITY_TOP_BOTTOM: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_ALL]] */
+   export var UI_GRAVITY_ALL: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_GRAVITY.UI_GRAVITY_DEFAULT]] */
+   export var UI_GRAVITY_DEFAULT: number;
+
+   /** enum UI_LAYOUT_DISTRIBUTION*/
+   export const enum UI_LAYOUT_DISTRIBUTION {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_PREFERRED]] */
+       UI_LAYOUT_DISTRIBUTION_PREFERRED = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_AVAILABLE]] */
+       UI_LAYOUT_DISTRIBUTION_AVAILABLE = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_GRAVITY]] */
+       UI_LAYOUT_DISTRIBUTION_GRAVITY = 2
+    }
+
+   // Legacy JS Access for enum:  UI_LAYOUT_DISTRIBUTION
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION.UI_LAYOUT_DISTRIBUTION_PREFERRED]] */
+   export var UI_LAYOUT_DISTRIBUTION_PREFERRED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION.UI_LAYOUT_DISTRIBUTION_AVAILABLE]] */
+   export var UI_LAYOUT_DISTRIBUTION_AVAILABLE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION.UI_LAYOUT_DISTRIBUTION_GRAVITY]] */
+   export var UI_LAYOUT_DISTRIBUTION_GRAVITY: number;
+
+   /** enum UI_LAYOUT_DISTRIBUTION_POSITION*/
+   export const enum UI_LAYOUT_DISTRIBUTION_POSITION {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_POSITION_CENTER]] */
+       UI_LAYOUT_DISTRIBUTION_POSITION_CENTER = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_POSITION_LEFT_TOP]] */
+       UI_LAYOUT_DISTRIBUTION_POSITION_LEFT_TOP = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_DISTRIBUTION_POSITION_RIGHT_BOTTOM]] */
+       UI_LAYOUT_DISTRIBUTION_POSITION_RIGHT_BOTTOM = 2
+    }
+
+   // Legacy JS Access for enum:  UI_LAYOUT_DISTRIBUTION_POSITION
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION_POSITION.UI_LAYOUT_DISTRIBUTION_POSITION_CENTER]] */
+   export var UI_LAYOUT_DISTRIBUTION_POSITION_CENTER: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION_POSITION.UI_LAYOUT_DISTRIBUTION_POSITION_LEFT_TOP]] */
+   export var UI_LAYOUT_DISTRIBUTION_POSITION_LEFT_TOP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_DISTRIBUTION_POSITION.UI_LAYOUT_DISTRIBUTION_POSITION_RIGHT_BOTTOM]] */
+   export var UI_LAYOUT_DISTRIBUTION_POSITION_RIGHT_BOTTOM: number;
+
+   /** enum UI_LAYOUT_POSITION*/
+   export const enum UI_LAYOUT_POSITION {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_POSITION_CENTER]] */
+       UI_LAYOUT_POSITION_CENTER = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_POSITION_LEFT_TOP]] */
+       UI_LAYOUT_POSITION_LEFT_TOP = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_POSITION_RIGHT_BOTTOM]] */
+       UI_LAYOUT_POSITION_RIGHT_BOTTOM = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_POSITION_GRAVITY]] */
+       UI_LAYOUT_POSITION_GRAVITY = 3
+    }
+
+   // Legacy JS Access for enum:  UI_LAYOUT_POSITION
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_POSITION.UI_LAYOUT_POSITION_CENTER]] */
+   export var UI_LAYOUT_POSITION_CENTER: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_POSITION.UI_LAYOUT_POSITION_LEFT_TOP]] */
+   export var UI_LAYOUT_POSITION_LEFT_TOP: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_POSITION.UI_LAYOUT_POSITION_RIGHT_BOTTOM]] */
+   export var UI_LAYOUT_POSITION_RIGHT_BOTTOM: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_POSITION.UI_LAYOUT_POSITION_GRAVITY]] */
+   export var UI_LAYOUT_POSITION_GRAVITY: number;
+
+   /** enum UI_LAYOUT_SIZE*/
+   export const enum UI_LAYOUT_SIZE {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_SIZE_GRAVITY]] */
+       UI_LAYOUT_SIZE_GRAVITY = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_SIZE_PREFERRED]] */
+       UI_LAYOUT_SIZE_PREFERRED = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_LAYOUT_SIZE_AVAILABLE]] */
+       UI_LAYOUT_SIZE_AVAILABLE = 2
+    }
+
+   // Legacy JS Access for enum:  UI_LAYOUT_SIZE
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_SIZE.UI_LAYOUT_SIZE_GRAVITY]] */
+   export var UI_LAYOUT_SIZE_GRAVITY: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_SIZE.UI_LAYOUT_SIZE_PREFERRED]] */
+   export var UI_LAYOUT_SIZE_PREFERRED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_LAYOUT_SIZE.UI_LAYOUT_SIZE_AVAILABLE]] */
+   export var UI_LAYOUT_SIZE_AVAILABLE: number;
+
+   /** enum UI_MESSAGEWINDOW_SETTINGS*/
+   export const enum UI_MESSAGEWINDOW_SETTINGS {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_MESSAGEWINDOW_SETTINGS_OK]] */
+       UI_MESSAGEWINDOW_SETTINGS_OK = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_MESSAGEWINDOW_SETTINGS_OK_CANCEL]] */
+       UI_MESSAGEWINDOW_SETTINGS_OK_CANCEL = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_MESSAGEWINDOW_SETTINGS_YES_NO]] */
+       UI_MESSAGEWINDOW_SETTINGS_YES_NO = 3
+    }
+
+   // Legacy JS Access for enum:  UI_MESSAGEWINDOW_SETTINGS
+   /** JavaScript Only - For TypeScript, use: [[UI_MESSAGEWINDOW_SETTINGS.UI_MESSAGEWINDOW_SETTINGS_OK]] */
+   export var UI_MESSAGEWINDOW_SETTINGS_OK: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_MESSAGEWINDOW_SETTINGS.UI_MESSAGEWINDOW_SETTINGS_OK_CANCEL]] */
+   export var UI_MESSAGEWINDOW_SETTINGS_OK_CANCEL: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_MESSAGEWINDOW_SETTINGS.UI_MESSAGEWINDOW_SETTINGS_YES_NO]] */
+   export var UI_MESSAGEWINDOW_SETTINGS_YES_NO: number;
+
+   /** enum UI_SCROLL_MODE*/
+   export const enum UI_SCROLL_MODE {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SCROLL_MODE_X_Y]] */
+       UI_SCROLL_MODE_X_Y = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SCROLL_MODE_Y]] */
+       UI_SCROLL_MODE_Y = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SCROLL_MODE_Y_AUTO]] */
+       UI_SCROLL_MODE_Y_AUTO = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SCROLL_MODE_X_AUTO_Y_AUTO]] */
+       UI_SCROLL_MODE_X_AUTO_Y_AUTO = 3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SCROLL_MODE_OFF]] */
+       UI_SCROLL_MODE_OFF = 4
+    }
+
+   // Legacy JS Access for enum:  UI_SCROLL_MODE
+   /** JavaScript Only - For TypeScript, use: [[UI_SCROLL_MODE.UI_SCROLL_MODE_X_Y]] */
+   export var UI_SCROLL_MODE_X_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SCROLL_MODE.UI_SCROLL_MODE_Y]] */
+   export var UI_SCROLL_MODE_Y: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SCROLL_MODE.UI_SCROLL_MODE_Y_AUTO]] */
+   export var UI_SCROLL_MODE_Y_AUTO: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SCROLL_MODE.UI_SCROLL_MODE_X_AUTO_Y_AUTO]] */
+   export var UI_SCROLL_MODE_X_AUTO_Y_AUTO: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SCROLL_MODE.UI_SCROLL_MODE_OFF]] */
+   export var UI_SCROLL_MODE_OFF: number;
+
+   /** enum UI_SIZE_DEP*/
+   export const enum UI_SIZE_DEP {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SIZE_DEP_NONE]] */
+       UI_SIZE_DEP_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SIZE_DEP_WIDTH_DEPEND_ON_HEIGHT]] */
+       UI_SIZE_DEP_WIDTH_DEPEND_ON_HEIGHT = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SIZE_DEP_HEIGHT_DEPEND_ON_WIDTH]] */
+       UI_SIZE_DEP_HEIGHT_DEPEND_ON_WIDTH = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_SIZE_DEP_BOTH]] */
+       UI_SIZE_DEP_BOTH = 3
+    }
+
+   // Legacy JS Access for enum:  UI_SIZE_DEP
+   /** JavaScript Only - For TypeScript, use: [[UI_SIZE_DEP.UI_SIZE_DEP_NONE]] */
+   export var UI_SIZE_DEP_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SIZE_DEP.UI_SIZE_DEP_WIDTH_DEPEND_ON_HEIGHT]] */
+   export var UI_SIZE_DEP_WIDTH_DEPEND_ON_HEIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SIZE_DEP.UI_SIZE_DEP_HEIGHT_DEPEND_ON_WIDTH]] */
+   export var UI_SIZE_DEP_HEIGHT_DEPEND_ON_WIDTH: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_SIZE_DEP.UI_SIZE_DEP_BOTH]] */
+   export var UI_SIZE_DEP_BOTH: number;
+
+   /** enum UI_TEXT_ALIGN*/
+   export const enum UI_TEXT_ALIGN {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_TEXT_ALIGN_LEFT]] */
+       UI_TEXT_ALIGN_LEFT = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_TEXT_ALIGN_RIGHT]] */
+       UI_TEXT_ALIGN_RIGHT = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_TEXT_ALIGN_CENTER]] */
+       UI_TEXT_ALIGN_CENTER = 2
+    }
+
+   // Legacy JS Access for enum:  UI_TEXT_ALIGN
+   /** JavaScript Only - For TypeScript, use: [[UI_TEXT_ALIGN.UI_TEXT_ALIGN_LEFT]] */
+   export var UI_TEXT_ALIGN_LEFT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_TEXT_ALIGN.UI_TEXT_ALIGN_RIGHT]] */
+   export var UI_TEXT_ALIGN_RIGHT: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_TEXT_ALIGN.UI_TEXT_ALIGN_CENTER]] */
+   export var UI_TEXT_ALIGN_CENTER: number;
+
+   /** enum UI_WIDGET_STATE*/
+   export const enum UI_WIDGET_STATE {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_NONE]] */
+       UI_WIDGET_STATE_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_DISABLED]] */
+       UI_WIDGET_STATE_DISABLED = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_FOCUSED]] */
+       UI_WIDGET_STATE_FOCUSED = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_PRESSED]] */
+       UI_WIDGET_STATE_PRESSED = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_SELECTED]] */
+       UI_WIDGET_STATE_SELECTED = 8,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_HOVERED]] */
+       UI_WIDGET_STATE_HOVERED = 16,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_STATE_ALL]] */
+       UI_WIDGET_STATE_ALL = 31
+    }
+
+   // Legacy JS Access for enum:  UI_WIDGET_STATE
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_NONE]] */
+   export var UI_WIDGET_STATE_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_DISABLED]] */
+   export var UI_WIDGET_STATE_DISABLED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_FOCUSED]] */
+   export var UI_WIDGET_STATE_FOCUSED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_PRESSED]] */
+   export var UI_WIDGET_STATE_PRESSED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_SELECTED]] */
+   export var UI_WIDGET_STATE_SELECTED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_HOVERED]] */
+   export var UI_WIDGET_STATE_HOVERED: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_STATE.UI_WIDGET_STATE_ALL]] */
+   export var UI_WIDGET_STATE_ALL: number;
+
+   /** enum UI_WIDGET_VISIBILITY*/
+   export const enum UI_WIDGET_VISIBILITY {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_VISIBILITY_VISIBLE]] */
+       UI_WIDGET_VISIBILITY_VISIBLE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_VISIBILITY_INVISIBLE]] */
+       UI_WIDGET_VISIBILITY_INVISIBLE = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_VISIBILITY_GONE]] */
+       UI_WIDGET_VISIBILITY_GONE = 2
+    }
+
+   // Legacy JS Access for enum:  UI_WIDGET_VISIBILITY
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_VISIBILITY.UI_WIDGET_VISIBILITY_VISIBLE]] */
+   export var UI_WIDGET_VISIBILITY_VISIBLE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_VISIBILITY.UI_WIDGET_VISIBILITY_INVISIBLE]] */
+   export var UI_WIDGET_VISIBILITY_INVISIBLE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_VISIBILITY.UI_WIDGET_VISIBILITY_GONE]] */
+   export var UI_WIDGET_VISIBILITY_GONE: number;
+
+   /** enum UI_WIDGET_Z_REL*/
+   export const enum UI_WIDGET_Z_REL {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_Z_REL_BEFORE]] */
+       UI_WIDGET_Z_REL_BEFORE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WIDGET_Z_REL_AFTER]] */
+       UI_WIDGET_Z_REL_AFTER = 1
+    }
+
+   // Legacy JS Access for enum:  UI_WIDGET_Z_REL
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_Z_REL.UI_WIDGET_Z_REL_BEFORE]] */
+   export var UI_WIDGET_Z_REL_BEFORE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WIDGET_Z_REL.UI_WIDGET_Z_REL_AFTER]] */
+   export var UI_WIDGET_Z_REL_AFTER: number;
+
+   /** enum UI_WINDOW_SETTINGS*/
+   export const enum UI_WINDOW_SETTINGS {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_NONE]] */
+       UI_WINDOW_SETTINGS_NONE = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_TITLEBAR]] */
+       UI_WINDOW_SETTINGS_TITLEBAR = 1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_RESIZABLE]] */
+       UI_WINDOW_SETTINGS_RESIZABLE = 2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_CLOSE_BUTTON]] */
+       UI_WINDOW_SETTINGS_CLOSE_BUTTON = 4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_CAN_ACTIVATE]] */
+       UI_WINDOW_SETTINGS_CAN_ACTIVATE = 8,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.UI_WINDOW_SETTINGS_DEFAULT]] */
+       UI_WINDOW_SETTINGS_DEFAULT = 15
+    }
+
+   // Legacy JS Access for enum:  UI_WINDOW_SETTINGS
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_NONE]] */
+   export var UI_WINDOW_SETTINGS_NONE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_TITLEBAR]] */
+   export var UI_WINDOW_SETTINGS_TITLEBAR: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_RESIZABLE]] */
+   export var UI_WINDOW_SETTINGS_RESIZABLE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_CLOSE_BUTTON]] */
+   export var UI_WINDOW_SETTINGS_CLOSE_BUTTON: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_CAN_ACTIVATE]] */
+   export var UI_WINDOW_SETTINGS_CAN_ACTIVATE: number;
+   /** JavaScript Only - For TypeScript, use: [[UI_WINDOW_SETTINGS.UI_WINDOW_SETTINGS_DEFAULT]] */
+   export var UI_WINDOW_SETTINGS_DEFAULT: number;
+
+   /** enum WebRequestState*/
+   export const enum WebRequestState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_INITIALIZING]] */
+       HTTP_INITIALIZING = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_ERROR]] */
+       HTTP_ERROR,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_OPEN]] */
+       HTTP_OPEN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.HTTP_CLOSED]] */
+       HTTP_CLOSED
+    }
+
+   // Legacy JS Access for enum:  WebRequestState
+   /** JavaScript Only - For TypeScript, use: [[WebRequestState.HTTP_INITIALIZING]] */
+   export var HTTP_INITIALIZING: number;
+   /** JavaScript Only - For TypeScript, use: [[WebRequestState.HTTP_ERROR]] */
+   export var HTTP_ERROR: number;
+   /** JavaScript Only - For TypeScript, use: [[WebRequestState.HTTP_OPEN]] */
+   export var HTTP_OPEN: number;
+   /** JavaScript Only - For TypeScript, use: [[WebRequestState.HTTP_CLOSED]] */
+   export var HTTP_CLOSED: number;
+
+   /** enum WebSocketMessageType*/
+   export const enum WebSocketMessageType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTINUATION]] */
+       WSMT_CONTINUATION = 0x0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_TEXT]] */
+       WSMT_TEXT = 0x1,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_BINARY]] */
+       WSMT_BINARY = 0x2,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_RSV3]] */
+       WSMT_RSV3 = 0x3,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_RSV4]] */
+       WSMT_RSV4 = 0x4,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_RSV5]] */
+       WSMT_RSV5 = 0x5,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_RSV6]] */
+       WSMT_RSV6 = 0x6,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_RSV7]] */
+       WSMT_RSV7 = 0x7,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CLOSE]] */
+       WSMT_CLOSE = 0x8,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_PING]] */
+       WSMT_PING = 0x9,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_PONG]] */
+       WSMT_PONG = 0xA,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTROL_RSVB]] */
+       WSMT_CONTROL_RSVB = 0xB,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTROL_RSVC]] */
+       WSMT_CONTROL_RSVC = 0xC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTROL_RSVD]] */
+       WSMT_CONTROL_RSVD = 0xD,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTROL_RSVE]] */
+       WSMT_CONTROL_RSVE = 0xE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WSMT_CONTROL_RSVF]] */
+       WSMT_CONTROL_RSVF = 0xF
+    }
+
+   // Legacy JS Access for enum:  WebSocketMessageType
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTINUATION]] */
+   export var WSMT_CONTINUATION: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_TEXT]] */
+   export var WSMT_TEXT: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_BINARY]] */
+   export var WSMT_BINARY: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_RSV3]] */
+   export var WSMT_RSV3: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_RSV4]] */
+   export var WSMT_RSV4: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_RSV5]] */
+   export var WSMT_RSV5: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_RSV6]] */
+   export var WSMT_RSV6: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_RSV7]] */
+   export var WSMT_RSV7: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CLOSE]] */
+   export var WSMT_CLOSE: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_PING]] */
+   export var WSMT_PING: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_PONG]] */
+   export var WSMT_PONG: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTROL_RSVB]] */
+   export var WSMT_CONTROL_RSVB: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTROL_RSVC]] */
+   export var WSMT_CONTROL_RSVC: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTROL_RSVD]] */
+   export var WSMT_CONTROL_RSVD: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTROL_RSVE]] */
+   export var WSMT_CONTROL_RSVE: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketMessageType.WSMT_CONTROL_RSVF]] */
+   export var WSMT_CONTROL_RSVF: number;
+
+   /** enum WebSocketState*/
+   export const enum WebSocketState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_CONNECTING]] */
+       WS_CONNECTING = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_OPEN]] */
+       WS_OPEN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_CLOSING]] */
+       WS_CLOSING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_CLOSED]] */
+       WS_CLOSED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_INVALID]] */
+       WS_INVALID,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Atomic.WS_FAIL_TO_CONNECT]] */
+       WS_FAIL_TO_CONNECT
+    }
+
+   // Legacy JS Access for enum:  WebSocketState
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_CONNECTING]] */
+   export var WS_CONNECTING: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_OPEN]] */
+   export var WS_OPEN: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_CLOSING]] */
+   export var WS_CLOSING: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_CLOSED]] */
+   export var WS_CLOSED: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_INVALID]] */
+   export var WS_INVALID: number;
+   /** JavaScript Only - For TypeScript, use: [[WebSocketState.WS_FAIL_TO_CONNECT]] */
+   export var WS_FAIL_TO_CONNECT: number;
 
 
    export var PIXEL_SIZE: number;
@@ -1140,6 +3076,7 @@ declare module Atomic {
    export var KEY_BACKSPACE: number;
    export var KEY_C: number;
    export var KEY_CAPSLOCK: number;
+   export var KEY_COMMA: number;
    export var KEY_CTRL: number;
    export var KEY_D: number;
    export var KEY_DELETE: number;
@@ -1210,6 +3147,7 @@ declare module Atomic {
    export var KEY_PAGEDOWN: number;
    export var KEY_PAGEUP: number;
    export var KEY_PAUSE: number;
+   export var KEY_PERIOD: number;
    export var KEY_PRINTSCREEN: number;
    export var KEY_Q: number;
    export var KEY_R: number;
@@ -3080,7 +5018,7 @@ declare module Atomic {
     }
 
 
-export function PhysicsBeginContact2DEvent (callback : Atomic.EventCallback<PhysicsBeginContact2DEvent>) : Atomic.EventMetaData;
+    export function PhysicsBeginContact2DEvent (callback : Atomic.EventCallback<PhysicsBeginContact2DEvent>) : Atomic.EventMetaData;
 
     export interface PhysicsEndContact2DEvent extends Atomic.NativeEvent {
         world : Atomic.PhysicsWorld2D;
@@ -3093,7 +5031,7 @@ export function PhysicsBeginContact2DEvent (callback : Atomic.EventCallback<Phys
     }
 
 
-export function PhysicsEndContact2DEvent (callback : Atomic.EventCallback<PhysicsEndContact2DEvent>) : Atomic.EventMetaData;
+    export function PhysicsEndContact2DEvent (callback : Atomic.EventCallback<PhysicsEndContact2DEvent>) : Atomic.EventMetaData;
 
     export interface NodeBeginContact2DEvent extends Atomic.NativeEvent {
         body : Atomic.RigidBody2D;
@@ -3104,7 +5042,7 @@ export function PhysicsEndContact2DEvent (callback : Atomic.EventCallback<Physic
     }
 
 
-export function NodeBeginContact2DEvent (callback : Atomic.EventCallback<NodeBeginContact2DEvent>) : Atomic.EventMetaData;
+    export function NodeBeginContact2DEvent (callback : Atomic.EventCallback<NodeBeginContact2DEvent>) : Atomic.EventMetaData;
 
     export interface NodeEndContact2DEvent extends Atomic.NativeEvent {
         body : Atomic.RigidBody2D;
@@ -3115,7 +5053,7 @@ export function NodeBeginContact2DEvent (callback : Atomic.EventCallback<NodeBeg
     }
 
 
-export function NodeEndContact2DEvent (callback : Atomic.EventCallback<NodeEndContact2DEvent>) : Atomic.EventMetaData;
+    export function NodeEndContact2DEvent (callback : Atomic.EventCallback<NodeEndContact2DEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -3357,7 +5295,7 @@ export function NodeEndContact2DEvent (callback : Atomic.EventCallback<NodeEndCo
     }
 
 
-export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishedEvent>) : Atomic.EventMetaData;
+    export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -3367,6 +5305,7 @@ export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishe
 
    export class RefCounted {
 
+      typeName: string;
       instantiationType: InstantiationType;
 
       /**  Construct. Allocate the reference count structure and set an initial self weak reference. */
@@ -3381,6 +5320,7 @@ export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishe
       /**  Return weak reference count. */
       weakRefs(): number;
       isObject(): boolean;
+      getTypeName(): string;
       /**  Increment reference count. Do not call any lifetime book keeping */
       addRefSilent(): void;
       getInstantiationType(): InstantiationType;
@@ -3486,8 +5426,6 @@ export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishe
       getSubsystem(type: string): AObject;
       /**  Return active event sender. Null outside event handling. */
       getEventSender(): AObject;
-      /**  Return object type name from hash, or empty if unknown. */
-      getTypeName(objectType: string): string;
       /**  Get whether an Editor Context */
       getEditorContext(): boolean;
       /**  Get whether an Editor Context */
@@ -3537,7 +5475,7 @@ export function SoundFinishedEvent (callback : Atomic.EventCallback<SoundFinishe
     }
 
 
-export function WorkItemCompletedEvent (callback : Atomic.EventCallback<WorkItemCompletedEvent>) : Atomic.EventMetaData;
+    export function WorkItemCompletedEvent (callback : Atomic.EventCallback<WorkItemCompletedEvent>) : Atomic.EventMetaData;
 
     export interface BeginFrameEvent extends Atomic.NativeEvent {
         frameNumber : number;
@@ -3545,48 +5483,48 @@ export function WorkItemCompletedEvent (callback : Atomic.EventCallback<WorkItem
     }
 
 
-export function BeginFrameEvent (callback : Atomic.EventCallback<BeginFrameEvent>) : Atomic.EventMetaData;
+    export function BeginFrameEvent (callback : Atomic.EventCallback<BeginFrameEvent>) : Atomic.EventMetaData;
 
     export interface UpdateEvent extends Atomic.NativeEvent {
         timeStep : number;
     }
 
 
-export function UpdateEvent (callback : Atomic.EventCallback<UpdateEvent>) : Atomic.EventMetaData;
+    export function UpdateEvent (callback : Atomic.EventCallback<UpdateEvent>) : Atomic.EventMetaData;
 
     export interface PostUpdateEvent extends Atomic.NativeEvent {
         timeStep : number;
     }
 
 
-export function PostUpdateEvent (callback : Atomic.EventCallback<PostUpdateEvent>) : Atomic.EventMetaData;
+    export function PostUpdateEvent (callback : Atomic.EventCallback<PostUpdateEvent>) : Atomic.EventMetaData;
 
     export interface RenderUpdateEvent extends Atomic.NativeEvent {
         timeStep : number;
     }
 
 
-export function RenderUpdateEvent (callback : Atomic.EventCallback<RenderUpdateEvent>) : Atomic.EventMetaData;
+    export function RenderUpdateEvent (callback : Atomic.EventCallback<RenderUpdateEvent>) : Atomic.EventMetaData;
 
     export interface PostRenderUpdateEvent extends Atomic.NativeEvent {
         timeStep : number;
     }
 
 
-export function PostRenderUpdateEvent (callback : Atomic.EventCallback<PostRenderUpdateEvent>) : Atomic.EventMetaData;
+    export function PostRenderUpdateEvent (callback : Atomic.EventCallback<PostRenderUpdateEvent>) : Atomic.EventMetaData;
 
     export interface EndFrameEvent extends Atomic.NativeEvent {
     }
 
 
-export function EndFrameEvent (callback : Atomic.EventCallback<EndFrameEvent>) : Atomic.EventMetaData;
+    export function EndFrameEvent (callback : Atomic.EventCallback<EndFrameEvent>) : Atomic.EventMetaData;
 
     export interface UpdatesPausedEvent extends Atomic.NativeEvent {
         paused : boolean;
     }
 
 
-export function UpdatesPausedEvent (callback : Atomic.EventCallback<UpdatesPausedEvent>) : Atomic.EventMetaData;
+    export function UpdatesPausedEvent (callback : Atomic.EventCallback<UpdatesPausedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -3595,6 +5533,7 @@ export function UpdatesPausedEvent (callback : Atomic.EventCallback<UpdatesPause
 
 
    export class Application extends AObject {
+
 
       /**  Construct. Parse default engine parameters from the command line, and create the engine in an uninitialized state. */
       constructor();
@@ -3607,6 +5546,8 @@ export function UpdatesPausedEvent (callback : Atomic.EventCallback<UpdatesPause
       stop(): void;
       /**  Show an error message (last log message if empty), terminate the main loop, and set failure exit code. */
       errorExit(message?: string): void;
+      static getAutoMetrics(): boolean;
+      static setAutoMetrics(value: boolean): void;
 
    }
 
@@ -3701,7 +5642,7 @@ export function UpdatesPausedEvent (callback : Atomic.EventCallback<UpdatesPause
     }
 
 
-export function ConsoleCommandEvent (callback : Atomic.EventCallback<ConsoleCommandEvent>) : Atomic.EventMetaData;
+    export function ConsoleCommandEvent (callback : Atomic.EventCallback<ConsoleCommandEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -6648,113 +8589,12 @@ export function ConsoleCommandEvent (callback : Atomic.EventCallback<ConsoleComm
    }
 
 
-    export interface ScreenModeEvent extends Atomic.NativeEvent {
-        width : number;
-        height : number;
-        fullscreen : boolean;
-        borderless : boolean;
-        resizable : boolean;
-        highDPI : boolean;
-    }
-
-
-export function ScreenModeEvent (callback : Atomic.EventCallback<ScreenModeEvent>) : Atomic.EventMetaData;
-
-    export interface WindowPosEvent extends Atomic.NativeEvent {
-        x : number;
-        y : number;
-    }
-
-
-export function WindowPosEvent (callback : Atomic.EventCallback<WindowPosEvent>) : Atomic.EventMetaData;
-
-    export interface RenderSurfaceUpdateEvent extends Atomic.NativeEvent {
-    }
-
-
-export function RenderSurfaceUpdateEvent (callback : Atomic.EventCallback<RenderSurfaceUpdateEvent>) : Atomic.EventMetaData;
-
-    export interface BeginRenderingEvent extends Atomic.NativeEvent {
-    }
-
-
-export function BeginRenderingEvent (callback : Atomic.EventCallback<BeginRenderingEvent>) : Atomic.EventMetaData;
-
-    export interface EndRenderingEvent extends Atomic.NativeEvent {
-    }
-
-
-export function EndRenderingEvent (callback : Atomic.EventCallback<EndRenderingEvent>) : Atomic.EventMetaData;
-
-    export interface BeginViewUpdateEvent extends Atomic.NativeEvent {
-        view : Atomic.View;
-        texture : Atomic.Texture;
-        surface : Atomic.RenderSurface;
-        scene : Atomic.Scene;
-        camera : Atomic.Camera;
-    }
-
-
-export function BeginViewUpdateEvent (callback : Atomic.EventCallback<BeginViewUpdateEvent>) : Atomic.EventMetaData;
-
-    export interface EndViewUpdateEvent extends Atomic.NativeEvent {
-        view : Atomic.View;
-        texture : Atomic.Texture;
-        surface : Atomic.RenderSurface;
-        scene : Atomic.Scene;
-        camera : Atomic.Camera;
-    }
-
-
-export function EndViewUpdateEvent (callback : Atomic.EventCallback<EndViewUpdateEvent>) : Atomic.EventMetaData;
-
-    export interface BeginViewRenderEvent extends Atomic.NativeEvent {
-        view : Atomic.View;
-        texture : Atomic.Texture;
-        surface : Atomic.RenderSurface;
-        scene : Atomic.Scene;
-        camera : Atomic.Camera;
-    }
-
-
-export function BeginViewRenderEvent (callback : Atomic.EventCallback<BeginViewRenderEvent>) : Atomic.EventMetaData;
-
-    export interface EndViewRenderEvent extends Atomic.NativeEvent {
-        view : Atomic.View;
-        texture : Atomic.Texture;
-        surface : Atomic.RenderSurface;
-        scene : Atomic.Scene;
-        camera : Atomic.Camera;
-    }
-
-
-export function EndViewRenderEvent (callback : Atomic.EventCallback<EndViewRenderEvent>) : Atomic.EventMetaData;
-
-    export interface RenderPathEvent extends Atomic.NativeEvent {
-        name : string;
-    }
-
-
-export function RenderPathEvent (callback : Atomic.EventCallback<RenderPathEvent>) : Atomic.EventMetaData;
-
-    export interface DeviceLostEvent extends Atomic.NativeEvent {
-    }
-
-
-export function DeviceLostEvent (callback : Atomic.EventCallback<DeviceLostEvent>) : Atomic.EventMetaData;
-
-    export interface DeviceResetEvent extends Atomic.NativeEvent {
-    }
-
-
-export function DeviceResetEvent (callback : Atomic.EventCallback<DeviceResetEvent>) : Atomic.EventMetaData;
-
     export interface BoneHierarchyCreatedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function BoneHierarchyCreatedEvent (callback : Atomic.EventCallback<BoneHierarchyCreatedEvent>) : Atomic.EventMetaData;
+    export function BoneHierarchyCreatedEvent (callback : Atomic.EventCallback<BoneHierarchyCreatedEvent>) : Atomic.EventMetaData;
 
     export interface AnimationTriggerEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -6766,7 +8606,7 @@ export function BoneHierarchyCreatedEvent (callback : Atomic.EventCallback<BoneH
     }
 
 
-export function AnimationTriggerEvent (callback : Atomic.EventCallback<AnimationTriggerEvent>) : Atomic.EventMetaData;
+    export function AnimationTriggerEvent (callback : Atomic.EventCallback<AnimationTriggerEvent>) : Atomic.EventMetaData;
 
     export interface AnimationFinishedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -6776,7 +8616,7 @@ export function AnimationTriggerEvent (callback : Atomic.EventCallback<Animation
     }
 
 
-export function AnimationFinishedEvent (callback : Atomic.EventCallback<AnimationFinishedEvent>) : Atomic.EventMetaData;
+    export function AnimationFinishedEvent (callback : Atomic.EventCallback<AnimationFinishedEvent>) : Atomic.EventMetaData;
 
     export interface ParticleEffectFinishedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -6784,14 +8624,115 @@ export function AnimationFinishedEvent (callback : Atomic.EventCallback<Animatio
     }
 
 
-export function ParticleEffectFinishedEvent (callback : Atomic.EventCallback<ParticleEffectFinishedEvent>) : Atomic.EventMetaData;
+    export function ParticleEffectFinishedEvent (callback : Atomic.EventCallback<ParticleEffectFinishedEvent>) : Atomic.EventMetaData;
 
     export interface TerrainCreatedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function TerrainCreatedEvent (callback : Atomic.EventCallback<TerrainCreatedEvent>) : Atomic.EventMetaData;
+    export function TerrainCreatedEvent (callback : Atomic.EventCallback<TerrainCreatedEvent>) : Atomic.EventMetaData;
+
+    export interface ScreenModeEvent extends Atomic.NativeEvent {
+        width : number;
+        height : number;
+        fullscreen : boolean;
+        borderless : boolean;
+        resizable : boolean;
+        highDPI : boolean;
+    }
+
+
+    export function ScreenModeEvent (callback : Atomic.EventCallback<ScreenModeEvent>) : Atomic.EventMetaData;
+
+    export interface WindowPosEvent extends Atomic.NativeEvent {
+        x : number;
+        y : number;
+    }
+
+
+    export function WindowPosEvent (callback : Atomic.EventCallback<WindowPosEvent>) : Atomic.EventMetaData;
+
+    export interface RenderSurfaceUpdateEvent extends Atomic.NativeEvent {
+    }
+
+
+    export function RenderSurfaceUpdateEvent (callback : Atomic.EventCallback<RenderSurfaceUpdateEvent>) : Atomic.EventMetaData;
+
+    export interface BeginRenderingEvent extends Atomic.NativeEvent {
+    }
+
+
+    export function BeginRenderingEvent (callback : Atomic.EventCallback<BeginRenderingEvent>) : Atomic.EventMetaData;
+
+    export interface EndRenderingEvent extends Atomic.NativeEvent {
+    }
+
+
+    export function EndRenderingEvent (callback : Atomic.EventCallback<EndRenderingEvent>) : Atomic.EventMetaData;
+
+    export interface BeginViewUpdateEvent extends Atomic.NativeEvent {
+        view : Atomic.View;
+        texture : Atomic.Texture;
+        surface : Atomic.RenderSurface;
+        scene : Atomic.Scene;
+        camera : Atomic.Camera;
+    }
+
+
+    export function BeginViewUpdateEvent (callback : Atomic.EventCallback<BeginViewUpdateEvent>) : Atomic.EventMetaData;
+
+    export interface EndViewUpdateEvent extends Atomic.NativeEvent {
+        view : Atomic.View;
+        texture : Atomic.Texture;
+        surface : Atomic.RenderSurface;
+        scene : Atomic.Scene;
+        camera : Atomic.Camera;
+    }
+
+
+    export function EndViewUpdateEvent (callback : Atomic.EventCallback<EndViewUpdateEvent>) : Atomic.EventMetaData;
+
+    export interface BeginViewRenderEvent extends Atomic.NativeEvent {
+        view : Atomic.View;
+        texture : Atomic.Texture;
+        surface : Atomic.RenderSurface;
+        scene : Atomic.Scene;
+        camera : Atomic.Camera;
+    }
+
+
+    export function BeginViewRenderEvent (callback : Atomic.EventCallback<BeginViewRenderEvent>) : Atomic.EventMetaData;
+
+    export interface EndViewRenderEvent extends Atomic.NativeEvent {
+        view : Atomic.View;
+        texture : Atomic.Texture;
+        surface : Atomic.RenderSurface;
+        scene : Atomic.Scene;
+        camera : Atomic.Camera;
+    }
+
+
+    export function EndViewRenderEvent (callback : Atomic.EventCallback<EndViewRenderEvent>) : Atomic.EventMetaData;
+
+    export interface RenderPathEvent extends Atomic.NativeEvent {
+        name : string;
+    }
+
+
+    export function RenderPathEvent (callback : Atomic.EventCallback<RenderPathEvent>) : Atomic.EventMetaData;
+
+    export interface DeviceLostEvent extends Atomic.NativeEvent {
+    }
+
+
+    export function DeviceLostEvent (callback : Atomic.EventCallback<DeviceLostEvent>) : Atomic.EventMetaData;
+
+    export interface DeviceResetEvent extends Atomic.NativeEvent {
+    }
+
+
+    export function DeviceResetEvent (callback : Atomic.EventCallback<DeviceResetEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -7229,6 +9170,42 @@ export function TerrainCreatedEvent (callback : Atomic.EventCallback<TerrainCrea
 
    }
 
+   export class PackageFile extends AObject {
+
+      name: string;
+      nameHash: string;
+      numFiles: number;
+      totalSize: number;
+      totalDataSize: number;
+      checksum: number;
+      compressed: boolean;
+
+      /**  Construct and open. */
+      constructor(fileName: string, startOffset?: number);
+
+      /**  Open the package file. Return true if successful. */
+      open(fileName: string, startOffset?: number): boolean;
+      /**  Check if a file exists within the package file. This will be case-insensitive on Windows and case-sensitive on other platforms. */
+      exists(fileName: string): boolean;
+      /**  Return the package file name. */
+      getName(): string;
+      /**  Return hash of the package file name. */
+      getNameHash(): string;
+      /**  Return number of files. */
+      getNumFiles(): number;
+      /**  Return total size of the package file. */
+      getTotalSize(): number;
+      /**  Return total data size from all the file entries in the package file. */
+      getTotalDataSize(): number;
+      /**  Return checksum of the package file contents. */
+      getChecksum(): number;
+      /**  Return whether the files are compressed. */
+      isCompressed(): boolean;
+      /**  Return a file name in the package at the specified index */
+      getEntryName(index: number): string;
+
+   }
+
 
     export interface LogMessageEvent extends Atomic.NativeEvent {
         message : string;
@@ -7236,7 +9213,7 @@ export function TerrainCreatedEvent (callback : Atomic.EventCallback<TerrainCrea
     }
 
 
-export function LogMessageEvent (callback : Atomic.EventCallback<LogMessageEvent>) : Atomic.EventMetaData;
+    export function LogMessageEvent (callback : Atomic.EventCallback<LogMessageEvent>) : Atomic.EventMetaData;
 
     export interface AsyncExecFinishedEvent extends Atomic.NativeEvent {
         requestID : number;
@@ -7244,7 +9221,7 @@ export function LogMessageEvent (callback : Atomic.EventCallback<LogMessageEvent
     }
 
 
-export function AsyncExecFinishedEvent (callback : Atomic.EventCallback<AsyncExecFinishedEvent>) : Atomic.EventMetaData;
+    export function AsyncExecFinishedEvent (callback : Atomic.EventCallback<AsyncExecFinishedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -7269,7 +9246,7 @@ export function AsyncExecFinishedEvent (callback : Atomic.EventCallback<AsyncExe
     }
 
 
-export function IPCCmdEvent (callback : Atomic.EventCallback<IPCCmdEvent>) : Atomic.EventMetaData;
+    export function IPCCmdEvent (callback : Atomic.EventCallback<IPCCmdEvent>) : Atomic.EventMetaData;
 
     export interface IPCCmdResultEvent extends Atomic.NativeEvent {
         command : string;
@@ -7277,13 +9254,13 @@ export function IPCCmdEvent (callback : Atomic.EventCallback<IPCCmdEvent>) : Ato
     }
 
 
-export function IPCCmdResultEvent (callback : Atomic.EventCallback<IPCCmdResultEvent>) : Atomic.EventMetaData;
+    export function IPCCmdResultEvent (callback : Atomic.EventCallback<IPCCmdResultEvent>) : Atomic.EventMetaData;
 
     export interface IPCWorkerStartEvent extends Atomic.NativeEvent {
     }
 
 
-export function IPCWorkerStartEvent (callback : Atomic.EventCallback<IPCWorkerStartEvent>) : Atomic.EventMetaData;
+    export function IPCWorkerStartEvent (callback : Atomic.EventCallback<IPCWorkerStartEvent>) : Atomic.EventMetaData;
 
     export interface IPCWorkerExitEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:broker 
@@ -7292,13 +9269,13 @@ export function IPCWorkerStartEvent (callback : Atomic.EventCallback<IPCWorkerSt
     }
 
 
-export function IPCWorkerExitEvent (callback : Atomic.EventCallback<IPCWorkerExitEvent>) : Atomic.EventMetaData;
+    export function IPCWorkerExitEvent (callback : Atomic.EventCallback<IPCWorkerExitEvent>) : Atomic.EventMetaData;
 
     export interface IPCInitializeEvent extends Atomic.NativeEvent {
     }
 
 
-export function IPCInitializeEvent (callback : Atomic.EventCallback<IPCInitializeEvent>) : Atomic.EventMetaData;
+    export function IPCInitializeEvent (callback : Atomic.EventCallback<IPCInitializeEvent>) : Atomic.EventMetaData;
 
     export interface IPCWorkerLogEvent extends Atomic.NativeEvent {
         level : number;
@@ -7306,7 +9283,7 @@ export function IPCInitializeEvent (callback : Atomic.EventCallback<IPCInitializ
     }
 
 
-export function IPCWorkerLogEvent (callback : Atomic.EventCallback<IPCWorkerLogEvent>) : Atomic.EventMetaData;
+    export function IPCWorkerLogEvent (callback : Atomic.EventCallback<IPCWorkerLogEvent>) : Atomic.EventMetaData;
 
     export interface IPCMessageEvent extends Atomic.NativeEvent {
         message : string;
@@ -7314,7 +9291,7 @@ export function IPCWorkerLogEvent (callback : Atomic.EventCallback<IPCWorkerLogE
     }
 
 
-export function IPCMessageEvent (callback : Atomic.EventCallback<IPCMessageEvent>) : Atomic.EventMetaData;
+    export function IPCMessageEvent (callback : Atomic.EventCallback<IPCMessageEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -7527,7 +9504,7 @@ export function IPCMessageEvent (callback : Atomic.EventCallback<IPCMessageEvent
     }
 
 
-export function MouseButtonDownEvent (callback : Atomic.EventCallback<MouseButtonDownEvent>) : Atomic.EventMetaData;
+    export function MouseButtonDownEvent (callback : Atomic.EventCallback<MouseButtonDownEvent>) : Atomic.EventMetaData;
 
     export interface MouseButtonUpEvent extends Atomic.NativeEvent {
         button : number;
@@ -7536,7 +9513,7 @@ export function MouseButtonDownEvent (callback : Atomic.EventCallback<MouseButto
     }
 
 
-export function MouseButtonUpEvent (callback : Atomic.EventCallback<MouseButtonUpEvent>) : Atomic.EventMetaData;
+    export function MouseButtonUpEvent (callback : Atomic.EventCallback<MouseButtonUpEvent>) : Atomic.EventMetaData;
 
     export interface MouseMoveEvent extends Atomic.NativeEvent {
         x : number;
@@ -7548,7 +9525,7 @@ export function MouseButtonUpEvent (callback : Atomic.EventCallback<MouseButtonU
     }
 
 
-export function MouseMoveEvent (callback : Atomic.EventCallback<MouseMoveEvent>) : Atomic.EventMetaData;
+    export function MouseMoveEvent (callback : Atomic.EventCallback<MouseMoveEvent>) : Atomic.EventMetaData;
 
     export interface MouseWheelEvent extends Atomic.NativeEvent {
         wheel : number;
@@ -7557,7 +9534,7 @@ export function MouseMoveEvent (callback : Atomic.EventCallback<MouseMoveEvent>)
     }
 
 
-export function MouseWheelEvent (callback : Atomic.EventCallback<MouseWheelEvent>) : Atomic.EventMetaData;
+    export function MouseWheelEvent (callback : Atomic.EventCallback<MouseWheelEvent>) : Atomic.EventMetaData;
 
     export interface KeyDownEvent extends Atomic.NativeEvent {
         key : number;
@@ -7568,7 +9545,7 @@ export function MouseWheelEvent (callback : Atomic.EventCallback<MouseWheelEvent
     }
 
 
-export function KeyDownEvent (callback : Atomic.EventCallback<KeyDownEvent>) : Atomic.EventMetaData;
+    export function KeyDownEvent (callback : Atomic.EventCallback<KeyDownEvent>) : Atomic.EventMetaData;
 
     export interface KeyUpEvent extends Atomic.NativeEvent {
         key : number;
@@ -7578,7 +9555,7 @@ export function KeyDownEvent (callback : Atomic.EventCallback<KeyDownEvent>) : A
     }
 
 
-export function KeyUpEvent (callback : Atomic.EventCallback<KeyUpEvent>) : Atomic.EventMetaData;
+    export function KeyUpEvent (callback : Atomic.EventCallback<KeyUpEvent>) : Atomic.EventMetaData;
 
     export interface TextInputEvent extends Atomic.NativeEvent {
         text : string;
@@ -7587,21 +9564,21 @@ export function KeyUpEvent (callback : Atomic.EventCallback<KeyUpEvent>) : Atomi
     }
 
 
-export function TextInputEvent (callback : Atomic.EventCallback<TextInputEvent>) : Atomic.EventMetaData;
+    export function TextInputEvent (callback : Atomic.EventCallback<TextInputEvent>) : Atomic.EventMetaData;
 
     export interface JoystickConnectedEvent extends Atomic.NativeEvent {
         joystickID : number;
     }
 
 
-export function JoystickConnectedEvent (callback : Atomic.EventCallback<JoystickConnectedEvent>) : Atomic.EventMetaData;
+    export function JoystickConnectedEvent (callback : Atomic.EventCallback<JoystickConnectedEvent>) : Atomic.EventMetaData;
 
     export interface JoystickDisconnectedEvent extends Atomic.NativeEvent {
         joystickID : number;
     }
 
 
-export function JoystickDisconnectedEvent (callback : Atomic.EventCallback<JoystickDisconnectedEvent>) : Atomic.EventMetaData;
+    export function JoystickDisconnectedEvent (callback : Atomic.EventCallback<JoystickDisconnectedEvent>) : Atomic.EventMetaData;
 
     export interface JoystickButtonDownEvent extends Atomic.NativeEvent {
         joystickID : number;
@@ -7609,7 +9586,7 @@ export function JoystickDisconnectedEvent (callback : Atomic.EventCallback<Joyst
     }
 
 
-export function JoystickButtonDownEvent (callback : Atomic.EventCallback<JoystickButtonDownEvent>) : Atomic.EventMetaData;
+    export function JoystickButtonDownEvent (callback : Atomic.EventCallback<JoystickButtonDownEvent>) : Atomic.EventMetaData;
 
     export interface JoystickButtonUpEvent extends Atomic.NativeEvent {
         joystickID : number;
@@ -7617,7 +9594,7 @@ export function JoystickButtonDownEvent (callback : Atomic.EventCallback<Joystic
     }
 
 
-export function JoystickButtonUpEvent (callback : Atomic.EventCallback<JoystickButtonUpEvent>) : Atomic.EventMetaData;
+    export function JoystickButtonUpEvent (callback : Atomic.EventCallback<JoystickButtonUpEvent>) : Atomic.EventMetaData;
 
     export interface JoystickAxisMoveEvent extends Atomic.NativeEvent {
         joystickID : number;
@@ -7626,7 +9603,7 @@ export function JoystickButtonUpEvent (callback : Atomic.EventCallback<JoystickB
     }
 
 
-export function JoystickAxisMoveEvent (callback : Atomic.EventCallback<JoystickAxisMoveEvent>) : Atomic.EventMetaData;
+    export function JoystickAxisMoveEvent (callback : Atomic.EventCallback<JoystickAxisMoveEvent>) : Atomic.EventMetaData;
 
     export interface JoystickHatMoveEvent extends Atomic.NativeEvent {
         joystickID : number;
@@ -7635,7 +9612,7 @@ export function JoystickAxisMoveEvent (callback : Atomic.EventCallback<JoystickA
     }
 
 
-export function JoystickHatMoveEvent (callback : Atomic.EventCallback<JoystickHatMoveEvent>) : Atomic.EventMetaData;
+    export function JoystickHatMoveEvent (callback : Atomic.EventCallback<JoystickHatMoveEvent>) : Atomic.EventMetaData;
 
     export interface TouchBeginEvent extends Atomic.NativeEvent {
         touchID : number;
@@ -7645,7 +9622,7 @@ export function JoystickHatMoveEvent (callback : Atomic.EventCallback<JoystickHa
     }
 
 
-export function TouchBeginEvent (callback : Atomic.EventCallback<TouchBeginEvent>) : Atomic.EventMetaData;
+    export function TouchBeginEvent (callback : Atomic.EventCallback<TouchBeginEvent>) : Atomic.EventMetaData;
 
     export interface TouchEndEvent extends Atomic.NativeEvent {
         touchID : number;
@@ -7654,7 +9631,7 @@ export function TouchBeginEvent (callback : Atomic.EventCallback<TouchBeginEvent
     }
 
 
-export function TouchEndEvent (callback : Atomic.EventCallback<TouchEndEvent>) : Atomic.EventMetaData;
+    export function TouchEndEvent (callback : Atomic.EventCallback<TouchEndEvent>) : Atomic.EventMetaData;
 
     export interface TouchMoveEvent extends Atomic.NativeEvent {
         touchID : number;
@@ -7666,14 +9643,14 @@ export function TouchEndEvent (callback : Atomic.EventCallback<TouchEndEvent>) :
     }
 
 
-export function TouchMoveEvent (callback : Atomic.EventCallback<TouchMoveEvent>) : Atomic.EventMetaData;
+    export function TouchMoveEvent (callback : Atomic.EventCallback<TouchMoveEvent>) : Atomic.EventMetaData;
 
     export interface GestureRecordedEvent extends Atomic.NativeEvent {
         gestureID : number;
     }
 
 
-export function GestureRecordedEvent (callback : Atomic.EventCallback<GestureRecordedEvent>) : Atomic.EventMetaData;
+    export function GestureRecordedEvent (callback : Atomic.EventCallback<GestureRecordedEvent>) : Atomic.EventMetaData;
 
     export interface GestureInputEvent extends Atomic.NativeEvent {
         gestureID : number;
@@ -7684,7 +9661,7 @@ export function GestureRecordedEvent (callback : Atomic.EventCallback<GestureRec
     }
 
 
-export function GestureInputEvent (callback : Atomic.EventCallback<GestureInputEvent>) : Atomic.EventMetaData;
+    export function GestureInputEvent (callback : Atomic.EventCallback<GestureInputEvent>) : Atomic.EventMetaData;
 
     export interface MultiGestureEvent extends Atomic.NativeEvent {
         centerX : number;
@@ -7695,14 +9672,14 @@ export function GestureInputEvent (callback : Atomic.EventCallback<GestureInputE
     }
 
 
-export function MultiGestureEvent (callback : Atomic.EventCallback<MultiGestureEvent>) : Atomic.EventMetaData;
+    export function MultiGestureEvent (callback : Atomic.EventCallback<MultiGestureEvent>) : Atomic.EventMetaData;
 
     export interface DropFileEvent extends Atomic.NativeEvent {
         fileName : string;
     }
 
 
-export function DropFileEvent (callback : Atomic.EventCallback<DropFileEvent>) : Atomic.EventMetaData;
+    export function DropFileEvent (callback : Atomic.EventCallback<DropFileEvent>) : Atomic.EventMetaData;
 
     export interface InputFocusEvent extends Atomic.NativeEvent {
         focus : boolean;
@@ -7710,14 +9687,14 @@ export function DropFileEvent (callback : Atomic.EventCallback<DropFileEvent>) :
     }
 
 
-export function InputFocusEvent (callback : Atomic.EventCallback<InputFocusEvent>) : Atomic.EventMetaData;
+    export function InputFocusEvent (callback : Atomic.EventCallback<InputFocusEvent>) : Atomic.EventMetaData;
 
     export interface MouseVisibleChangedEvent extends Atomic.NativeEvent {
         visible : boolean;
     }
 
 
-export function MouseVisibleChangedEvent (callback : Atomic.EventCallback<MouseVisibleChangedEvent>) : Atomic.EventMetaData;
+    export function MouseVisibleChangedEvent (callback : Atomic.EventCallback<MouseVisibleChangedEvent>) : Atomic.EventMetaData;
 
     export interface MouseModeChangedEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:mousemode 
@@ -7726,13 +9703,13 @@ export function MouseVisibleChangedEvent (callback : Atomic.EventCallback<MouseV
     }
 
 
-export function MouseModeChangedEvent (callback : Atomic.EventCallback<MouseModeChangedEvent>) : Atomic.EventMetaData;
+    export function MouseModeChangedEvent (callback : Atomic.EventCallback<MouseModeChangedEvent>) : Atomic.EventMetaData;
 
     export interface ExitRequestedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ExitRequestedEvent (callback : Atomic.EventCallback<ExitRequestedEvent>) : Atomic.EventMetaData;
+    export function ExitRequestedEvent (callback : Atomic.EventCallback<ExitRequestedEvent>) : Atomic.EventMetaData;
 
     export interface SDLRawInputEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:sdl_event 
@@ -7741,31 +9718,31 @@ export function ExitRequestedEvent (callback : Atomic.EventCallback<ExitRequeste
     }
 
 
-export function SDLRawInputEvent (callback : Atomic.EventCallback<SDLRawInputEvent>) : Atomic.EventMetaData;
+    export function SDLRawInputEvent (callback : Atomic.EventCallback<SDLRawInputEvent>) : Atomic.EventMetaData;
 
     export interface InputBeginEvent extends Atomic.NativeEvent {
     }
 
 
-export function InputBeginEvent (callback : Atomic.EventCallback<InputBeginEvent>) : Atomic.EventMetaData;
+    export function InputBeginEvent (callback : Atomic.EventCallback<InputBeginEvent>) : Atomic.EventMetaData;
 
     export interface InputEndEvent extends Atomic.NativeEvent {
     }
 
 
-export function InputEndEvent (callback : Atomic.EventCallback<InputEndEvent>) : Atomic.EventMetaData;
+    export function InputEndEvent (callback : Atomic.EventCallback<InputEndEvent>) : Atomic.EventMetaData;
 
     export interface PauseResumeRequestedEvent extends Atomic.NativeEvent {
     }
 
 
-export function PauseResumeRequestedEvent (callback : Atomic.EventCallback<PauseResumeRequestedEvent>) : Atomic.EventMetaData;
+    export function PauseResumeRequestedEvent (callback : Atomic.EventCallback<PauseResumeRequestedEvent>) : Atomic.EventMetaData;
 
     export interface PauseStepRequestedEvent extends Atomic.NativeEvent {
     }
 
 
-export function PauseStepRequestedEvent (callback : Atomic.EventCallback<PauseStepRequestedEvent>) : Atomic.EventMetaData;
+    export function PauseStepRequestedEvent (callback : Atomic.EventCallback<PauseStepRequestedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -7836,30 +9813,19 @@ export function PauseStepRequestedEvent (callback : Atomic.EventCallback<PauseSt
    }
 
 
-    export interface IPCJSErrorEvent extends Atomic.NativeEvent {
-        errorName : string;
-        errorMessage : string;
-        errorFileName : string;
-        errorLineNumber : number;
-        errorStack : string;
-    }
-
-
-export function IPCJSErrorEvent (callback : Atomic.EventCallback<IPCJSErrorEvent>) : Atomic.EventMetaData;
-
     export interface ObjectAddedEvent extends Atomic.NativeEvent {
         object : Atomic.AObject;
     }
 
 
-export function ObjectAddedEvent (callback : Atomic.EventCallback<ObjectAddedEvent>) : Atomic.EventMetaData;
+    export function ObjectAddedEvent (callback : Atomic.EventCallback<ObjectAddedEvent>) : Atomic.EventMetaData;
 
     export interface ObjectRemovedEvent extends Atomic.NativeEvent {
         object : Atomic.AObject;
     }
 
 
-export function ObjectRemovedEvent (callback : Atomic.EventCallback<ObjectRemovedEvent>) : Atomic.EventMetaData;
+    export function ObjectRemovedEvent (callback : Atomic.EventCallback<ObjectRemovedEvent>) : Atomic.EventMetaData;
 
     export interface JSErrorEvent extends Atomic.NativeEvent {
         errorName : string;
@@ -7870,14 +9836,25 @@ export function ObjectRemovedEvent (callback : Atomic.EventCallback<ObjectRemove
     }
 
 
-export function JSErrorEvent (callback : Atomic.EventCallback<JSErrorEvent>) : Atomic.EventMetaData;
+    export function JSErrorEvent (callback : Atomic.EventCallback<JSErrorEvent>) : Atomic.EventMetaData;
 
     export interface JSPrintEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function JSPrintEvent (callback : Atomic.EventCallback<JSPrintEvent>) : Atomic.EventMetaData;
+    export function JSPrintEvent (callback : Atomic.EventCallback<JSPrintEvent>) : Atomic.EventMetaData;
+
+    export interface IPCJSErrorEvent extends Atomic.NativeEvent {
+        errorName : string;
+        errorMessage : string;
+        errorFileName : string;
+        errorLineNumber : number;
+        errorStack : string;
+    }
+
+
+    export function IPCJSErrorEvent (callback : Atomic.EventCallback<IPCJSErrorEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -7927,6 +9904,35 @@ export function JSPrintEvent (callback : Atomic.EventCallback<JSPrintEvent>) : A
 
    export class Vector4 {
 
+
+   }
+
+
+
+//----------------------------------------------------
+// MODULE: Metrics
+//----------------------------------------------------
+
+
+   export class Metrics extends AObject {
+
+      enabled: boolean;
+
+      /**  Construct. */
+      constructor();
+
+      enable(): boolean;
+      getEnabled(): boolean;
+      capture(snapshot: MetricsSnapshot): void;
+
+   }
+
+   export class MetricsSnapshot extends RefCounted {
+
+      constructor();
+
+      printData(columns?: number, minCount?: number): string;
+      clear(): void;
 
    }
 
@@ -8360,7 +10366,7 @@ export function JSPrintEvent (callback : Atomic.EventCallback<JSPrintEvent>) : A
     }
 
 
-export function NavigationMeshRebuiltEvent (callback : Atomic.EventCallback<NavigationMeshRebuiltEvent>) : Atomic.EventMetaData;
+    export function NavigationMeshRebuiltEvent (callback : Atomic.EventCallback<NavigationMeshRebuiltEvent>) : Atomic.EventMetaData;
 
     export interface NavigationAreaRebuiltEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8370,7 +10376,7 @@ export function NavigationMeshRebuiltEvent (callback : Atomic.EventCallback<Navi
     }
 
 
-export function NavigationAreaRebuiltEvent (callback : Atomic.EventCallback<NavigationAreaRebuiltEvent>) : Atomic.EventMetaData;
+    export function NavigationAreaRebuiltEvent (callback : Atomic.EventCallback<NavigationAreaRebuiltEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentFormationEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8381,7 +10387,7 @@ export function NavigationAreaRebuiltEvent (callback : Atomic.EventCallback<Navi
     }
 
 
-export function CrowdAgentFormationEvent (callback : Atomic.EventCallback<CrowdAgentFormationEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentFormationEvent (callback : Atomic.EventCallback<CrowdAgentFormationEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentNodeFormationEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8392,7 +10398,7 @@ export function CrowdAgentFormationEvent (callback : Atomic.EventCallback<CrowdA
     }
 
 
-export function CrowdAgentNodeFormationEvent (callback : Atomic.EventCallback<CrowdAgentNodeFormationEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentNodeFormationEvent (callback : Atomic.EventCallback<CrowdAgentNodeFormationEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentRepositionEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8404,7 +10410,7 @@ export function CrowdAgentNodeFormationEvent (callback : Atomic.EventCallback<Cr
     }
 
 
-export function CrowdAgentRepositionEvent (callback : Atomic.EventCallback<CrowdAgentRepositionEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentRepositionEvent (callback : Atomic.EventCallback<CrowdAgentRepositionEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentNodeRepositionEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8416,7 +10422,7 @@ export function CrowdAgentRepositionEvent (callback : Atomic.EventCallback<Crowd
     }
 
 
-export function CrowdAgentNodeRepositionEvent (callback : Atomic.EventCallback<CrowdAgentNodeRepositionEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentNodeRepositionEvent (callback : Atomic.EventCallback<CrowdAgentNodeRepositionEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentFailureEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8428,7 +10434,7 @@ export function CrowdAgentNodeRepositionEvent (callback : Atomic.EventCallback<C
     }
 
 
-export function CrowdAgentFailureEvent (callback : Atomic.EventCallback<CrowdAgentFailureEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentFailureEvent (callback : Atomic.EventCallback<CrowdAgentFailureEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentNodeFailureEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8440,7 +10446,7 @@ export function CrowdAgentFailureEvent (callback : Atomic.EventCallback<CrowdAge
     }
 
 
-export function CrowdAgentNodeFailureEvent (callback : Atomic.EventCallback<CrowdAgentNodeFailureEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentNodeFailureEvent (callback : Atomic.EventCallback<CrowdAgentNodeFailureEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentStateChangedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8452,7 +10458,7 @@ export function CrowdAgentNodeFailureEvent (callback : Atomic.EventCallback<Crow
     }
 
 
-export function CrowdAgentStateChangedEvent (callback : Atomic.EventCallback<CrowdAgentStateChangedEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentStateChangedEvent (callback : Atomic.EventCallback<CrowdAgentStateChangedEvent>) : Atomic.EventMetaData;
 
     export interface CrowdAgentNodeStateChangedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8464,7 +10470,7 @@ export function CrowdAgentStateChangedEvent (callback : Atomic.EventCallback<Cro
     }
 
 
-export function CrowdAgentNodeStateChangedEvent (callback : Atomic.EventCallback<CrowdAgentNodeStateChangedEvent>) : Atomic.EventMetaData;
+    export function CrowdAgentNodeStateChangedEvent (callback : Atomic.EventCallback<CrowdAgentNodeStateChangedEvent>) : Atomic.EventMetaData;
 
     export interface NavigationObstacleAddedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8475,7 +10481,7 @@ export function CrowdAgentNodeStateChangedEvent (callback : Atomic.EventCallback
     }
 
 
-export function NavigationObstacleAddedEvent (callback : Atomic.EventCallback<NavigationObstacleAddedEvent>) : Atomic.EventMetaData;
+    export function NavigationObstacleAddedEvent (callback : Atomic.EventCallback<NavigationObstacleAddedEvent>) : Atomic.EventMetaData;
 
     export interface NavigationObstacleRemovedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -8486,7 +10492,7 @@ export function NavigationObstacleAddedEvent (callback : Atomic.EventCallback<Na
     }
 
 
-export function NavigationObstacleRemovedEvent (callback : Atomic.EventCallback<NavigationObstacleRemovedEvent>) : Atomic.EventMetaData;
+    export function NavigationObstacleRemovedEvent (callback : Atomic.EventCallback<NavigationObstacleRemovedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -8583,6 +10589,8 @@ export function NavigationObstacleRemovedEvent (callback : Atomic.EventCallback<
       getDownloadName(): string;
       /**  Return progress of current package download, or 1.0 if no downloads. */
       getDownloadProgress(): number;
+      /**  Trigger client connection to download a package file from the server. Can be used to download additional resource packages when client is already joined in a scene. The package must have been added as a requirement to the scene the client is joined in, or else the eventual download will fail. */
+      sendPackageToClient(package: PackageFile): void;
       /**  Set network simulation parameters. Called by Network. */
       configureNetworkSimulator(latencyMs: number, packetLoss: number): void;
       /**  Expose control methods for current controls */
@@ -8748,6 +10756,8 @@ export function NavigationObstacleRemovedEvent (callback : Atomic.EventCallback<
       unregisterAllRemoteEvents(): void;
       /**  Set the package download cache directory. */
       setPackageCacheDir(path: string): void;
+      /**  Trigger all client connections in the specified scene to download a package file from the server. Can be used to download additional resource packages when clients are already joined in the scene. The package must have been added as a requirement to the scene, or else the eventual download will fail. */
+      sendPackageToClients(scene: Scene, package: PackageFile): void;
       /**  Perform an HTTP request to the specified URL. Empty verb defaults to a GET request. Return a request object which can be used to read the response data. */
       makeHttpRequest(url: string, verb?: string, headers?: string[], postData?: string): HttpRequest;
       /**  Return network update FPS. */
@@ -8806,33 +10816,33 @@ export function NavigationObstacleRemovedEvent (callback : Atomic.EventCallback<
     }
 
 
-export function ServerConnectedEvent (callback : Atomic.EventCallback<ServerConnectedEvent>) : Atomic.EventMetaData;
+    export function ServerConnectedEvent (callback : Atomic.EventCallback<ServerConnectedEvent>) : Atomic.EventMetaData;
 
     export interface ServerDisconnectedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ServerDisconnectedEvent (callback : Atomic.EventCallback<ServerDisconnectedEvent>) : Atomic.EventMetaData;
+    export function ServerDisconnectedEvent (callback : Atomic.EventCallback<ServerDisconnectedEvent>) : Atomic.EventMetaData;
 
     export interface ConnectFailedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ConnectFailedEvent (callback : Atomic.EventCallback<ConnectFailedEvent>) : Atomic.EventMetaData;
+    export function ConnectFailedEvent (callback : Atomic.EventCallback<ConnectFailedEvent>) : Atomic.EventMetaData;
 
     export interface ClientConnectedEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
     }
 
 
-export function ClientConnectedEvent (callback : Atomic.EventCallback<ClientConnectedEvent>) : Atomic.EventMetaData;
+    export function ClientConnectedEvent (callback : Atomic.EventCallback<ClientConnectedEvent>) : Atomic.EventMetaData;
 
     export interface ClientDisconnectedEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
     }
 
 
-export function ClientDisconnectedEvent (callback : Atomic.EventCallback<ClientDisconnectedEvent>) : Atomic.EventMetaData;
+    export function ClientDisconnectedEvent (callback : Atomic.EventCallback<ClientDisconnectedEvent>) : Atomic.EventMetaData;
 
     export interface ClientIdentityEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
@@ -8840,14 +10850,14 @@ export function ClientDisconnectedEvent (callback : Atomic.EventCallback<ClientD
     }
 
 
-export function ClientIdentityEvent (callback : Atomic.EventCallback<ClientIdentityEvent>) : Atomic.EventMetaData;
+    export function ClientIdentityEvent (callback : Atomic.EventCallback<ClientIdentityEvent>) : Atomic.EventMetaData;
 
     export interface ClientSceneLoadedEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
     }
 
 
-export function ClientSceneLoadedEvent (callback : Atomic.EventCallback<ClientSceneLoadedEvent>) : Atomic.EventMetaData;
+    export function ClientSceneLoadedEvent (callback : Atomic.EventCallback<ClientSceneLoadedEvent>) : Atomic.EventMetaData;
 
     export interface NetworkMessageEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
@@ -8857,45 +10867,45 @@ export function ClientSceneLoadedEvent (callback : Atomic.EventCallback<ClientSc
     }
 
 
-export function NetworkMessageEvent (callback : Atomic.EventCallback<NetworkMessageEvent>) : Atomic.EventMetaData;
+    export function NetworkMessageEvent (callback : Atomic.EventCallback<NetworkMessageEvent>) : Atomic.EventMetaData;
 
     export interface NetworkUpdateEvent extends Atomic.NativeEvent {
     }
 
 
-export function NetworkUpdateEvent (callback : Atomic.EventCallback<NetworkUpdateEvent>) : Atomic.EventMetaData;
+    export function NetworkUpdateEvent (callback : Atomic.EventCallback<NetworkUpdateEvent>) : Atomic.EventMetaData;
 
     export interface NetworkUpdateSentEvent extends Atomic.NativeEvent {
     }
 
 
-export function NetworkUpdateSentEvent (callback : Atomic.EventCallback<NetworkUpdateSentEvent>) : Atomic.EventMetaData;
+    export function NetworkUpdateSentEvent (callback : Atomic.EventCallback<NetworkUpdateSentEvent>) : Atomic.EventMetaData;
 
     export interface NetworkSceneLoadFailedEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
     }
 
 
-export function NetworkSceneLoadFailedEvent (callback : Atomic.EventCallback<NetworkSceneLoadFailedEvent>) : Atomic.EventMetaData;
+    export function NetworkSceneLoadFailedEvent (callback : Atomic.EventCallback<NetworkSceneLoadFailedEvent>) : Atomic.EventMetaData;
 
     export interface RemoteEventDataEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
     }
 
 
-export function RemoteEventDataEvent (callback : Atomic.EventCallback<RemoteEventDataEvent>) : Atomic.EventMetaData;
+    export function RemoteEventDataEvent (callback : Atomic.EventCallback<RemoteEventDataEvent>) : Atomic.EventMetaData;
 
     export interface MasterConnectionReadyEvent extends Atomic.NativeEvent {
     }
 
 
-export function MasterConnectionReadyEvent (callback : Atomic.EventCallback<MasterConnectionReadyEvent>) : Atomic.EventMetaData;
+    export function MasterConnectionReadyEvent (callback : Atomic.EventCallback<MasterConnectionReadyEvent>) : Atomic.EventMetaData;
 
     export interface MasterConnectionFailedEvent extends Atomic.NativeEvent {
     }
 
 
-export function MasterConnectionFailedEvent (callback : Atomic.EventCallback<MasterConnectionFailedEvent>) : Atomic.EventMetaData;
+    export function MasterConnectionFailedEvent (callback : Atomic.EventCallback<MasterConnectionFailedEvent>) : Atomic.EventMetaData;
 
     export interface MasterServerMessageEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:buffer 
@@ -8903,7 +10913,7 @@ export function MasterConnectionFailedEvent (callback : Atomic.EventCallback<Mas
     }
 
 
-export function MasterServerMessageEvent (callback : Atomic.EventCallback<MasterServerMessageEvent>) : Atomic.EventMetaData;
+    export function MasterServerMessageEvent (callback : Atomic.EventCallback<MasterServerMessageEvent>) : Atomic.EventMetaData;
 
     export interface NetworkStringMessageEvent extends Atomic.NativeEvent {
         connection : Atomic.Connection;
@@ -8912,7 +10922,7 @@ export function MasterServerMessageEvent (callback : Atomic.EventCallback<Master
     }
 
 
-export function NetworkStringMessageEvent (callback : Atomic.EventCallback<NetworkStringMessageEvent>) : Atomic.EventMetaData;
+    export function NetworkStringMessageEvent (callback : Atomic.EventCallback<NetworkStringMessageEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -9378,7 +11388,7 @@ export function NetworkStringMessageEvent (callback : Atomic.EventCallback<Netwo
     }
 
 
-export function PhysicsPreStepEvent (callback : Atomic.EventCallback<PhysicsPreStepEvent>) : Atomic.EventMetaData;
+    export function PhysicsPreStepEvent (callback : Atomic.EventCallback<PhysicsPreStepEvent>) : Atomic.EventMetaData;
 
     export interface PhysicsPostStepEvent extends Atomic.NativeEvent {
         world : Atomic.PhysicsWorld;
@@ -9386,7 +11396,7 @@ export function PhysicsPreStepEvent (callback : Atomic.EventCallback<PhysicsPreS
     }
 
 
-export function PhysicsPostStepEvent (callback : Atomic.EventCallback<PhysicsPostStepEvent>) : Atomic.EventMetaData;
+    export function PhysicsPostStepEvent (callback : Atomic.EventCallback<PhysicsPostStepEvent>) : Atomic.EventMetaData;
 
     export interface PhysicsCollisionStartEvent extends Atomic.NativeEvent {
         world : Atomic.PhysicsWorld;
@@ -9400,7 +11410,7 @@ export function PhysicsPostStepEvent (callback : Atomic.EventCallback<PhysicsPos
     }
 
 
-export function PhysicsCollisionStartEvent (callback : Atomic.EventCallback<PhysicsCollisionStartEvent>) : Atomic.EventMetaData;
+    export function PhysicsCollisionStartEvent (callback : Atomic.EventCallback<PhysicsCollisionStartEvent>) : Atomic.EventMetaData;
 
     export interface PhysicsCollisionEvent extends Atomic.NativeEvent {
         world : Atomic.PhysicsWorld;
@@ -9414,7 +11424,7 @@ export function PhysicsCollisionStartEvent (callback : Atomic.EventCallback<Phys
     }
 
 
-export function PhysicsCollisionEvent (callback : Atomic.EventCallback<PhysicsCollisionEvent>) : Atomic.EventMetaData;
+    export function PhysicsCollisionEvent (callback : Atomic.EventCallback<PhysicsCollisionEvent>) : Atomic.EventMetaData;
 
     export interface PhysicsCollisionEndEvent extends Atomic.NativeEvent {
         world : Atomic.PhysicsWorld;
@@ -9426,7 +11436,7 @@ export function PhysicsCollisionEvent (callback : Atomic.EventCallback<PhysicsCo
     }
 
 
-export function PhysicsCollisionEndEvent (callback : Atomic.EventCallback<PhysicsCollisionEndEvent>) : Atomic.EventMetaData;
+    export function PhysicsCollisionEndEvent (callback : Atomic.EventCallback<PhysicsCollisionEndEvent>) : Atomic.EventMetaData;
 
     export interface NodeCollisionStartEvent extends Atomic.NativeEvent {
         body : Atomic.RigidBody;
@@ -9438,7 +11448,7 @@ export function PhysicsCollisionEndEvent (callback : Atomic.EventCallback<Physic
     }
 
 
-export function NodeCollisionStartEvent (callback : Atomic.EventCallback<NodeCollisionStartEvent>) : Atomic.EventMetaData;
+    export function NodeCollisionStartEvent (callback : Atomic.EventCallback<NodeCollisionStartEvent>) : Atomic.EventMetaData;
 
     export interface NodeCollisionEvent extends Atomic.NativeEvent {
         body : Atomic.RigidBody;
@@ -9450,7 +11460,7 @@ export function NodeCollisionStartEvent (callback : Atomic.EventCallback<NodeCol
     }
 
 
-export function NodeCollisionEvent (callback : Atomic.EventCallback<NodeCollisionEvent>) : Atomic.EventMetaData;
+    export function NodeCollisionEvent (callback : Atomic.EventCallback<NodeCollisionEvent>) : Atomic.EventMetaData;
 
     export interface NodeCollisionEndEvent extends Atomic.NativeEvent {
         body : Atomic.RigidBody;
@@ -9460,7 +11470,7 @@ export function NodeCollisionEvent (callback : Atomic.EventCallback<NodeCollisio
     }
 
 
-export function NodeCollisionEndEvent (callback : Atomic.EventCallback<NodeCollisionEndEvent>) : Atomic.EventMetaData;
+    export function NodeCollisionEndEvent (callback : Atomic.EventCallback<NodeCollisionEndEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -9612,6 +11622,7 @@ export function NodeCollisionEndEvent (callback : Atomic.EventCallback<NodeColli
       finishBackgroundResourcesMs: number;
       numBackgroundLoadResources: number;
       resourceDirs: string[];
+      packageFiles: string[];
       totalMemoryUse: number;
       numResourceDirs: number;
 
@@ -9660,6 +11671,8 @@ export function NodeCollisionEndEvent (callback : Atomic.EventCallback<NodeColli
       getExistingResource(type: string, name: string): Resource;
       /**  Return added resource load directories. */
       getResourceDirs(): string[];
+      /**  Return added package files. */
+      getPackageFiles(): string[];
       /**  Return whether a file exists by name. */
       exists(name: string): boolean;
       /**  Return memory budget for a resource type. */
@@ -9731,19 +11744,19 @@ export function NodeCollisionEndEvent (callback : Atomic.EventCallback<NodeColli
     }
 
 
-export function ReloadStartedEvent (callback : Atomic.EventCallback<ReloadStartedEvent>) : Atomic.EventMetaData;
+    export function ReloadStartedEvent (callback : Atomic.EventCallback<ReloadStartedEvent>) : Atomic.EventMetaData;
 
     export interface ReloadFinishedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ReloadFinishedEvent (callback : Atomic.EventCallback<ReloadFinishedEvent>) : Atomic.EventMetaData;
+    export function ReloadFinishedEvent (callback : Atomic.EventCallback<ReloadFinishedEvent>) : Atomic.EventMetaData;
 
     export interface ReloadFailedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ReloadFailedEvent (callback : Atomic.EventCallback<ReloadFailedEvent>) : Atomic.EventMetaData;
+    export function ReloadFailedEvent (callback : Atomic.EventCallback<ReloadFailedEvent>) : Atomic.EventMetaData;
 
     export interface FileChangedEvent extends Atomic.NativeEvent {
         fileName : string;
@@ -9751,21 +11764,21 @@ export function ReloadFailedEvent (callback : Atomic.EventCallback<ReloadFailedE
     }
 
 
-export function FileChangedEvent (callback : Atomic.EventCallback<FileChangedEvent>) : Atomic.EventMetaData;
+    export function FileChangedEvent (callback : Atomic.EventCallback<FileChangedEvent>) : Atomic.EventMetaData;
 
     export interface LoadFailedEvent extends Atomic.NativeEvent {
         resourceName : string;
     }
 
 
-export function LoadFailedEvent (callback : Atomic.EventCallback<LoadFailedEvent>) : Atomic.EventMetaData;
+    export function LoadFailedEvent (callback : Atomic.EventCallback<LoadFailedEvent>) : Atomic.EventMetaData;
 
     export interface ResourceNotFoundEvent extends Atomic.NativeEvent {
         resourceName : string;
     }
 
 
-export function ResourceNotFoundEvent (callback : Atomic.EventCallback<ResourceNotFoundEvent>) : Atomic.EventMetaData;
+    export function ResourceNotFoundEvent (callback : Atomic.EventCallback<ResourceNotFoundEvent>) : Atomic.EventMetaData;
 
     export interface UnknownResourceTypeEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:stringhash 
@@ -9773,7 +11786,7 @@ export function ResourceNotFoundEvent (callback : Atomic.EventCallback<ResourceN
     }
 
 
-export function UnknownResourceTypeEvent (callback : Atomic.EventCallback<UnknownResourceTypeEvent>) : Atomic.EventMetaData;
+    export function UnknownResourceTypeEvent (callback : Atomic.EventCallback<UnknownResourceTypeEvent>) : Atomic.EventMetaData;
 
     export interface ResourceBackgroundLoadedEvent extends Atomic.NativeEvent {
         resourceName : string;
@@ -9782,13 +11795,13 @@ export function UnknownResourceTypeEvent (callback : Atomic.EventCallback<Unknow
     }
 
 
-export function ResourceBackgroundLoadedEvent (callback : Atomic.EventCallback<ResourceBackgroundLoadedEvent>) : Atomic.EventMetaData;
+    export function ResourceBackgroundLoadedEvent (callback : Atomic.EventCallback<ResourceBackgroundLoadedEvent>) : Atomic.EventMetaData;
 
     export interface ChangeLanguageEvent extends Atomic.NativeEvent {
     }
 
 
-export function ChangeLanguageEvent (callback : Atomic.EventCallback<ChangeLanguageEvent>) : Atomic.EventMetaData;
+    export function ChangeLanguageEvent (callback : Atomic.EventCallback<ChangeLanguageEvent>) : Atomic.EventMetaData;
 
     export interface RenameResourceNotificationEvent extends Atomic.NativeEvent {
         path : string;
@@ -9798,7 +11811,7 @@ export function ChangeLanguageEvent (callback : Atomic.EventCallback<ChangeLangu
     }
 
 
-export function RenameResourceNotificationEvent (callback : Atomic.EventCallback<RenameResourceNotificationEvent>) : Atomic.EventMetaData;
+    export function RenameResourceNotificationEvent (callback : Atomic.EventCallback<RenameResourceNotificationEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -10228,6 +12241,8 @@ export function RenameResourceNotificationEvent (callback : Atomic.EventCallback
       setSnapThreshold(threshold: number): void;
       /**  Set maximum milliseconds per frame to spend on async scene loading. */
       setAsyncLoadingMs(ms: number): void;
+      /**  Add a required package file for networking. To be called on the server. */
+      addRequiredPackageFile(package: PackageFile): void;
       /**  Clear required package files. */
       clearRequiredPackageFiles(): void;
       /**  Register a node user variable hash reverse mapping (for editing.) */
@@ -10505,7 +12520,7 @@ export function RenameResourceNotificationEvent (callback : Atomic.EventCallback
     }
 
 
-export function SceneUpdateEvent (callback : Atomic.EventCallback<SceneUpdateEvent>) : Atomic.EventMetaData;
+    export function SceneUpdateEvent (callback : Atomic.EventCallback<SceneUpdateEvent>) : Atomic.EventMetaData;
 
     export interface SceneSubsystemUpdateEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10513,7 +12528,7 @@ export function SceneUpdateEvent (callback : Atomic.EventCallback<SceneUpdateEve
     }
 
 
-export function SceneSubsystemUpdateEvent (callback : Atomic.EventCallback<SceneSubsystemUpdateEvent>) : Atomic.EventMetaData;
+    export function SceneSubsystemUpdateEvent (callback : Atomic.EventCallback<SceneSubsystemUpdateEvent>) : Atomic.EventMetaData;
 
     export interface UpdateSmoothingEvent extends Atomic.NativeEvent {
         constant : number;
@@ -10521,7 +12536,7 @@ export function SceneSubsystemUpdateEvent (callback : Atomic.EventCallback<Scene
     }
 
 
-export function UpdateSmoothingEvent (callback : Atomic.EventCallback<UpdateSmoothingEvent>) : Atomic.EventMetaData;
+    export function UpdateSmoothingEvent (callback : Atomic.EventCallback<UpdateSmoothingEvent>) : Atomic.EventMetaData;
 
     export interface SceneDrawableUpdateFinishedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10529,19 +12544,19 @@ export function UpdateSmoothingEvent (callback : Atomic.EventCallback<UpdateSmoo
     }
 
 
-export function SceneDrawableUpdateFinishedEvent (callback : Atomic.EventCallback<SceneDrawableUpdateFinishedEvent>) : Atomic.EventMetaData;
+    export function SceneDrawableUpdateFinishedEvent (callback : Atomic.EventCallback<SceneDrawableUpdateFinishedEvent>) : Atomic.EventMetaData;
 
     export interface TargetPositionChangedEvent extends Atomic.NativeEvent {
     }
 
 
-export function TargetPositionChangedEvent (callback : Atomic.EventCallback<TargetPositionChangedEvent>) : Atomic.EventMetaData;
+    export function TargetPositionChangedEvent (callback : Atomic.EventCallback<TargetPositionChangedEvent>) : Atomic.EventMetaData;
 
     export interface TargetRotationChangedEvent extends Atomic.NativeEvent {
     }
 
 
-export function TargetRotationChangedEvent (callback : Atomic.EventCallback<TargetRotationChangedEvent>) : Atomic.EventMetaData;
+    export function TargetRotationChangedEvent (callback : Atomic.EventCallback<TargetRotationChangedEvent>) : Atomic.EventMetaData;
 
     export interface AttributeAnimationUpdateEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10549,7 +12564,7 @@ export function TargetRotationChangedEvent (callback : Atomic.EventCallback<Targ
     }
 
 
-export function AttributeAnimationUpdateEvent (callback : Atomic.EventCallback<AttributeAnimationUpdateEvent>) : Atomic.EventMetaData;
+    export function AttributeAnimationUpdateEvent (callback : Atomic.EventCallback<AttributeAnimationUpdateEvent>) : Atomic.EventMetaData;
 
     export interface AttributeAnimationAddedEvent extends Atomic.NativeEvent {
         objectAnimation : Atomic.AObject;
@@ -10557,7 +12572,7 @@ export function AttributeAnimationUpdateEvent (callback : Atomic.EventCallback<A
     }
 
 
-export function AttributeAnimationAddedEvent (callback : Atomic.EventCallback<AttributeAnimationAddedEvent>) : Atomic.EventMetaData;
+    export function AttributeAnimationAddedEvent (callback : Atomic.EventCallback<AttributeAnimationAddedEvent>) : Atomic.EventMetaData;
 
     export interface AttributeAnimationRemovedEvent extends Atomic.NativeEvent {
         objectAnimation : Atomic.AObject;
@@ -10565,7 +12580,7 @@ export function AttributeAnimationAddedEvent (callback : Atomic.EventCallback<At
     }
 
 
-export function AttributeAnimationRemovedEvent (callback : Atomic.EventCallback<AttributeAnimationRemovedEvent>) : Atomic.EventMetaData;
+    export function AttributeAnimationRemovedEvent (callback : Atomic.EventCallback<AttributeAnimationRemovedEvent>) : Atomic.EventMetaData;
 
     export interface ScenePostUpdateEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10573,7 +12588,7 @@ export function AttributeAnimationRemovedEvent (callback : Atomic.EventCallback<
     }
 
 
-export function ScenePostUpdateEvent (callback : Atomic.EventCallback<ScenePostUpdateEvent>) : Atomic.EventMetaData;
+    export function ScenePostUpdateEvent (callback : Atomic.EventCallback<ScenePostUpdateEvent>) : Atomic.EventMetaData;
 
     export interface AsyncLoadProgressEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10585,14 +12600,14 @@ export function ScenePostUpdateEvent (callback : Atomic.EventCallback<ScenePostU
     }
 
 
-export function AsyncLoadProgressEvent (callback : Atomic.EventCallback<AsyncLoadProgressEvent>) : Atomic.EventMetaData;
+    export function AsyncLoadProgressEvent (callback : Atomic.EventCallback<AsyncLoadProgressEvent>) : Atomic.EventMetaData;
 
     export interface AsyncLoadFinishedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
     }
 
 
-export function AsyncLoadFinishedEvent (callback : Atomic.EventCallback<AsyncLoadFinishedEvent>) : Atomic.EventMetaData;
+    export function AsyncLoadFinishedEvent (callback : Atomic.EventCallback<AsyncLoadFinishedEvent>) : Atomic.EventMetaData;
 
     export interface NodeAddedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10601,7 +12616,7 @@ export function AsyncLoadFinishedEvent (callback : Atomic.EventCallback<AsyncLoa
     }
 
 
-export function NodeAddedEvent (callback : Atomic.EventCallback<NodeAddedEvent>) : Atomic.EventMetaData;
+    export function NodeAddedEvent (callback : Atomic.EventCallback<NodeAddedEvent>) : Atomic.EventMetaData;
 
     export interface NodeRemovedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10610,7 +12625,7 @@ export function NodeAddedEvent (callback : Atomic.EventCallback<NodeAddedEvent>)
     }
 
 
-export function NodeRemovedEvent (callback : Atomic.EventCallback<NodeRemovedEvent>) : Atomic.EventMetaData;
+    export function NodeRemovedEvent (callback : Atomic.EventCallback<NodeRemovedEvent>) : Atomic.EventMetaData;
 
     export interface ComponentAddedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10619,7 +12634,7 @@ export function NodeRemovedEvent (callback : Atomic.EventCallback<NodeRemovedEve
     }
 
 
-export function ComponentAddedEvent (callback : Atomic.EventCallback<ComponentAddedEvent>) : Atomic.EventMetaData;
+    export function ComponentAddedEvent (callback : Atomic.EventCallback<ComponentAddedEvent>) : Atomic.EventMetaData;
 
     export interface ComponentRemovedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10628,7 +12643,7 @@ export function ComponentAddedEvent (callback : Atomic.EventCallback<ComponentAd
     }
 
 
-export function ComponentRemovedEvent (callback : Atomic.EventCallback<ComponentRemovedEvent>) : Atomic.EventMetaData;
+    export function ComponentRemovedEvent (callback : Atomic.EventCallback<ComponentRemovedEvent>) : Atomic.EventMetaData;
 
     export interface NodeNameChangedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10636,7 +12651,7 @@ export function ComponentRemovedEvent (callback : Atomic.EventCallback<Component
     }
 
 
-export function NodeNameChangedEvent (callback : Atomic.EventCallback<NodeNameChangedEvent>) : Atomic.EventMetaData;
+    export function NodeNameChangedEvent (callback : Atomic.EventCallback<NodeNameChangedEvent>) : Atomic.EventMetaData;
 
     export interface NodeEnabledChangedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10644,7 +12659,7 @@ export function NodeNameChangedEvent (callback : Atomic.EventCallback<NodeNameCh
     }
 
 
-export function NodeEnabledChangedEvent (callback : Atomic.EventCallback<NodeEnabledChangedEvent>) : Atomic.EventMetaData;
+    export function NodeEnabledChangedEvent (callback : Atomic.EventCallback<NodeEnabledChangedEvent>) : Atomic.EventMetaData;
 
     export interface NodeTagAddedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10653,7 +12668,7 @@ export function NodeEnabledChangedEvent (callback : Atomic.EventCallback<NodeEna
     }
 
 
-export function NodeTagAddedEvent (callback : Atomic.EventCallback<NodeTagAddedEvent>) : Atomic.EventMetaData;
+    export function NodeTagAddedEvent (callback : Atomic.EventCallback<NodeTagAddedEvent>) : Atomic.EventMetaData;
 
     export interface NodeTagRemovedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10662,7 +12677,7 @@ export function NodeTagAddedEvent (callback : Atomic.EventCallback<NodeTagAddedE
     }
 
 
-export function NodeTagRemovedEvent (callback : Atomic.EventCallback<NodeTagRemovedEvent>) : Atomic.EventMetaData;
+    export function NodeTagRemovedEvent (callback : Atomic.EventCallback<NodeTagRemovedEvent>) : Atomic.EventMetaData;
 
     export interface ComponentEnabledChangedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10671,14 +12686,14 @@ export function NodeTagRemovedEvent (callback : Atomic.EventCallback<NodeTagRemo
     }
 
 
-export function ComponentEnabledChangedEvent (callback : Atomic.EventCallback<ComponentEnabledChangedEvent>) : Atomic.EventMetaData;
+    export function ComponentEnabledChangedEvent (callback : Atomic.EventCallback<ComponentEnabledChangedEvent>) : Atomic.EventMetaData;
 
     export interface TemporaryChangedEvent extends Atomic.NativeEvent {
         serializable : Atomic.Serializable;
     }
 
 
-export function TemporaryChangedEvent (callback : Atomic.EventCallback<TemporaryChangedEvent>) : Atomic.EventMetaData;
+    export function TemporaryChangedEvent (callback : Atomic.EventCallback<TemporaryChangedEvent>) : Atomic.EventMetaData;
 
     export interface NodeClonedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10687,7 +12702,7 @@ export function TemporaryChangedEvent (callback : Atomic.EventCallback<Temporary
     }
 
 
-export function NodeClonedEvent (callback : Atomic.EventCallback<NodeClonedEvent>) : Atomic.EventMetaData;
+    export function NodeClonedEvent (callback : Atomic.EventCallback<NodeClonedEvent>) : Atomic.EventMetaData;
 
     export interface ComponentClonedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -10696,7 +12711,7 @@ export function NodeClonedEvent (callback : Atomic.EventCallback<NodeClonedEvent
     }
 
 
-export function ComponentClonedEvent (callback : Atomic.EventCallback<ComponentClonedEvent>) : Atomic.EventMetaData;
+    export function ComponentClonedEvent (callback : Atomic.EventCallback<ComponentClonedEvent>) : Atomic.EventMetaData;
 
     export interface InterceptNetworkUpdateEvent extends Atomic.NativeEvent {
         serializable : Atomic.Serializable;
@@ -10708,21 +12723,21 @@ export function ComponentClonedEvent (callback : Atomic.EventCallback<ComponentC
     }
 
 
-export function InterceptNetworkUpdateEvent (callback : Atomic.EventCallback<InterceptNetworkUpdateEvent>) : Atomic.EventMetaData;
+    export function InterceptNetworkUpdateEvent (callback : Atomic.EventCallback<InterceptNetworkUpdateEvent>) : Atomic.EventMetaData;
 
     export interface PrefabSaveEvent extends Atomic.NativeEvent {
         prefabComponent : Atomic.PrefabComponent;
     }
 
 
-export function PrefabSaveEvent (callback : Atomic.EventCallback<PrefabSaveEvent>) : Atomic.EventMetaData;
+    export function PrefabSaveEvent (callback : Atomic.EventCallback<PrefabSaveEvent>) : Atomic.EventMetaData;
 
     export interface PrefabChangedEvent extends Atomic.NativeEvent {
         guid : string;
     }
 
 
-export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChangedEvent>) : Atomic.EventMetaData;
+    export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChangedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -10863,6 +12878,7 @@ export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChange
       keyboardDisabled: boolean;
       inputDisabled: boolean;
       skinLoaded: boolean;
+      debugHudProfileMode: DebugHudProfileMode;
       focusedWidget: boolean;
       blockChangedEvents: boolean;
       hoveredWidget: UIWidget;
@@ -10885,6 +12901,9 @@ export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChange
       pruneUnreachableWidgets(): void;
       showDebugHud(value: boolean): void;
       toggleDebugHud(): void;
+      /**  Cycle debug HUD between showing primitive stats, current mode, profiler data, all three or none */
+      cycleDebugHudMode(): void;
+      setDebugHudProfileMode(mode: DebugHudProfileMode): void;
       setDebugHudExtents(useRootExtents?: boolean, position?: IntVector2, size?: IntVector2): void;
       showConsole(value: boolean): void;
       toggleConsole(): void;
@@ -10905,6 +12924,7 @@ export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChange
       squeezable: boolean;
       emulationButton: number;
       urlEnabled: boolean;
+      url: string;
       toggleMode: boolean;
 
       constructor(createWidget?: boolean);
@@ -10914,6 +12934,10 @@ export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChange
       setEmulationButton(button: number): void;
       /**  for example a http:// link will open the default browser */
       setURLEnabled(enabled: boolean): void;
+      /**  Set the URL which is opened when this button is clicked */
+      setURL(url: string): void;
+      /**  Get the URL which is opened when this button is clicked */
+      getURL(): string;
       /** Set to true if the button should toggle on and off     */
       setToggleMode(toggle: boolean): void;
       getToggleMode(): boolean;
@@ -11573,13 +13597,12 @@ export function PrefabChangedEvent (callback : Atomic.EventCallback<PrefabChange
     }
 
 
-export function UIUpdateEvent (callback : Atomic.EventCallback<UIUpdateEvent>) : Atomic.EventMetaData;
+    export function UIUpdateEvent (callback : Atomic.EventCallback<UIUpdateEvent>) : Atomic.EventMetaData;
 
     export interface UIWidgetEvent extends Atomic.NativeEvent {
         handler : Atomic.UIWidget;
         target : Atomic.UIWidget;
-        /** Enum: UI_EVENT_TYPE */
-        type : number;
+        type : Atomic.UI_EVENT_TYPE;
         x : number;
         y : number;
         deltaX : number;
@@ -11595,14 +13618,14 @@ export function UIUpdateEvent (callback : Atomic.EventCallback<UIUpdateEvent>) :
     }
 
 
-export function UIWidgetEvent (callback : Atomic.EventCallback<UIWidgetEvent>) : Atomic.EventMetaData;
+    export function UIWidgetEvent (callback : Atomic.EventCallback<UIWidgetEvent>) : Atomic.EventMetaData;
 
     export interface WidgetLoadedEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
     }
 
 
-export function WidgetLoadedEvent (callback : Atomic.EventCallback<WidgetLoadedEvent>) : Atomic.EventMetaData;
+    export function WidgetLoadedEvent (callback : Atomic.EventCallback<WidgetLoadedEvent>) : Atomic.EventMetaData;
 
     export interface WidgetFocusChangedEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
@@ -11610,14 +13633,14 @@ export function WidgetLoadedEvent (callback : Atomic.EventCallback<WidgetLoadedE
     }
 
 
-export function WidgetFocusChangedEvent (callback : Atomic.EventCallback<WidgetFocusChangedEvent>) : Atomic.EventMetaData;
+    export function WidgetFocusChangedEvent (callback : Atomic.EventCallback<WidgetFocusChangedEvent>) : Atomic.EventMetaData;
 
     export interface UIWidgetDeletedEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
     }
 
 
-export function UIWidgetDeletedEvent (callback : Atomic.EventCallback<UIWidgetDeletedEvent>) : Atomic.EventMetaData;
+    export function UIWidgetDeletedEvent (callback : Atomic.EventCallback<UIWidgetDeletedEvent>) : Atomic.EventMetaData;
 
     export interface DragBeginEvent extends Atomic.NativeEvent {
         source : Atomic.UIWidget;
@@ -11625,7 +13648,7 @@ export function UIWidgetDeletedEvent (callback : Atomic.EventCallback<UIWidgetDe
     }
 
 
-export function DragBeginEvent (callback : Atomic.EventCallback<DragBeginEvent>) : Atomic.EventMetaData;
+    export function DragBeginEvent (callback : Atomic.EventCallback<DragBeginEvent>) : Atomic.EventMetaData;
 
     export interface DragEnterWidgetEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
@@ -11633,7 +13656,7 @@ export function DragBeginEvent (callback : Atomic.EventCallback<DragBeginEvent>)
     }
 
 
-export function DragEnterWidgetEvent (callback : Atomic.EventCallback<DragEnterWidgetEvent>) : Atomic.EventMetaData;
+    export function DragEnterWidgetEvent (callback : Atomic.EventCallback<DragEnterWidgetEvent>) : Atomic.EventMetaData;
 
     export interface DragExitWidgetEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
@@ -11641,7 +13664,7 @@ export function DragEnterWidgetEvent (callback : Atomic.EventCallback<DragEnterW
     }
 
 
-export function DragExitWidgetEvent (callback : Atomic.EventCallback<DragExitWidgetEvent>) : Atomic.EventMetaData;
+    export function DragExitWidgetEvent (callback : Atomic.EventCallback<DragExitWidgetEvent>) : Atomic.EventMetaData;
 
     export interface DragEndedEvent extends Atomic.NativeEvent {
         target : Atomic.UIWidget;
@@ -11649,7 +13672,7 @@ export function DragExitWidgetEvent (callback : Atomic.EventCallback<DragExitWid
     }
 
 
-export function DragEndedEvent (callback : Atomic.EventCallback<DragEndedEvent>) : Atomic.EventMetaData;
+    export function DragEndedEvent (callback : Atomic.EventCallback<DragEndedEvent>) : Atomic.EventMetaData;
 
     export interface PopupMenuSelectEvent extends Atomic.NativeEvent {
         button : Atomic.UIButton;
@@ -11657,7 +13680,7 @@ export function DragEndedEvent (callback : Atomic.EventCallback<DragEndedEvent>)
     }
 
 
-export function PopupMenuSelectEvent (callback : Atomic.EventCallback<PopupMenuSelectEvent>) : Atomic.EventMetaData;
+    export function PopupMenuSelectEvent (callback : Atomic.EventCallback<PopupMenuSelectEvent>) : Atomic.EventMetaData;
 
     export interface UIShortcutEvent extends Atomic.NativeEvent {
         key : number;
@@ -11665,14 +13688,14 @@ export function PopupMenuSelectEvent (callback : Atomic.EventCallback<PopupMenuS
     }
 
 
-export function UIShortcutEvent (callback : Atomic.EventCallback<UIShortcutEvent>) : Atomic.EventMetaData;
+    export function UIShortcutEvent (callback : Atomic.EventCallback<UIShortcutEvent>) : Atomic.EventMetaData;
 
     export interface WindowClosedEvent extends Atomic.NativeEvent {
         window : Atomic.UIWindow;
     }
 
 
-export function WindowClosedEvent (callback : Atomic.EventCallback<WindowClosedEvent>) : Atomic.EventMetaData;
+    export function WindowClosedEvent (callback : Atomic.EventCallback<WindowClosedEvent>) : Atomic.EventMetaData;
 
     export interface UIWidgetFocusChangedEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
@@ -11680,27 +13703,27 @@ export function WindowClosedEvent (callback : Atomic.EventCallback<WindowClosedE
     }
 
 
-export function UIWidgetFocusChangedEvent (callback : Atomic.EventCallback<UIWidgetFocusChangedEvent>) : Atomic.EventMetaData;
+    export function UIWidgetFocusChangedEvent (callback : Atomic.EventCallback<UIWidgetFocusChangedEvent>) : Atomic.EventMetaData;
 
     export interface UIWidgetFocusEscapedEvent extends Atomic.NativeEvent {
     }
 
 
-export function UIWidgetFocusEscapedEvent (callback : Atomic.EventCallback<UIWidgetFocusEscapedEvent>) : Atomic.EventMetaData;
+    export function UIWidgetFocusEscapedEvent (callback : Atomic.EventCallback<UIWidgetFocusEscapedEvent>) : Atomic.EventMetaData;
 
     export interface UIWidgetEditCompleteEvent extends Atomic.NativeEvent {
         widget : Atomic.UIWidget;
     }
 
 
-export function UIWidgetEditCompleteEvent (callback : Atomic.EventCallback<UIWidgetEditCompleteEvent>) : Atomic.EventMetaData;
+    export function UIWidgetEditCompleteEvent (callback : Atomic.EventCallback<UIWidgetEditCompleteEvent>) : Atomic.EventMetaData;
 
     export interface UIUnhandledShortcutEvent extends Atomic.NativeEvent {
         refid : string;
     }
 
 
-export function UIUnhandledShortcutEvent (callback : Atomic.EventCallback<UIUnhandledShortcutEvent>) : Atomic.EventMetaData;
+    export function UIUnhandledShortcutEvent (callback : Atomic.EventCallback<UIUnhandledShortcutEvent>) : Atomic.EventMetaData;
 
     export interface UIListViewSelectionChangedEvent extends Atomic.NativeEvent {
         refid : string;
@@ -11708,7 +13731,7 @@ export function UIUnhandledShortcutEvent (callback : Atomic.EventCallback<UIUnha
     }
 
 
-export function UIListViewSelectionChangedEvent (callback : Atomic.EventCallback<UIListViewSelectionChangedEvent>) : Atomic.EventMetaData;
+    export function UIListViewSelectionChangedEvent (callback : Atomic.EventCallback<UIListViewSelectionChangedEvent>) : Atomic.EventMetaData;
 
 
 //----------------------------------------------------
@@ -11809,7 +13832,7 @@ export function UIListViewSelectionChangedEvent (callback : Atomic.EventCallback
     }
 
 
-export function WebRequestCompleteEvent (callback : Atomic.EventCallback<WebRequestCompleteEvent>) : Atomic.EventMetaData;
+    export function WebRequestCompleteEvent (callback : Atomic.EventCallback<WebRequestCompleteEvent>) : Atomic.EventMetaData;
 
     export interface WebRequestProgressEvent extends Atomic.NativeEvent {
         request : Atomic.WebRequest;
@@ -11820,7 +13843,7 @@ export function WebRequestCompleteEvent (callback : Atomic.EventCallback<WebRequ
     }
 
 
-export function WebRequestProgressEvent (callback : Atomic.EventCallback<WebRequestProgressEvent>) : Atomic.EventMetaData;
+    export function WebRequestProgressEvent (callback : Atomic.EventCallback<WebRequestProgressEvent>) : Atomic.EventMetaData;
 
     export interface WebRequestDownloadChunkEvent extends Atomic.NativeEvent {
         request : Atomic.WebRequest;
@@ -11830,7 +13853,7 @@ export function WebRequestProgressEvent (callback : Atomic.EventCallback<WebRequ
     }
 
 
-export function WebRequestDownloadChunkEvent (callback : Atomic.EventCallback<WebRequestDownloadChunkEvent>) : Atomic.EventMetaData;
+    export function WebRequestDownloadChunkEvent (callback : Atomic.EventCallback<WebRequestDownloadChunkEvent>) : Atomic.EventMetaData;
 
     export interface WebRequestUploadChunkEvent extends Atomic.NativeEvent {
         request : Atomic.WebRequest;
@@ -11840,7 +13863,7 @@ export function WebRequestDownloadChunkEvent (callback : Atomic.EventCallback<We
     }
 
 
-export function WebRequestUploadChunkEvent (callback : Atomic.EventCallback<WebRequestUploadChunkEvent>) : Atomic.EventMetaData;
+    export function WebRequestUploadChunkEvent (callback : Atomic.EventCallback<WebRequestUploadChunkEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -11874,6 +13897,7 @@ declare module AtomicApp {
       /**  Run a single frame, return's true if engine is exiting */
       runFrame(): boolean;
       shutdown(): void;
+      /**  Called before initializing application for inserting arguments */
       static addArgument(argument: string): void;
       processArguments(): void;
       static addEngineConfigSearchPath(path: string): void;
@@ -11925,26 +13949,26 @@ declare module AtomicApp {
     }
 
 
-export function IPCPlayerPauseResumeRequestEvent (callback : Atomic.EventCallback<IPCPlayerPauseResumeRequestEvent>) : Atomic.EventMetaData;
+    export function IPCPlayerPauseResumeRequestEvent (callback : Atomic.EventCallback<IPCPlayerPauseResumeRequestEvent>) : Atomic.EventMetaData;
 
     export interface IPCPlayerUpdatesPausedResumedEvent extends Atomic.NativeEvent {
         paused : boolean;
     }
 
 
-export function IPCPlayerUpdatesPausedResumedEvent (callback : Atomic.EventCallback<IPCPlayerUpdatesPausedResumedEvent>) : Atomic.EventMetaData;
+    export function IPCPlayerUpdatesPausedResumedEvent (callback : Atomic.EventCallback<IPCPlayerUpdatesPausedResumedEvent>) : Atomic.EventMetaData;
 
     export interface IPCPlayerPauseStepRequestEvent extends Atomic.NativeEvent {
     }
 
 
-export function IPCPlayerPauseStepRequestEvent (callback : Atomic.EventCallback<IPCPlayerPauseStepRequestEvent>) : Atomic.EventMetaData;
+    export function IPCPlayerPauseStepRequestEvent (callback : Atomic.EventCallback<IPCPlayerPauseStepRequestEvent>) : Atomic.EventMetaData;
 
     export interface IPCPlayerExitRequestEvent extends Atomic.NativeEvent {
     }
 
 
-export function IPCPlayerExitRequestEvent (callback : Atomic.EventCallback<IPCPlayerExitRequestEvent>) : Atomic.EventMetaData;
+    export function IPCPlayerExitRequestEvent (callback : Atomic.EventCallback<IPCPlayerExitRequestEvent>) : Atomic.EventMetaData;
 
     export interface IPCPlayerWindowChangedEvent extends Atomic.NativeEvent {
         posX : number;
@@ -11956,13 +13980,13 @@ export function IPCPlayerExitRequestEvent (callback : Atomic.EventCallback<IPCPl
     }
 
 
-export function IPCPlayerWindowChangedEvent (callback : Atomic.EventCallback<IPCPlayerWindowChangedEvent>) : Atomic.EventMetaData;
+    export function IPCPlayerWindowChangedEvent (callback : Atomic.EventCallback<IPCPlayerWindowChangedEvent>) : Atomic.EventMetaData;
 
     export interface PlayerQuitEvent extends Atomic.NativeEvent {
     }
 
 
-export function PlayerQuitEvent (callback : Atomic.EventCallback<PlayerQuitEvent>) : Atomic.EventMetaData;
+    export function PlayerQuitEvent (callback : Atomic.EventCallback<PlayerQuitEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -12031,7 +14055,7 @@ declare module AtomicNETScript {
     }
 
 
-export function CSComponentAssemblyReferenceEvent (callback : Atomic.EventCallback<CSComponentAssemblyReferenceEvent>) : Atomic.EventMetaData;
+    export function CSComponentAssemblyReferenceEvent (callback : Atomic.EventCallback<CSComponentAssemblyReferenceEvent>) : Atomic.EventMetaData;
 
     export interface CSComponentLoadEvent extends Atomic.NativeEvent {
         className : string;
@@ -12041,7 +14065,7 @@ export function CSComponentAssemblyReferenceEvent (callback : Atomic.EventCallba
     }
 
 
-export function CSComponentLoadEvent (callback : Atomic.EventCallback<CSComponentLoadEvent>) : Atomic.EventMetaData;
+    export function CSComponentLoadEvent (callback : Atomic.EventCallback<CSComponentLoadEvent>) : Atomic.EventMetaData;
 
     export interface CSComponentAssemblyChangedEvent extends Atomic.NativeEvent {
         resource : Atomic.Resource;
@@ -12049,7 +14073,7 @@ export function CSComponentLoadEvent (callback : Atomic.EventCallback<CSComponen
     }
 
 
-export function CSComponentAssemblyChangedEvent (callback : Atomic.EventCallback<CSComponentAssemblyChangedEvent>) : Atomic.EventMetaData;
+    export function CSComponentAssemblyChangedEvent (callback : Atomic.EventCallback<CSComponentAssemblyChangedEvent>) : Atomic.EventMetaData;
 
     export interface CSComponentClassChangedEvent extends Atomic.NativeEvent {
         component : AtomicNETScript.CSComponent;
@@ -12057,7 +14081,7 @@ export function CSComponentAssemblyChangedEvent (callback : Atomic.EventCallback
     }
 
 
-export function CSComponentClassChangedEvent (callback : Atomic.EventCallback<CSComponentClassChangedEvent>) : Atomic.EventMetaData;
+    export function CSComponentClassChangedEvent (callback : Atomic.EventCallback<CSComponentClassChangedEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -12079,13 +14103,26 @@ declare module AtomicPlayer {
 
    export class Player extends Atomic.AObject {
 
+      numScenes: number;
       currentScene: Atomic.Scene;
 
       /**  Construct. */
       constructor();
 
+      /**  Load a scene file with optional camera specified */
       loadScene(filename: string, camera?: Atomic.Camera): Atomic.Scene;
+      /**  Get the number of currently loaded scenes */
+      getNumScenes(): number;
+      /**  Get the current scene */
       getCurrentScene(): Atomic.Scene;
+      /**  Get the scene loaded at specified index */
+      getScene(index: number): Atomic.Scene;
+      /**  Set the current scene  */
+      setCurrentScene(scene: Atomic.Scene, camera?: Atomic.Camera): void;
+      /**  Unload a scene */
+      unloadScene(scene: Atomic.Scene): void;
+      /**  Unload all loaded scenes */
+      unloadAllScenes(): void;
 
    }
 
@@ -12095,7 +14132,7 @@ declare module AtomicPlayer {
     }
 
 
-export function PlayerSceneLoadBeginEvent (callback : Atomic.EventCallback<PlayerSceneLoadBeginEvent>) : Atomic.EventMetaData;
+    export function PlayerSceneLoadBeginEvent (callback : Atomic.EventCallback<PlayerSceneLoadBeginEvent>) : Atomic.EventMetaData;
 
     export interface PlayerSceneLoadEndEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -12103,7 +14140,14 @@ export function PlayerSceneLoadBeginEvent (callback : Atomic.EventCallback<Playe
     }
 
 
-export function PlayerSceneLoadEndEvent (callback : Atomic.EventCallback<PlayerSceneLoadEndEvent>) : Atomic.EventMetaData;
+    export function PlayerSceneLoadEndEvent (callback : Atomic.EventCallback<PlayerSceneLoadEndEvent>) : Atomic.EventMetaData;
+
+    export interface PlayerSceneUnloadEvent extends Atomic.NativeEvent {
+        scene : Atomic.Scene;
+    }
+
+
+    export function PlayerSceneUnloadEvent (callback : Atomic.EventCallback<PlayerSceneUnloadEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -12117,30 +14161,75 @@ export function PlayerSceneLoadEndEvent (callback : Atomic.EventCallback<PlayerS
 
 declare module ToolCore {
 
+   /** enum NETBuildStatus*/
+   export const enum NETBuildStatus {
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETBUILD_PENDING]] */
+       NETBUILD_PENDING = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETBUILD_BUILDING]] */
+       NETBUILD_BUILDING,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETBUILD_COMPLETE]] */
+       NETBUILD_COMPLETE
+    }
 
-   // enum NETBuildStatus
-   export type NETBuildStatus = number;
-   export var NETBUILD_PENDING: NETBuildStatus;
-   export var NETBUILD_BUILDING: NETBuildStatus;
-   export var NETBUILD_COMPLETE: NETBuildStatus;
+   // Legacy JS Access for enum:  NETBuildStatus
+   /** JavaScript Only - For TypeScript, use: [[NETBuildStatus.NETBUILD_PENDING]] */
+   export var NETBUILD_PENDING: number;
+   /** JavaScript Only - For TypeScript, use: [[NETBuildStatus.NETBUILD_BUILDING]] */
+   export var NETBUILD_BUILDING: number;
+   /** JavaScript Only - For TypeScript, use: [[NETBuildStatus.NETBUILD_COMPLETE]] */
+   export var NETBUILD_COMPLETE: number;
 
+   /** enum NETProjectState*/
+   export const enum NETProjectState {
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETPROJECT_CLEAN]] */
+       NETPROJECT_CLEAN,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETPROJECT_DIRTY]] */
+       NETPROJECT_DIRTY,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.NETPROJECT_ERROR]] */
+       NETPROJECT_ERROR
+    }
 
-   // enum NETProjectState
-   export type NETProjectState = number;
-   export var NETPROJECT_CLEAN: NETProjectState;
-   export var NETPROJECT_DIRTY: NETProjectState;
-   export var NETPROJECT_ERROR: NETProjectState;
+   // Legacy JS Access for enum:  NETProjectState
+   /** JavaScript Only - For TypeScript, use: [[NETProjectState.NETPROJECT_CLEAN]] */
+   export var NETPROJECT_CLEAN: number;
+   /** JavaScript Only - For TypeScript, use: [[NETProjectState.NETPROJECT_DIRTY]] */
+   export var NETPROJECT_DIRTY: number;
+   /** JavaScript Only - For TypeScript, use: [[NETProjectState.NETPROJECT_ERROR]] */
+   export var NETPROJECT_ERROR: number;
 
+   /** enum PlatformID*/
+   export const enum PlatformID {
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_UNDEFINED]] */
+       PLATFORMID_UNDEFINED,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_WINDOWS]] */
+       PLATFORMID_WINDOWS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_MAC]] */
+       PLATFORMID_MAC,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_ANDROID]] */
+       PLATFORMID_ANDROID,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_IOS]] */
+       PLATFORMID_IOS,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_WEB]] */
+       PLATFORMID_WEB,
+       /** TypeScript Only - For vanilla JavaScript, use: [[ToolCore.PLATFORMID_LINUX]] */
+       PLATFORMID_LINUX
+    }
 
-   // enum PlatformID
-   export type PlatformID = number;
-   export var PLATFORMID_UNDEFINED: PlatformID;
-   export var PLATFORMID_WINDOWS: PlatformID;
-   export var PLATFORMID_MAC: PlatformID;
-   export var PLATFORMID_ANDROID: PlatformID;
-   export var PLATFORMID_IOS: PlatformID;
-   export var PLATFORMID_WEB: PlatformID;
-   export var PLATFORMID_LINUX: PlatformID;
+   // Legacy JS Access for enum:  PlatformID
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_UNDEFINED]] */
+   export var PLATFORMID_UNDEFINED: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_WINDOWS]] */
+   export var PLATFORMID_WINDOWS: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_MAC]] */
+   export var PLATFORMID_MAC: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_ANDROID]] */
+   export var PLATFORMID_ANDROID: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_IOS]] */
+   export var PLATFORMID_IOS: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_WEB]] */
+   export var PLATFORMID_WEB: number;
+   /** JavaScript Only - For TypeScript, use: [[PlatformID.PLATFORMID_LINUX]] */
+   export var PLATFORMID_LINUX: number;
 
 
    export var PROJECTFILE_VERSION: number;
@@ -13132,13 +15221,13 @@ declare module ToolCore {
     }
 
 
-export function PlatformChangedEvent (callback : Atomic.EventCallback<PlatformChangedEvent>) : Atomic.EventMetaData;
+    export function PlatformChangedEvent (callback : Atomic.EventCallback<PlatformChangedEvent>) : Atomic.EventMetaData;
 
     export interface ToolUpdateEvent extends Atomic.NativeEvent {
     }
 
 
-export function ToolUpdateEvent (callback : Atomic.EventCallback<ToolUpdateEvent>) : Atomic.EventMetaData;
+    export function ToolUpdateEvent (callback : Atomic.EventCallback<ToolUpdateEvent>) : Atomic.EventMetaData;
 
     export interface ProjectBeginLoadEvent extends Atomic.NativeEvent {
         projectPath : string;
@@ -13146,7 +15235,7 @@ export function ToolUpdateEvent (callback : Atomic.EventCallback<ToolUpdateEvent
     }
 
 
-export function ProjectBeginLoadEvent (callback : Atomic.EventCallback<ProjectBeginLoadEvent>) : Atomic.EventMetaData;
+    export function ProjectBeginLoadEvent (callback : Atomic.EventCallback<ProjectBeginLoadEvent>) : Atomic.EventMetaData;
 
     export interface ProjectLoadedEvent extends Atomic.NativeEvent {
         projectPath : string;
@@ -13155,53 +15244,53 @@ export function ProjectBeginLoadEvent (callback : Atomic.EventCallback<ProjectBe
     }
 
 
-export function ProjectLoadedEvent (callback : Atomic.EventCallback<ProjectLoadedEvent>) : Atomic.EventMetaData;
+    export function ProjectLoadedEvent (callback : Atomic.EventCallback<ProjectLoadedEvent>) : Atomic.EventMetaData;
 
     export interface ProjectUnloadedEvent extends Atomic.NativeEvent {
     }
 
 
-export function ProjectUnloadedEvent (callback : Atomic.EventCallback<ProjectUnloadedEvent>) : Atomic.EventMetaData;
+    export function ProjectUnloadedEvent (callback : Atomic.EventCallback<ProjectUnloadedEvent>) : Atomic.EventMetaData;
 
     export interface ProjectUserPrefSavedEvent extends Atomic.NativeEvent {
         prefs : ToolCore.ProjectUserPrefs;
     }
 
 
-export function ProjectUserPrefSavedEvent (callback : Atomic.EventCallback<ProjectUserPrefSavedEvent>) : Atomic.EventMetaData;
+    export function ProjectUserPrefSavedEvent (callback : Atomic.EventCallback<ProjectUserPrefSavedEvent>) : Atomic.EventMetaData;
 
     export interface AndroidTargetsRefreshedEvent extends Atomic.NativeEvent {
     }
 
 
-export function AndroidTargetsRefreshedEvent (callback : Atomic.EventCallback<AndroidTargetsRefreshedEvent>) : Atomic.EventMetaData;
+    export function AndroidTargetsRefreshedEvent (callback : Atomic.EventCallback<AndroidTargetsRefreshedEvent>) : Atomic.EventMetaData;
 
     export interface CommandErrorEvent extends Atomic.NativeEvent {
         message : string;
     }
 
 
-export function CommandErrorEvent (callback : Atomic.EventCallback<CommandErrorEvent>) : Atomic.EventMetaData;
+    export function CommandErrorEvent (callback : Atomic.EventCallback<CommandErrorEvent>) : Atomic.EventMetaData;
 
     export interface CommandFinishedEvent extends Atomic.NativeEvent {
     }
 
 
-export function CommandFinishedEvent (callback : Atomic.EventCallback<CommandFinishedEvent>) : Atomic.EventMetaData;
+    export function CommandFinishedEvent (callback : Atomic.EventCallback<CommandFinishedEvent>) : Atomic.EventMetaData;
 
     export interface ResourceAddedEvent extends Atomic.NativeEvent {
         guid : string;
     }
 
 
-export function ResourceAddedEvent (callback : Atomic.EventCallback<ResourceAddedEvent>) : Atomic.EventMetaData;
+    export function ResourceAddedEvent (callback : Atomic.EventCallback<ResourceAddedEvent>) : Atomic.EventMetaData;
 
     export interface ResourceRemovedEvent extends Atomic.NativeEvent {
         guid : string;
     }
 
 
-export function ResourceRemovedEvent (callback : Atomic.EventCallback<ResourceRemovedEvent>) : Atomic.EventMetaData;
+    export function ResourceRemovedEvent (callback : Atomic.EventCallback<ResourceRemovedEvent>) : Atomic.EventMetaData;
 
     export interface AssetImportErrorEvent extends Atomic.NativeEvent {
         path : string;
@@ -13210,33 +15299,33 @@ export function ResourceRemovedEvent (callback : Atomic.EventCallback<ResourceRe
     }
 
 
-export function AssetImportErrorEvent (callback : Atomic.EventCallback<AssetImportErrorEvent>) : Atomic.EventMetaData;
+    export function AssetImportErrorEvent (callback : Atomic.EventCallback<AssetImportErrorEvent>) : Atomic.EventMetaData;
 
     export interface AssetScanBeginEvent extends Atomic.NativeEvent {
     }
 
 
-export function AssetScanBeginEvent (callback : Atomic.EventCallback<AssetScanBeginEvent>) : Atomic.EventMetaData;
+    export function AssetScanBeginEvent (callback : Atomic.EventCallback<AssetScanBeginEvent>) : Atomic.EventMetaData;
 
     export interface AssetScanEndEvent extends Atomic.NativeEvent {
     }
 
 
-export function AssetScanEndEvent (callback : Atomic.EventCallback<AssetScanEndEvent>) : Atomic.EventMetaData;
+    export function AssetScanEndEvent (callback : Atomic.EventCallback<AssetScanEndEvent>) : Atomic.EventMetaData;
 
     export interface AssetNewEvent extends Atomic.NativeEvent {
         guid : string;
     }
 
 
-export function AssetNewEvent (callback : Atomic.EventCallback<AssetNewEvent>) : Atomic.EventMetaData;
+    export function AssetNewEvent (callback : Atomic.EventCallback<AssetNewEvent>) : Atomic.EventMetaData;
 
     export interface AssetRenamedEvent extends Atomic.NativeEvent {
         asset : ToolCore.Asset;
     }
 
 
-export function AssetRenamedEvent (callback : Atomic.EventCallback<AssetRenamedEvent>) : Atomic.EventMetaData;
+    export function AssetRenamedEvent (callback : Atomic.EventCallback<AssetRenamedEvent>) : Atomic.EventMetaData;
 
     export interface AssetMovedEvent extends Atomic.NativeEvent {
         asset : ToolCore.Asset;
@@ -13244,69 +15333,69 @@ export function AssetRenamedEvent (callback : Atomic.EventCallback<AssetRenamedE
     }
 
 
-export function AssetMovedEvent (callback : Atomic.EventCallback<AssetMovedEvent>) : Atomic.EventMetaData;
+    export function AssetMovedEvent (callback : Atomic.EventCallback<AssetMovedEvent>) : Atomic.EventMetaData;
 
     export interface LicenseEulaRequiredEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseEulaRequiredEvent (callback : Atomic.EventCallback<LicenseEulaRequiredEvent>) : Atomic.EventMetaData;
+    export function LicenseEulaRequiredEvent (callback : Atomic.EventCallback<LicenseEulaRequiredEvent>) : Atomic.EventMetaData;
 
     export interface LicenseEulaAcceptedEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseEulaAcceptedEvent (callback : Atomic.EventCallback<LicenseEulaAcceptedEvent>) : Atomic.EventMetaData;
+    export function LicenseEulaAcceptedEvent (callback : Atomic.EventCallback<LicenseEulaAcceptedEvent>) : Atomic.EventMetaData;
 
     export interface LicenseActivationRequiredEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseActivationRequiredEvent (callback : Atomic.EventCallback<LicenseActivationRequiredEvent>) : Atomic.EventMetaData;
+    export function LicenseActivationRequiredEvent (callback : Atomic.EventCallback<LicenseActivationRequiredEvent>) : Atomic.EventMetaData;
 
     export interface LicenseVerificationRequiredEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseVerificationRequiredEvent (callback : Atomic.EventCallback<LicenseVerificationRequiredEvent>) : Atomic.EventMetaData;
+    export function LicenseVerificationRequiredEvent (callback : Atomic.EventCallback<LicenseVerificationRequiredEvent>) : Atomic.EventMetaData;
 
     export interface LicenseSuccessEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseSuccessEvent (callback : Atomic.EventCallback<LicenseSuccessEvent>) : Atomic.EventMetaData;
+    export function LicenseSuccessEvent (callback : Atomic.EventCallback<LicenseSuccessEvent>) : Atomic.EventMetaData;
 
     export interface LicenseActivationSuccessEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseActivationSuccessEvent (callback : Atomic.EventCallback<LicenseActivationSuccessEvent>) : Atomic.EventMetaData;
+    export function LicenseActivationSuccessEvent (callback : Atomic.EventCallback<LicenseActivationSuccessEvent>) : Atomic.EventMetaData;
 
     export interface LicenseActivationErrorEvent extends Atomic.NativeEvent {
         message : string;
     }
 
 
-export function LicenseActivationErrorEvent (callback : Atomic.EventCallback<LicenseActivationErrorEvent>) : Atomic.EventMetaData;
+    export function LicenseActivationErrorEvent (callback : Atomic.EventCallback<LicenseActivationErrorEvent>) : Atomic.EventMetaData;
 
     export interface LicenseDeactivationSuccessEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseDeactivationSuccessEvent (callback : Atomic.EventCallback<LicenseDeactivationSuccessEvent>) : Atomic.EventMetaData;
+    export function LicenseDeactivationSuccessEvent (callback : Atomic.EventCallback<LicenseDeactivationSuccessEvent>) : Atomic.EventMetaData;
 
     export interface LicenseDeactivationErrorEvent extends Atomic.NativeEvent {
         message : string;
     }
 
 
-export function LicenseDeactivationErrorEvent (callback : Atomic.EventCallback<LicenseDeactivationErrorEvent>) : Atomic.EventMetaData;
+    export function LicenseDeactivationErrorEvent (callback : Atomic.EventCallback<LicenseDeactivationErrorEvent>) : Atomic.EventMetaData;
 
     export interface LicenseErrorEvent extends Atomic.NativeEvent {
     }
 
 
-export function LicenseErrorEvent (callback : Atomic.EventCallback<LicenseErrorEvent>) : Atomic.EventMetaData;
+    export function LicenseErrorEvent (callback : Atomic.EventCallback<LicenseErrorEvent>) : Atomic.EventMetaData;
 
     export interface BuildCompleteEvent extends Atomic.NativeEvent {
         platformID : number;
@@ -13316,21 +15405,21 @@ export function LicenseErrorEvent (callback : Atomic.EventCallback<LicenseErrorE
     }
 
 
-export function BuildCompleteEvent (callback : Atomic.EventCallback<BuildCompleteEvent>) : Atomic.EventMetaData;
+    export function BuildCompleteEvent (callback : Atomic.EventCallback<BuildCompleteEvent>) : Atomic.EventMetaData;
 
     export interface BuildOutputEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function BuildOutputEvent (callback : Atomic.EventCallback<BuildOutputEvent>) : Atomic.EventMetaData;
+    export function BuildOutputEvent (callback : Atomic.EventCallback<BuildOutputEvent>) : Atomic.EventMetaData;
 
     export interface SubprocessOutputEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function SubprocessOutputEvent (callback : Atomic.EventCallback<SubprocessOutputEvent>) : Atomic.EventMetaData;
+    export function SubprocessOutputEvent (callback : Atomic.EventCallback<SubprocessOutputEvent>) : Atomic.EventMetaData;
 
     export interface SubprocessCompleteEvent extends Atomic.NativeEvent {
         processKey : number;
@@ -13338,14 +15427,14 @@ export function SubprocessOutputEvent (callback : Atomic.EventCallback<Subproces
     }
 
 
-export function SubprocessCompleteEvent (callback : Atomic.EventCallback<SubprocessCompleteEvent>) : Atomic.EventMetaData;
+    export function SubprocessCompleteEvent (callback : Atomic.EventCallback<SubprocessCompleteEvent>) : Atomic.EventMetaData;
 
     export interface NETBuildBeginEvent extends Atomic.NativeEvent {
         build : ToolCore.NETBuild;
     }
 
 
-export function NETBuildBeginEvent (callback : Atomic.EventCallback<NETBuildBeginEvent>) : Atomic.EventMetaData;
+    export function NETBuildBeginEvent (callback : Atomic.EventCallback<NETBuildBeginEvent>) : Atomic.EventMetaData;
 
     export interface NETBuildResultEvent extends Atomic.NativeEvent {
         build : ToolCore.NETBuild;
@@ -13354,14 +15443,14 @@ export function NETBuildBeginEvent (callback : Atomic.EventCallback<NETBuildBegi
     }
 
 
-export function NETBuildResultEvent (callback : Atomic.EventCallback<NETBuildResultEvent>) : Atomic.EventMetaData;
+    export function NETBuildResultEvent (callback : Atomic.EventCallback<NETBuildResultEvent>) : Atomic.EventMetaData;
 
     export interface NETBuildAtomicProjectEvent extends Atomic.NativeEvent {
         project : ToolCore.Project;
     }
 
 
-export function NETBuildAtomicProjectEvent (callback : Atomic.EventCallback<NETBuildAtomicProjectEvent>) : Atomic.EventMetaData;
+    export function NETBuildAtomicProjectEvent (callback : Atomic.EventCallback<NETBuildAtomicProjectEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -13375,25 +15464,55 @@ export function NETBuildAtomicProjectEvent (callback : Atomic.EventCallback<NETB
 
 declare module Editor {
 
+   /** enum AxisMode*/
+   export const enum AxisMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.AXIS_WORLD]] */
+       AXIS_WORLD = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.AXIS_LOCAL]] */
+       AXIS_LOCAL
+    }
 
-   // enum AxisMode
-   export type AxisMode = number;
-   export var AXIS_WORLD: AxisMode;
-   export var AXIS_LOCAL: AxisMode;
+   // Legacy JS Access for enum:  AxisMode
+   /** JavaScript Only - For TypeScript, use: [[AxisMode.AXIS_WORLD]] */
+   export var AXIS_WORLD: number;
+   /** JavaScript Only - For TypeScript, use: [[AxisMode.AXIS_LOCAL]] */
+   export var AXIS_LOCAL: number;
 
+   /** enum EditMode*/
+   export const enum EditMode {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.EDIT_SELECT]] */
+       EDIT_SELECT,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.EDIT_MOVE]] */
+       EDIT_MOVE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.EDIT_ROTATE]] */
+       EDIT_ROTATE,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.EDIT_SCALE]] */
+       EDIT_SCALE
+    }
 
-   // enum EditMode
-   export type EditMode = number;
-   export var EDIT_SELECT: EditMode;
-   export var EDIT_MOVE: EditMode;
-   export var EDIT_ROTATE: EditMode;
-   export var EDIT_SCALE: EditMode;
+   // Legacy JS Access for enum:  EditMode
+   /** JavaScript Only - For TypeScript, use: [[EditMode.EDIT_SELECT]] */
+   export var EDIT_SELECT: number;
+   /** JavaScript Only - For TypeScript, use: [[EditMode.EDIT_MOVE]] */
+   export var EDIT_MOVE: number;
+   /** JavaScript Only - For TypeScript, use: [[EditMode.EDIT_ROTATE]] */
+   export var EDIT_ROTATE: number;
+   /** JavaScript Only - For TypeScript, use: [[EditMode.EDIT_SCALE]] */
+   export var EDIT_SCALE: number;
 
+   /** enum SceneEditType*/
+   export const enum SceneEditType {
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.SCENEEDIT_UNKNOWN]] */
+       SCENEEDIT_UNKNOWN = 0,
+       /** TypeScript Only - For vanilla JavaScript, use: [[Editor.SCENEEDIT_SELECTION]] */
+       SCENEEDIT_SELECTION
+    }
 
-   // enum SceneEditType
-   export type SceneEditType = number;
-   export var SCENEEDIT_UNKNOWN: SceneEditType;
-   export var SCENEEDIT_SELECTION: SceneEditType;
+   // Legacy JS Access for enum:  SceneEditType
+   /** JavaScript Only - For TypeScript, use: [[SceneEditType.SCENEEDIT_UNKNOWN]] */
+   export var SCENEEDIT_UNKNOWN: number;
+   /** JavaScript Only - For TypeScript, use: [[SceneEditType.SCENEEDIT_SELECTION]] */
+   export var SCENEEDIT_SELECTION: number;
 
 
    export var EDITOR_MODALERROR: number;
@@ -13632,72 +15751,70 @@ declare module Editor {
     }
 
 
-export function FindTextEvent (callback : Atomic.EventCallback<FindTextEvent>) : Atomic.EventMetaData;
+    export function FindTextEvent (callback : Atomic.EventCallback<FindTextEvent>) : Atomic.EventMetaData;
 
     export interface FindTextCloseEvent extends Atomic.NativeEvent {
     }
 
 
-export function FindTextCloseEvent (callback : Atomic.EventCallback<FindTextCloseEvent>) : Atomic.EventMetaData;
+    export function FindTextCloseEvent (callback : Atomic.EventCallback<FindTextCloseEvent>) : Atomic.EventMetaData;
 
     export interface FindTextOpenEvent extends Atomic.NativeEvent {
     }
 
 
-export function FindTextOpenEvent (callback : Atomic.EventCallback<FindTextOpenEvent>) : Atomic.EventMetaData;
+    export function FindTextOpenEvent (callback : Atomic.EventCallback<FindTextOpenEvent>) : Atomic.EventMetaData;
 
     export interface JavascriptSavedEvent extends Atomic.NativeEvent {
     }
 
 
-export function JavascriptSavedEvent (callback : Atomic.EventCallback<JavascriptSavedEvent>) : Atomic.EventMetaData;
+    export function JavascriptSavedEvent (callback : Atomic.EventCallback<JavascriptSavedEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayRequestEvent extends Atomic.NativeEvent {
-        // Unmapped Native Type:uint 
-        // mode : any;
+        mode : number;
     }
 
 
-export function EditorPlayRequestEvent (callback : Atomic.EventCallback<EditorPlayRequestEvent>) : Atomic.EventMetaData;
+    export function EditorPlayRequestEvent (callback : Atomic.EventCallback<EditorPlayRequestEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayStopEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorPlayStopEvent (callback : Atomic.EventCallback<EditorPlayStopEvent>) : Atomic.EventMetaData;
+    export function EditorPlayStopEvent (callback : Atomic.EventCallback<EditorPlayStopEvent>) : Atomic.EventMetaData;
 
     export interface EditorResourceEditorChangedEvent extends Atomic.NativeEvent {
         resourceEditor : Editor.ResourceEditor;
     }
 
 
-export function EditorResourceEditorChangedEvent (callback : Atomic.EventCallback<EditorResourceEditorChangedEvent>) : Atomic.EventMetaData;
+    export function EditorResourceEditorChangedEvent (callback : Atomic.EventCallback<EditorResourceEditorChangedEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayerStartedEvent extends Atomic.NativeEvent {
-        // Unmapped Native Type:uint 
-        // mode : any;
+        mode : number;
     }
 
 
-export function EditorPlayerStartedEvent (callback : Atomic.EventCallback<EditorPlayerStartedEvent>) : Atomic.EventMetaData;
+    export function EditorPlayerStartedEvent (callback : Atomic.EventCallback<EditorPlayerStartedEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayerPausedEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorPlayerPausedEvent (callback : Atomic.EventCallback<EditorPlayerPausedEvent>) : Atomic.EventMetaData;
+    export function EditorPlayerPausedEvent (callback : Atomic.EventCallback<EditorPlayerPausedEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayerResumedEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorPlayerResumedEvent (callback : Atomic.EventCallback<EditorPlayerResumedEvent>) : Atomic.EventMetaData;
+    export function EditorPlayerResumedEvent (callback : Atomic.EventCallback<EditorPlayerResumedEvent>) : Atomic.EventMetaData;
 
     export interface EditorPlayerStoppedEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorPlayerStoppedEvent (callback : Atomic.EventCallback<EditorPlayerStoppedEvent>) : Atomic.EventMetaData;
+    export function EditorPlayerStoppedEvent (callback : Atomic.EventCallback<EditorPlayerStoppedEvent>) : Atomic.EventMetaData;
 
     export interface EditorBuildEvent extends Atomic.NativeEvent {
         platform : string;
@@ -13705,11 +15822,10 @@ export function EditorPlayerStoppedEvent (callback : Atomic.EventCallback<Editor
     }
 
 
-export function EditorBuildEvent (callback : Atomic.EventCallback<EditorBuildEvent>) : Atomic.EventMetaData;
+    export function EditorBuildEvent (callback : Atomic.EventCallback<EditorBuildEvent>) : Atomic.EventMetaData;
 
     export interface EditorModalEvent extends Atomic.NativeEvent {
-        // Unmapped Native Type:uint 
-        // type : any;
+        type : number;
         // Unmapped Native Type:for 
         // title : any;
         // Unmapped Native Type:for 
@@ -13717,50 +15833,49 @@ export function EditorBuildEvent (callback : Atomic.EventCallback<EditorBuildEve
     }
 
 
-export function EditorModalEvent (callback : Atomic.EventCallback<EditorModalEvent>) : Atomic.EventMetaData;
+    export function EditorModalEvent (callback : Atomic.EventCallback<EditorModalEvent>) : Atomic.EventMetaData;
 
     export interface EditorActiveSceneEditorChangeEvent extends Atomic.NativeEvent {
         sceneEditor : Editor.SceneEditor3D;
     }
 
 
-export function EditorActiveSceneEditorChangeEvent (callback : Atomic.EventCallback<EditorActiveSceneEditorChangeEvent>) : Atomic.EventMetaData;
+    export function EditorActiveSceneEditorChangeEvent (callback : Atomic.EventCallback<EditorActiveSceneEditorChangeEvent>) : Atomic.EventMetaData;
 
     export interface PlayerErrorEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function PlayerErrorEvent (callback : Atomic.EventCallback<PlayerErrorEvent>) : Atomic.EventMetaData;
+    export function PlayerErrorEvent (callback : Atomic.EventCallback<PlayerErrorEvent>) : Atomic.EventMetaData;
 
     export interface ConsoleMessageEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function ConsoleMessageEvent (callback : Atomic.EventCallback<ConsoleMessageEvent>) : Atomic.EventMetaData;
+    export function ConsoleMessageEvent (callback : Atomic.EventCallback<ConsoleMessageEvent>) : Atomic.EventMetaData;
 
     export interface ConsoleErrorMessageEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function ConsoleErrorMessageEvent (callback : Atomic.EventCallback<ConsoleErrorMessageEvent>) : Atomic.EventMetaData;
+    export function ConsoleErrorMessageEvent (callback : Atomic.EventCallback<ConsoleErrorMessageEvent>) : Atomic.EventMetaData;
 
     export interface PlatformChangeEvent extends Atomic.NativeEvent {
-        // Unmapped Native Type:uint 
-        // platform : any;
+        platform : number;
     }
 
 
-export function PlatformChangeEvent (callback : Atomic.EventCallback<PlatformChangeEvent>) : Atomic.EventMetaData;
+    export function PlatformChangeEvent (callback : Atomic.EventCallback<PlatformChangeEvent>) : Atomic.EventMetaData;
 
     export interface SubprocessOutputEvent extends Atomic.NativeEvent {
         text : string;
     }
 
 
-export function SubprocessOutputEvent (callback : Atomic.EventCallback<SubprocessOutputEvent>) : Atomic.EventMetaData;
+    export function SubprocessOutputEvent (callback : Atomic.EventCallback<SubprocessOutputEvent>) : Atomic.EventMetaData;
 
     export interface SubprocessCompleteEvent extends Atomic.NativeEvent {
         processKey : number;
@@ -13768,7 +15883,7 @@ export function SubprocessOutputEvent (callback : Atomic.EventCallback<Subproces
     }
 
 
-export function SubprocessCompleteEvent (callback : Atomic.EventCallback<SubprocessCompleteEvent>) : Atomic.EventMetaData;
+    export function SubprocessCompleteEvent (callback : Atomic.EventCallback<SubprocessCompleteEvent>) : Atomic.EventMetaData;
 
     export interface CurlCompleteEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:curlrequest 
@@ -13776,13 +15891,13 @@ export function SubprocessCompleteEvent (callback : Atomic.EventCallback<Subproc
     }
 
 
-export function CurlCompleteEvent (callback : Atomic.EventCallback<CurlCompleteEvent>) : Atomic.EventMetaData;
+    export function CurlCompleteEvent (callback : Atomic.EventCallback<CurlCompleteEvent>) : Atomic.EventMetaData;
 
     export interface EditorShutdownEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorShutdownEvent (callback : Atomic.EventCallback<EditorShutdownEvent>) : Atomic.EventMetaData;
+    export function EditorShutdownEvent (callback : Atomic.EventCallback<EditorShutdownEvent>) : Atomic.EventMetaData;
 
     export interface EditorResourceCloseEvent extends Atomic.NativeEvent {
         editor : Editor.ResourceEditor;
@@ -13790,33 +15905,33 @@ export function EditorShutdownEvent (callback : Atomic.EventCallback<EditorShutd
     }
 
 
-export function EditorResourceCloseEvent (callback : Atomic.EventCallback<EditorResourceCloseEvent>) : Atomic.EventMetaData;
+    export function EditorResourceCloseEvent (callback : Atomic.EventCallback<EditorResourceCloseEvent>) : Atomic.EventMetaData;
 
     export interface EditorResourceCloseCanceledEvent extends Atomic.NativeEvent {
     }
 
 
-export function EditorResourceCloseCanceledEvent (callback : Atomic.EventCallback<EditorResourceCloseCanceledEvent>) : Atomic.EventMetaData;
+    export function EditorResourceCloseCanceledEvent (callback : Atomic.EventCallback<EditorResourceCloseCanceledEvent>) : Atomic.EventMetaData;
 
     export interface GizmoEditModeChangedEvent extends Atomic.NativeEvent {
         mode : number;
     }
 
 
-export function GizmoEditModeChangedEvent (callback : Atomic.EventCallback<GizmoEditModeChangedEvent>) : Atomic.EventMetaData;
+    export function GizmoEditModeChangedEvent (callback : Atomic.EventCallback<GizmoEditModeChangedEvent>) : Atomic.EventMetaData;
 
     export interface GizmoAxisModeChangedEvent extends Atomic.NativeEvent {
         mode : number;
     }
 
 
-export function GizmoAxisModeChangedEvent (callback : Atomic.EventCallback<GizmoAxisModeChangedEvent>) : Atomic.EventMetaData;
+    export function GizmoAxisModeChangedEvent (callback : Atomic.EventCallback<GizmoAxisModeChangedEvent>) : Atomic.EventMetaData;
 
     export interface GizmoMovedEvent extends Atomic.NativeEvent {
     }
 
 
-export function GizmoMovedEvent (callback : Atomic.EventCallback<GizmoMovedEvent>) : Atomic.EventMetaData;
+    export function GizmoMovedEvent (callback : Atomic.EventCallback<GizmoMovedEvent>) : Atomic.EventMetaData;
 
     export interface SceneNodeSelectedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -13826,14 +15941,14 @@ export function GizmoMovedEvent (callback : Atomic.EventCallback<GizmoMovedEvent
     }
 
 
-export function SceneNodeSelectedEvent (callback : Atomic.EventCallback<SceneNodeSelectedEvent>) : Atomic.EventMetaData;
+    export function SceneNodeSelectedEvent (callback : Atomic.EventCallback<SceneNodeSelectedEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditBeginEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
     }
 
 
-export function SceneEditBeginEvent (callback : Atomic.EventCallback<SceneEditBeginEvent>) : Atomic.EventMetaData;
+    export function SceneEditBeginEvent (callback : Atomic.EventCallback<SceneEditBeginEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditNodeReparentEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
@@ -13842,40 +15957,40 @@ export function SceneEditBeginEvent (callback : Atomic.EventCallback<SceneEditBe
     }
 
 
-export function SceneEditNodeReparentEvent (callback : Atomic.EventCallback<SceneEditNodeReparentEvent>) : Atomic.EventMetaData;
+    export function SceneEditNodeReparentEvent (callback : Atomic.EventCallback<SceneEditNodeReparentEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditEndEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
     }
 
 
-export function SceneEditEndEvent (callback : Atomic.EventCallback<SceneEditEndEvent>) : Atomic.EventMetaData;
+    export function SceneEditEndEvent (callback : Atomic.EventCallback<SceneEditEndEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditStateChangesBeginEvent extends Atomic.NativeEvent {
     }
 
 
-export function SceneEditStateChangesBeginEvent (callback : Atomic.EventCallback<SceneEditStateChangesBeginEvent>) : Atomic.EventMetaData;
+    export function SceneEditStateChangesBeginEvent (callback : Atomic.EventCallback<SceneEditStateChangesBeginEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditStateChangeEvent extends Atomic.NativeEvent {
         serializable : Atomic.Serializable;
     }
 
 
-export function SceneEditStateChangeEvent (callback : Atomic.EventCallback<SceneEditStateChangeEvent>) : Atomic.EventMetaData;
+    export function SceneEditStateChangeEvent (callback : Atomic.EventCallback<SceneEditStateChangeEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditStateChangesEndEvent extends Atomic.NativeEvent {
     }
 
 
-export function SceneEditStateChangesEndEvent (callback : Atomic.EventCallback<SceneEditStateChangesEndEvent>) : Atomic.EventMetaData;
+    export function SceneEditStateChangesEndEvent (callback : Atomic.EventCallback<SceneEditStateChangesEndEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditNodeCreatedEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditNodeCreatedEvent (callback : Atomic.EventCallback<SceneEditNodeCreatedEvent>) : Atomic.EventMetaData;
+    export function SceneEditNodeCreatedEvent (callback : Atomic.EventCallback<SceneEditNodeCreatedEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditNodeAddedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -13884,7 +15999,7 @@ export function SceneEditNodeCreatedEvent (callback : Atomic.EventCallback<Scene
     }
 
 
-export function SceneEditNodeAddedEvent (callback : Atomic.EventCallback<SceneEditNodeAddedEvent>) : Atomic.EventMetaData;
+    export function SceneEditNodeAddedEvent (callback : Atomic.EventCallback<SceneEditNodeAddedEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditNodeRemovedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -13893,7 +16008,7 @@ export function SceneEditNodeAddedEvent (callback : Atomic.EventCallback<SceneEd
     }
 
 
-export function SceneEditNodeRemovedEvent (callback : Atomic.EventCallback<SceneEditNodeRemovedEvent>) : Atomic.EventMetaData;
+    export function SceneEditNodeRemovedEvent (callback : Atomic.EventCallback<SceneEditNodeRemovedEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditComponentAddedRemovedEvent extends Atomic.NativeEvent {
         scene : Atomic.Scene;
@@ -13903,49 +16018,49 @@ export function SceneEditNodeRemovedEvent (callback : Atomic.EventCallback<Scene
     }
 
 
-export function SceneEditComponentAddedRemovedEvent (callback : Atomic.EventCallback<SceneEditComponentAddedRemovedEvent>) : Atomic.EventMetaData;
+    export function SceneEditComponentAddedRemovedEvent (callback : Atomic.EventCallback<SceneEditComponentAddedRemovedEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditPrefabSaveEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditPrefabSaveEvent (callback : Atomic.EventCallback<SceneEditPrefabSaveEvent>) : Atomic.EventMetaData;
+    export function SceneEditPrefabSaveEvent (callback : Atomic.EventCallback<SceneEditPrefabSaveEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditPrefabRevertEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditPrefabRevertEvent (callback : Atomic.EventCallback<SceneEditPrefabRevertEvent>) : Atomic.EventMetaData;
+    export function SceneEditPrefabRevertEvent (callback : Atomic.EventCallback<SceneEditPrefabRevertEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditPrefabCopyEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditPrefabCopyEvent (callback : Atomic.EventCallback<SceneEditPrefabCopyEvent>) : Atomic.EventMetaData;
+    export function SceneEditPrefabCopyEvent (callback : Atomic.EventCallback<SceneEditPrefabCopyEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditPrefabPasteEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditPrefabPasteEvent (callback : Atomic.EventCallback<SceneEditPrefabPasteEvent>) : Atomic.EventMetaData;
+    export function SceneEditPrefabPasteEvent (callback : Atomic.EventCallback<SceneEditPrefabPasteEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditPrefabBreakEvent extends Atomic.NativeEvent {
         node : Atomic.Node;
     }
 
 
-export function SceneEditPrefabBreakEvent (callback : Atomic.EventCallback<SceneEditPrefabBreakEvent>) : Atomic.EventMetaData;
+    export function SceneEditPrefabBreakEvent (callback : Atomic.EventCallback<SceneEditPrefabBreakEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditComponentCopyEvent extends Atomic.NativeEvent {
         component : Atomic.Component;
     }
 
 
-export function SceneEditComponentCopyEvent (callback : Atomic.EventCallback<SceneEditComponentCopyEvent>) : Atomic.EventMetaData;
+    export function SceneEditComponentCopyEvent (callback : Atomic.EventCallback<SceneEditComponentCopyEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditComponentPasteEvent extends Atomic.NativeEvent {
         component : Atomic.Component;
@@ -13953,32 +16068,32 @@ export function SceneEditComponentCopyEvent (callback : Atomic.EventCallback<Sce
     }
 
 
-export function SceneEditComponentPasteEvent (callback : Atomic.EventCallback<SceneEditComponentPasteEvent>) : Atomic.EventMetaData;
+    export function SceneEditComponentPasteEvent (callback : Atomic.EventCallback<SceneEditComponentPasteEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditAddRemoveNodesEvent extends Atomic.NativeEvent {
         end : boolean;
     }
 
 
-export function SceneEditAddRemoveNodesEvent (callback : Atomic.EventCallback<SceneEditAddRemoveNodesEvent>) : Atomic.EventMetaData;
+    export function SceneEditAddRemoveNodesEvent (callback : Atomic.EventCallback<SceneEditAddRemoveNodesEvent>) : Atomic.EventMetaData;
 
     export interface SceneEditSceneModifiedEvent extends Atomic.NativeEvent {
     }
 
 
-export function SceneEditSceneModifiedEvent (callback : Atomic.EventCallback<SceneEditSceneModifiedEvent>) : Atomic.EventMetaData;
+    export function SceneEditSceneModifiedEvent (callback : Atomic.EventCallback<SceneEditSceneModifiedEvent>) : Atomic.EventMetaData;
 
     export interface CubemapRenderBeginEvent extends Atomic.NativeEvent {
     }
 
 
-export function CubemapRenderBeginEvent (callback : Atomic.EventCallback<CubemapRenderBeginEvent>) : Atomic.EventMetaData;
+    export function CubemapRenderBeginEvent (callback : Atomic.EventCallback<CubemapRenderBeginEvent>) : Atomic.EventMetaData;
 
     export interface CubemapRenderEndEvent extends Atomic.NativeEvent {
     }
 
 
-export function CubemapRenderEndEvent (callback : Atomic.EventCallback<CubemapRenderEndEvent>) : Atomic.EventMetaData;
+    export function CubemapRenderEndEvent (callback : Atomic.EventCallback<CubemapRenderEndEvent>) : Atomic.EventMetaData;
 
 
 }
@@ -14353,7 +16468,7 @@ declare module WebView {
     }
 
 
-export function WebViewLoadStateChangeEvent (callback : Atomic.EventCallback<WebViewLoadStateChangeEvent>) : Atomic.EventMetaData;
+    export function WebViewLoadStateChangeEvent (callback : Atomic.EventCallback<WebViewLoadStateChangeEvent>) : Atomic.EventMetaData;
 
     export interface WebViewLoadStartEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14361,7 +16476,7 @@ export function WebViewLoadStateChangeEvent (callback : Atomic.EventCallback<Web
     }
 
 
-export function WebViewLoadStartEvent (callback : Atomic.EventCallback<WebViewLoadStartEvent>) : Atomic.EventMetaData;
+    export function WebViewLoadStartEvent (callback : Atomic.EventCallback<WebViewLoadStartEvent>) : Atomic.EventMetaData;
 
     export interface WebViewLoadEndEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14369,7 +16484,7 @@ export function WebViewLoadStartEvent (callback : Atomic.EventCallback<WebViewLo
     }
 
 
-export function WebViewLoadEndEvent (callback : Atomic.EventCallback<WebViewLoadEndEvent>) : Atomic.EventMetaData;
+    export function WebViewLoadEndEvent (callback : Atomic.EventCallback<WebViewLoadEndEvent>) : Atomic.EventMetaData;
 
     export interface WebViewAddressChangeEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14377,7 +16492,7 @@ export function WebViewLoadEndEvent (callback : Atomic.EventCallback<WebViewLoad
     }
 
 
-export function WebViewAddressChangeEvent (callback : Atomic.EventCallback<WebViewAddressChangeEvent>) : Atomic.EventMetaData;
+    export function WebViewAddressChangeEvent (callback : Atomic.EventCallback<WebViewAddressChangeEvent>) : Atomic.EventMetaData;
 
     export interface WebViewTitleChangeEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14385,7 +16500,7 @@ export function WebViewAddressChangeEvent (callback : Atomic.EventCallback<WebVi
     }
 
 
-export function WebViewTitleChangeEvent (callback : Atomic.EventCallback<WebViewTitleChangeEvent>) : Atomic.EventMetaData;
+    export function WebViewTitleChangeEvent (callback : Atomic.EventCallback<WebViewTitleChangeEvent>) : Atomic.EventMetaData;
 
     export interface WebViewJSEvalResultEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14396,7 +16511,7 @@ export function WebViewTitleChangeEvent (callback : Atomic.EventCallback<WebView
     }
 
 
-export function WebViewJSEvalResultEvent (callback : Atomic.EventCallback<WebViewJSEvalResultEvent>) : Atomic.EventMetaData;
+    export function WebViewJSEvalResultEvent (callback : Atomic.EventCallback<WebViewJSEvalResultEvent>) : Atomic.EventMetaData;
 
     export interface WebViewPopupRequestEvent extends Atomic.NativeEvent {
         client : WebView.WebClient;
@@ -14404,13 +16519,13 @@ export function WebViewJSEvalResultEvent (callback : Atomic.EventCallback<WebVie
     }
 
 
-export function WebViewPopupRequestEvent (callback : Atomic.EventCallback<WebViewPopupRequestEvent>) : Atomic.EventMetaData;
+    export function WebViewPopupRequestEvent (callback : Atomic.EventCallback<WebViewPopupRequestEvent>) : Atomic.EventMetaData;
 
     export interface WebViewGlobalPropertiesChangedEvent extends Atomic.NativeEvent {
     }
 
 
-export function WebViewGlobalPropertiesChangedEvent (callback : Atomic.EventCallback<WebViewGlobalPropertiesChangedEvent>) : Atomic.EventMetaData;
+    export function WebViewGlobalPropertiesChangedEvent (callback : Atomic.EventCallback<WebViewGlobalPropertiesChangedEvent>) : Atomic.EventMetaData;
 
     export interface WebMessageEvent extends Atomic.NativeEvent {
         // Unmapped Native Type:webmessagehandler 
@@ -14428,7 +16543,7 @@ export function WebViewGlobalPropertiesChangedEvent (callback : Atomic.EventCall
     }
 
 
-export function WebMessageEvent (callback : Atomic.EventCallback<WebMessageEvent>) : Atomic.EventMetaData;
+    export function WebMessageEvent (callback : Atomic.EventCallback<WebMessageEvent>) : Atomic.EventMetaData;
 
 
 }
